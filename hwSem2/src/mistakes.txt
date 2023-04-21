@@ -1,8 +1,1 @@
-java.io.FileNotFoundException: +src/file.txt (No such file or directory)
-	at java.base/java.io.FileOutputStream.open0(Native Method)
-	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:295)
-	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:236)
-	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:156)
-	at hwSem22.saveToFile(hwSem22.java:75)
-	at hwSem22.changeString(hwSem22.java:47)
-	at hwSem22.main(hwSem22.java:29)
+

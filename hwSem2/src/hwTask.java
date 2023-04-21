@@ -1,9 +1,7 @@
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.Scanner;
 
-public class hwSem22 {
+public class hwTask {
     public static void main(String[] args) {
         /*
         Дана json строка [{ "фамилия":"Иванов","оценка":"5","предмет":"Математика"},
@@ -19,13 +17,17 @@ public class hwSem22 {
         Создать метод, который запишет результат работы в файл.
         Обработайте исключения и запишите ошибки в лог файл.
         2. *Получить исходную json строку из файла, используя FileReader или Scanner
- */
+
         String myStr = "[{\"фамилия\":\"Иванов\",\"оценка\":\"5\",\"предмет\":\"Математика\"}, " +
                 "{\"фамилия\":\"Петрова\",\"оценка\":\"4\",\"предмет\":\"Информатика\"}, " +
                 "{\"фамилия\":\"Краснов\",\"оценка\":\"5\",\"предмет\": \"Физика\"}]";
 
         //System.out.println(myStr);
         changeString(myStr);
+        readFile();
+        */
+        String s = readFile();
+        changeString(s);
     }
 
     public static void changeString(String args) {
@@ -71,6 +73,22 @@ public class hwSem22 {
         } catch (Exception ie) {
             throw new RuntimeException("Невозможно добавить файл", ie);
         }
+    }
+
+    static String readFile(){
+        File file = new File("src/fileString.json");
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        String res = "";
+        while (scanner.hasNext()){
+            res += scanner.nextLine() + "\n";
+        }
+        System.out.println(res);
+        return res;
     }
 }
 

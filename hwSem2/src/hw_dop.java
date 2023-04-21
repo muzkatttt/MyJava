@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class hwSem2_dop {
+public class hw_dop {
     public static void main(String[] str) {
         readFile();
     }
