@@ -2,9 +2,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class Main {
+public class sem3 {
     public static void main(String[] args) {
-        ex3();
+        //ex3();
+        //ex1();
+        //ex0();
+        ex2();
+
     }
 
     static void ex3(){
@@ -28,11 +32,13 @@ public class Main {
     static void addBook(List<List<String>> shopBook, String genre, String name){
         for (int i = 0; i < shopBook.size(); i++) {
             if (shopBook.get(i).get(0).equalsIgnoreCase(genre)){
+                // equalsIgnoreCase() сравнивает данную строку с другой строкой, игнорируя регистр
                 shopBook.get(i).add(name);
                 return;
             }
         }
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<>(); // после цикла for инициализируем новый список, в который добавляем
+        // жанр книги, ее название и добавляем в список shopBook получившийся список
         list.add(genre);
         list.add(name);
         shopBook.add(list);
@@ -73,18 +79,22 @@ public class Main {
          */
         List<Integer> list = createList(10, 4, 10);
         System.out.println(list);
-        sort(list);
+        sort(list); // метод sort - сортирует список
         System.out.println(list);
+        readFile();
     }
     static List<Integer> createList(int size, int min, int max){
         List<Integer> list = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
-            list.add((int)(Math.random() * (max - min + 1) + min));
+            list.add((int)(Math.random() * (max - min + 1) + min)); // заполнение списка рандомными элементами
         }
         return list;
     }
     static void sort(List<Integer> list){
+
         Collections.sort(list, Comparator.reverseOrder());
+        // Возвращает компаратор, который налагает на коллекцию объектов, реализующих интерфейс,
+        // порядок, обратный естественномуComparable
     }
     static void ex0(){
         //Даны следующие строки, cравнить их с помощью == и метода equals() класса Object
