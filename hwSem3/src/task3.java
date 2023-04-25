@@ -1,32 +1,34 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class task3 {
+    private static java.lang.String String;
+
     /*
-    Заполнить список названиями планет Солнечной системы в произвольном порядке с повторениями.
-    Вывести название каждой планеты и количество его повторений в списке.
-     */
+        Заполнить список названиями планет Солнечной системы в произвольном порядке с повторениями.
+        Вывести название каждой планеты и количество его повторений в списке.
+         */
     public static void main(String[] args) {
-        List<String> listPlanets = new ArrayList<>(Arrays.asList("Земля", "Уран", "Марс", "Меркурий", "Венера",
-                "Земля", "Венера", "Меркурий", "Юпитер", "Меркурий", "Земля", "Юпитер", "Уран",
-                "Нептун", "Венера", "Плутон", "Сатурн", "Нептун", "Сатурн", "Юпитер"));
-        System.out.println(listPlanets);
+        List<String> listPlanets = List.of("Меркурий", "Меркурий",
+                "Венера", "Земля", "Марс", "Юпитер", "Уран", "Нептун", "Плутон", "Плутон",
+                "Марс", "Юпитер", "Уран", "Уран", "Юпитер");
+        List<String> listCount = new ArrayList<>();
         int count = 0;
+        boolean flag = true;
         for (int i = 0; i < listPlanets.size(); i++) {
-            for (int j = 0; j < listPlanets.size(); j++) {
-                System.out.println(listPlanets.get(i));
-                //if (listPlanets.get(i).equals(listPlanets.get(j)));
-                count++;
+            for (int j = 1; j < listPlanets.size() - 1; j++) {
+                if (listPlanets.get(i).equals(listPlanets.get(j))) {
+                    listCount.add(listPlanets.get(i));
+                    count++;
+                }
             }
-//            System.out.println(i);
-//            System.out.println(count);
-            }
+            System.out.println(listPlanets.get(i) + " встречается " + count + " раз(а)");
+            count = 0;
         }
-
-        //public static String countPlanets(String[] args) {
-
-        //}
-
     }
+}
 
