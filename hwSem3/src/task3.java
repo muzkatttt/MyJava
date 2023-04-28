@@ -15,6 +15,14 @@ public class task3 {
         Либо предварительно создать коллекцию с уникальными значениями.
         Также можно было использовать метод Collections.frequency.
         За исключением этого момента задания решены верно
+
+        Создание рандомного списка планет
+        Random random = new Random();
+        String[] list = {"Меркурий", "Венера", "Земля", "Марс", "Юпитер", "Уран", "Нептун", "Плутон"};
+        List<String> newList = new ArrayList<>(listSize);
+        for (int i = 0; i < listSize; i++) {
+        newList.add(list[random.nextInt(list.length)])';
+        }
          */
     public static void main(String[] args) {
         List<String> listPlanets = List.of("Меркурий", "Меркурий",
