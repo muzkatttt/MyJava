@@ -5,12 +5,18 @@ public class MethodsTask2 {
     first() - возвращает первый элемент из очереди, не удаляя.
  */
 
- private Integer[] queue = new Integer[13];
+    private Integer[] queue = new Integer[13];
     private int enqueue = 0;
 
     int enqueue() {
         return enqueue;
     }
+
+    boolean add() {
+        return add;
+    }
+
+
 }
 
 
