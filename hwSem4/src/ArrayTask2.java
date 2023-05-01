@@ -11,9 +11,5 @@ public class ArrayTask2 {
     }
 }
 
-//    public static int first(LinkedList<Integer> ll) { // возвращает первый элемент из очереди, не удаляя
-//        int num = ll.get(0);
-//        return num;
-//    }
 
 
