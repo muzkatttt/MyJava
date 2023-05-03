@@ -3,9 +3,6 @@ import java.util.LinkedList;
 
 public class Task1 {
     public static void main(String[] args) {
-        linkedList();
-    }
-    public static void linkedList(){
         /* Пусть дан LinkedList с несколькими элементами.
         Реализуйте метод, который вернет “перевернутый” список.
         Постараться не обращаться к листу по индексам.*/
@@ -17,9 +14,16 @@ public class Task1 {
         linkedList.add(8);
         linkedList.add(1);
         System.out.println(linkedList);
+        LinkedList<Integer> myList = myMethod(linkedList);
         System.out.println();
-        LinkedList<Integer> ll = (LinkedList<Integer>) linkedList.clone();
+        System.out.println(myList);
+    }
+    public static LinkedList<Integer> myMethod(LinkedList<Integer> list) {
+
+        LinkedList<Integer> ll = (LinkedList<Integer>) list.clone();
         Collections.reverse(ll);
-        System.out.println(ll);
+        //System.out.println(ll);
+        //System.out.println(linkedList);
+        return ll;
     }
 }

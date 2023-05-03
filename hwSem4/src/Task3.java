@@ -8,11 +8,11 @@ public class Task3 {
     сохраняя все элементы в списке. Используйте итератор
      */
     public static void main(String[] args) {
-        linkedList();
+        myMethod();
         iteratorSum();
     }
 
-    public static void linkedList() {
+    public static void myMethod() {
         LinkedList<Integer> ll = new LinkedList<>();
         ll.add(0, 14);
         ll.add(1, 15);
