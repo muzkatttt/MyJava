@@ -2,11 +2,12 @@ import java.util.*;
 
 public class Sem5 {
     public static void main(String[] args) {
-        String line = "Мороз и солнце день чудесный\n" +
-                "Еще ты дремлешь друг прелестный\n" +
-                "Пора красавица проснись.";
-        ex3(line);
-        ex2(line);
+        //String line = "Мороз и солнце день чудесный\n" +
+        //        "Еще ты дремлешь друг прелестный\n" +
+        //        "Пора красавица проснись.";
+        //ex3(line);
+       // ex2(line);
+        ex0();
     }
 
     static void ex3(String line){
@@ -147,6 +148,6 @@ public class Sem5 {
         passports.add("345678", "Иванов");
 
 //        System.out.println(passports.getByLastName("Иванов"));
-        System.out.println(passports.getAllList2());
+        System.out.println(passports.getAllList());
     }
 }

@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Task1 {
     public static void main(String[] args) {
@@ -9,24 +6,34 @@ public class Task1 {
        Реализуйте структуру телефонной книги с помощью HashMap,
        учитывая, что 1 человек может иметь несколько телефонов.
         */
-//        Map<Integer, String> phoneBook = new HashMap<>();
-//        phoneBook.putIfAbsent(79882, "Денис");
-//        phoneBook.put(20972, "Саша");
-//        phoneBook.put(23241, "Арина");
-//        phoneBook.putIfAbsent(29342, "Денис");
-//        System.out.println(phoneBook);
-//        for (int k:phoneBook){
-//            if(k == )
-//        }
-// попробовать организовать свой класс, внутрь него поместить поле стринг, добавить несколько методов
-// добавляет, ищет и показывает
+
+// моя задача: попробовать организовать свой класс, внутрь него поместить поле стринг,
+// добавить несколько методов (добавляет контакт, ищет контакт и показывает все контакты)
         Map<String, ArrayList<String>> phoneBook2 = new HashMap<>();
-//
-//        phoneBook2.put("Саша", new ArrayList(Collections.singleton("8345")),
-//               Collections.singleton("987"));
-//        phoneBook2.put("Арина", new ArrayList<>(new String("79"),
-//            new ArrayList<>("575"));
-//        phoneBook2.putIfAbsent("Денис", '9657');
+        MyPhoneBook myBook = new MyPhoneBook();
+        myBook.methodAdd(98767, "Понтий Пилат");
+        myBook.methodAdd(11111, "Маленький Принц");
+        myBook.methodAdd(23456, "Красная Шапочка");
+        myBook.methodAdd(77777, "Буратино");
+        myBook.methodAdd(45648, "Маленький Принц");
+        System.out.println(myBook.getToList()); // вывод на экран справочника
+        String searchName = myBook.searchName("Красная Шапочка");
+        //System.out.println("Искомое значение " + searchName);
+        Integer searchPhone = myBook.searchTelephone(98765);
+    }
 
     }
-}
+    /* // если контакт будет вводить пользователь
+    public String findContactFromUser(String findName){
+        System.out.println("Введите контакт для поиска: \n");
+        Scanner scanner = new Scanner(System.in);
+        findName = scanner.nextLine();
+        if (scanner.equals(findName))
+        {
+            System.out.println("В справочнике уже есть контакт с именем " + findName);
+        } else {
+            System.out.println("Контакта нет в справочнике");
+        }
+        return findName;
+    }
+    */

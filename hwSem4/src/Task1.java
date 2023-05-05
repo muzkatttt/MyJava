@@ -26,4 +26,24 @@ public class Task1 {
         //System.out.println(linkedList);
         return ll;
     }
+
+    /*
+    LinkedList<Integer> list = new LinkedList<>();
+    for (int i = 0; i < 5; i++) {
+        list.add(getRanNum());
+    }
+    System.out.println(list);
+
+    for (int i = 0; i < 5; i++) {
+        System.out.print(list.getLast() + ", ");
+        list.removeLast();
+
+    }
+}
+    public static int getRanNum() {
+        double random = (Math.random() * 10);
+        int num = (int) random;
+        return num;
+    }
+     */
 }
