@@ -1,11 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class MyPhoneBook {
     private Map<Integer, String> book = new HashMap<>();
-    // моя задача: попробовать организовать свой класс, внутрь него поместить поле стринг,
-    // добавить несколько методов (добавляет контакт, ищет контакт и показывает все контакты)
 
     void methodAdd(Integer numberTelephone, String name) {
         book.put(numberTelephone, name);
@@ -20,16 +17,17 @@ public class MyPhoneBook {
         return name;
     }
 
-    public Integer searchTelephone(Integer numberTelephone) {
-        if (book.containsKey(numberTelephone))
-            System.out.println("Найден номер " + numberTelephone);
-        else {
-            System.out.println("Не найден");
+    public String searchTelephone(Integer numberTelephone, String name) {
+        if (book.containsKey(numberTelephone)) {
+            System.out.println("Номер " + numberTelephone + " у контакта " + name);
+        } else {
+            System.out.println("Ничего не найдено по запросу");
         }
-        return numberTelephone;
+        return name;
     }
 
-    String getToList() { // формируем красивый вывод контактов и номеров телефонов в справочнике
+
+    String getToList() { // формируем вывод контактов и номеров телефонов в справочнике
         StringBuilder stringBuilder = new StringBuilder();
         for (Map.Entry entry : book.entrySet()) {
             stringBuilder.append(entry.getKey());
@@ -39,9 +37,11 @@ public class MyPhoneBook {
         }
         return stringBuilder.toString();
     }
+
     public String toString() {
         return book.toString();
     }
+
 }
 
 
