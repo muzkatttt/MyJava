@@ -1,3 +1,4 @@
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,11 +39,18 @@ public class MyPhoneBook {
         return stringBuilder.toString();
     }
 
+    // второй метод сортировки телефонного справочника (по алфавиту)
+    public void sorted2() {
+        book.entrySet().stream().sorted((k1, k2) -> k1.getValue().compareTo(k2.getValue()))
+                .forEach(k -> System.out.println(k.getKey() + ": " + k.getValue()));
+    }
+
     public String toString() {
         return book.toString();
     }
 
 }
+
 
 
 
