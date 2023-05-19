@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Task2 {
     public static void main(String[] args) {
@@ -41,4 +42,61 @@ public class Task2 {
         }
         System.out.println(map);
     }
+    /*
+    // решение от Алексея
+    public static void main(String[] args) {
+        Map<String, Integer> namePeople = new HashMap<>();
+
+        String[] staff = {
+                "Иван Иванов",
+                "Светлана Петрова",
+                "Кристина Белова",
+                "Анна Мусина",
+                "Анна Крутова",
+                "Иван Юрин",
+                "Петр Лыков",
+                "Павел Чернов",
+                "Петр Чернышов",
+                "Мария Федорова",
+                "Марина Светлова",
+                "Мария Савина",
+                "Мария Рыкова",
+                "Марина Лугова",
+                "Анна Владимирова",
+                "Иван Мечников",
+                "Петр Петин",
+                "Иван Ежов"
+        };
+        countName(staff, namePeople);
+        sortedStaff(namePeople);
+
+    }
+
+    public static void countName(String[] people, Map<String, Integer> namePeople) {
+        for (String person : people) {
+            String name = person.split(" ")[0];
+            if (namePeople.containsKey(name)) {
+                namePeople.put(name, namePeople.get(name) + 1);
+            } else {
+                namePeople.put(name, 1);
+            }
+        }
+    }
+
+    public static void sortedStaff(Map<String, Integer> namePeople) {
+        Map<String, Integer> sortedName = namePeople.entrySet().stream()
+                .sorted(Comparator.comparingInt(e -> -e.getValue()))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (a, b) -> {
+                            throw new AssertionError();
+                        },
+                        LinkedHashMap::new));
+
+        System.out.println("Не отсортированный список:\n" + namePeople + "\n\nСписок по убыванию:");
+        sortedName.entrySet().forEach(System.out::println);
+    }
+    */
+
 }
