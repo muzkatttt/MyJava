@@ -17,15 +17,14 @@ public class NoteBook {
         this.operatingSystem = operatingSystem;
         this.color = color;
     }
-
-//    @Override
-//    public String toString() {
-//        return "brand: " + brand + ", model: " + model + ", ram: " + ram + ", hardDiskDrive: " + hardDiskDrive +
-//                ", operatingSystem: " + operatingSystem + ", color: " + color;
-//    }
+    NoteBook n0 = new NoteBook();
+    n0.brand = "Lenovo";
 
     @Override
     public String toString() {
-        return super.toString();
+        String result = String.format("brand: %s \n model: %s ram: %d \n hardDiskDrive: %d \n operatingSystem: %s \n color: %s",
+                brand, model, ram, hardDiskDrive, operatingSystem, color);
+        return result;
     }
+
 }
