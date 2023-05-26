@@ -19,7 +19,7 @@ public class ListNotebooks {
         Notebook notebook1 = new Notebook("Lenovo", "M32", "8", "256",
                 "Windows", "Grey");
         Notebook notebook2 = new Notebook("Lenovo", "P98", "16", "512",
-                "Linux", "Blue");
+                "Linux", "Black");
         Notebook notebook3 = new Notebook("HP", "TR8234", "16", "512",
                 "Windows", "Black");
         Notebook notebook4 = new Notebook("Apple", "MacBook Air", "8", "256",

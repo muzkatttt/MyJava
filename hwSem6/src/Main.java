@@ -25,18 +25,13 @@ public class Main {
         ShowNotebooks(listNotebooks.getNotebookList());
 
         Map<String, String> filters = new HashMap<>();
-        System.out.println("Выберите критерии для фильтра: \n");
-        System.out.println("1 --> Брэнд");
-        System.out.println("2 --> Модель");
-        System.out.println("3 --> Оперативная память");
-        System.out.println("4 --> Объем жесткого диска");
-        System.out.println("5 --> Операционная система");
-        System.out.println("6 --> Цвет");
-        System.out.println("Введите 0 для выхода из меню");
+        //ShowMenu(); // если вызывать без цикла, то меню выводится один раз на консоль
 
         boolean goOn = true;
         Scanner scanner = new Scanner(System.in);
         while (goOn) {
+            ShowMenu();
+            System.out.printf("-->");
             int filterNumber = scanner.nextInt();
             String filterKey = "";
             switch (filterNumber) {
@@ -90,6 +85,17 @@ public class Main {
         for (Notebook notebook : notebooks){
             System.out.println(notebook);
         }
+    }
+
+    public static void ShowMenu(){
+        System.out.println("Выберите критерии для фильтра: \n");
+        System.out.println("1 --> Брэнд");
+        System.out.println("2 --> Модель");
+        System.out.println("3 --> Оперативная память");
+        System.out.println("4 --> Объем жесткого диска");
+        System.out.println("5 --> Операционная система");
+        System.out.println("6 --> Цвет");
+        System.out.println("Введите 0 для выхода из меню");
     }
 }
 
