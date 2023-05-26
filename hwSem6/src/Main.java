@@ -1,7 +1,7 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) {
         /*
         Подумать над структурой класса Ноутбук для магазина техники - выделить поля и методы.
@@ -21,23 +21,75 @@ public class Main {
         Работу сдать как обычно ссылкой на гит репозиторий
          */
 
-        NoteBook notebook0 = new NoteBook("Lenovo", "N34", 8, 256,
-                "Linux", "Black");
-        NoteBook notebook1 = new NoteBook("Lenovo", "M32", 8, 256,
-                "Windows", "Dark Grey");
-        NoteBook notebook2 = new NoteBook("Lenovo", "P98", 16, 512,
-                "Linux", "Blue");
-        NoteBook notebook3 = new NoteBook("HP", "TR8234", 16, 512,
-                "Windows", "BlackBerry");
-        NoteBook notebook4 = new NoteBook("MacBook", "T34", 8, 512,
-                "MacOs", "Grey");
+        ListNotebooks listNotebooks = new ListNotebooks();
+        ShowNotebooks(listNotebooks.getNotebookList());
 
-        Set<NoteBook> notebooks = new HashSet<>();
-        notebooks.add(notebook0);
-        notebooks.add(notebook1);
-        notebooks.add(notebook2);
-        notebooks.add(notebook3);
-        notebooks.add(notebook4);
-        System.out.println(notebooks);
+        Map<String, String> filters = new HashMap<>();
+        System.out.println("Выберите критерии для фильтра: \n");
+        System.out.println("1 --> Брэнд");
+        System.out.println("2 --> Модель");
+        System.out.println("3 --> Оперативная память");
+        System.out.println("4 --> Объем жесткого диска");
+        System.out.println("5 --> Операционная система");
+        System.out.println("6 --> Цвет");
+        System.out.println("Введите 0 для выхода из меню");
+
+        boolean goOn = true;
+        Scanner scanner = new Scanner(System.in);
+        while (goOn) {
+            int filterNumber = scanner.nextInt();
+            String filterKey = "";
+            switch (filterNumber) {
+                case 1 -> {
+                    filterKey = "brand";
+                    System.out.println("Введите брэнд >>>\n");
+                    String brand = scanner.next();
+                    filters.put(filterKey, brand);
+                }
+                case 2 -> {
+                    filterKey = "model";
+                    System.out.println("Введите модель ноутбука >>>\n");
+                    String model = scanner.next();
+                    filters.put(filterKey, model);
+                }
+                case 3 -> {
+                    filterKey = "ram";
+                    System.out.println("Введите объем оперативной памяти >>>\n");
+                    String ram = scanner.next();
+                    filters.put(filterKey, ram);
+                }
+                case 4 -> {
+                    filterKey = "hardDiskDrive";
+                    System.out.println("Введите объем жесткого диска >>>\n");
+                    String hardDiskDrive = scanner.next();
+                    filters.put(filterKey, hardDiskDrive);
+                }
+                case 5 -> {
+                    filterKey = "operatingSystem";
+                    System.out.println("Введите операционную систему >>>\n");
+                    String operatingSystem = scanner.next();
+                    filters.put(filterKey, operatingSystem);
+                }
+                case 6 -> {
+                    filterKey = "color";
+                    System.out.println("Введите цвет ноутбука >>>\n");
+                    String color = scanner.next();
+                    filters.put(filterKey, color);
+                }
+                default -> {
+                    goOn = false;
+                }
+            }
+        }
+
+        List<Notebook> allNote = listNotebooks.getFilteredList(filters);
+        ShowNotebooks(allNote);
+    }
+
+    public static void ShowNotebooks(List<Notebook> notebooks) {
+        for (Notebook notebook : notebooks){
+            System.out.println(notebook);
+        }
     }
 }
+
