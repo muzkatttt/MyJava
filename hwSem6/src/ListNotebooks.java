@@ -46,22 +46,22 @@ public class ListNotebooks {
         this.notebookList = new ArrayList<>();
         for (Notebook notebook : this.temp) {
             boolean flag = true;
-            if (filters.containsKey("brand") && !notebook.equalsBrand(filters.get("brand"))) {
+            if (!notebook.equalsBrand(filters.get("brand"))) {
                 flag = false;
             }
-            if (filters.containsKey("model") && !notebook.equalsModel(filters.get("model"))) {
+            if (!notebook.equalsModel(filters.get("model"))) {
                 flag = false;
             }
-            if (filters.containsKey("ram") && !notebook.equalsRam(filters.get("ram"))) {
+            if (!notebook.equalsRam(filters.get("ram"))) {
                 flag = false;
             }
-            if (filters.containsKey("hardDiskDrive") && !notebook.equalsHardDiskDrive(filters.get("hardDiskDrive"))) {
+            if (!notebook.equalsHardDiskDrive(filters.get("hardDiskDrive"))) {
                 flag = false;
             }
-            if (filters.containsKey("operatingSystem") && !notebook.equalsOperatingSystem(filters.get("operatingSystem"))) {
+            if (!notebook.equalsOperatingSystem(filters.get("operatingSystem"))) {
                 flag = false;
             }
-            if (filters.containsKey("color") && !notebook.equalsColor(filters.get("color"))) {
+            if (!notebook.equalsColor(filters.get("color"))) {
                 flag = false;
             }
             if(flag){

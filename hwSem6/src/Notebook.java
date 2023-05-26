@@ -51,26 +51,32 @@ public class Notebook {
     }
 
     public boolean equalsBrand(String brand) {
+        if(brand == null) return true;
         return this.brand.equals(brand);
     }
 
     public boolean equalsModel(String model) {
+        if(model == null) return true;
         return this.model.equals(model);
     }
 
     public boolean equalsRam(String ram) {
+        if(ram == null) return true;
         return this.ram.equals(ram);
     }
 
     public boolean equalsHardDiskDrive(String hardDiskDrive) {
+        if(hardDiskDrive == null) return true;
         return this.hardDiskDrive.equals(hardDiskDrive);
     }
 
     public boolean equalsOperatingSystem(String operatingSystem) {
+        if(operatingSystem == null) return true;
         return this.operatingSystem.equals(operatingSystem);
     }
 
     public boolean equalsColor(String color) {
+        if(color == null) return true;
         return this.color.equals(color);
     }
 
@@ -90,19 +96,4 @@ public class Notebook {
     public int hashCode() {
         return Objects.hash(brand, model, ram, hardDiskDrive, operatingSystem, color);
     }
-
-    //    public String getFilterMap() {
-//        StringBuilder stringBuilder = new StringBuilder();
-//        for (Map.Entry entry : allNotebooks.entrySet()) {
-//            stringBuilder.append(entry.getKey());
-//            stringBuilder.append(": ");
-//            stringBuilder.append(entry.getValue());
-//            stringBuilder.append("\n");
-//        }
-//        return stringBuilder.toString();
-//    }
 }
-
-
-
-

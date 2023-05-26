@@ -23,7 +23,6 @@ public class Main {
 
         ListNotebooks listNotebooks = new ListNotebooks();
         ShowNotebooks(listNotebooks.getNotebookList());
-
         Map<String, String> filters = new HashMap<>();
         //ShowMenu(); // если вызывать без цикла, то меню выводится один раз на консоль
 
@@ -98,4 +97,3 @@ public class Main {
         System.out.println("Введите 0 для выхода из меню");
     }
 }
-
