@@ -15,6 +15,8 @@ public class VendingMachine {
         return this.products.getLast();
     }
 
+
+
     @Override
     public String toString() {
         return "VendingMachine{" + "products=" + products + '}';
