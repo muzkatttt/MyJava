@@ -13,6 +13,8 @@ public abstract class AllDrink {
     public String getDrink() {
         return drink;
     }
+
+
     public Integer getPrice(){
         return price;
     }

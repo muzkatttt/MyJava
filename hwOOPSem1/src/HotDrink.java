@@ -18,6 +18,14 @@ public class HotDrink extends AllDrink {
         return price;
     }
 
+    public Integer getVolume(){
+        return volume;
+    }
+
+    public Integer getTemperature() {
+        return temperature;
+    }
+
     public void setDrink(String drink) {
         this.drink = drink;
     }
@@ -29,15 +37,11 @@ public class HotDrink extends AllDrink {
         this.temperature = temperature;
     }
 
-    public int getTemperature() {
-        return temperature;
-    }
-
     @Override
     public String toString() {
-        return "drink " + super.getDrink() + " price " + price + " volume " + volume +
-                " temperature " + temperature + ".";
+        return "Напиток " + super.getDrink() + ", цена " + price + ", объем " + volume + " ml," +
+                " температура " + temperature + ".";
     }
-
 }
+
 
