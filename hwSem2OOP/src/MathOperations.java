@@ -1,19 +1,9 @@
-public interface MathOperations{
+public interface MathOperations {
+    Double addition(Double a, Double b);
 
-    default Double addition(Double a, Double b) {
-        return addition(a, b);
-    }
+    Double subtraction(Double a, Double b);
 
-    default Double subtraction(Double a, Double b) {
-        return subtraction(a, b);
-    }
+    Double multiplication(Double a, Double b);
 
-    default Double multiplication(Double a, Double b) {
-        return multiplication(a, b);
-    }
-
-    default Double division(Double a, Double b) {
-        return division(a, b);
-    }
-
+    Double division(Double a, Double b);
 }

@@ -1,34 +1,20 @@
-public abstract class CalcAbstract {
+public abstract class CalcAbstract implements MathOperations {
     protected Double result;
-
     protected Double a;
     protected Double b;
+    protected char ch;
 
-    protected Double addition(Double a, Double b) {
-        return result;
-    }
-    protected Double subtraction(Double a, Double b) {
-        return result;
-    }
-    protected Double multiplication(Double a, Double b) {
-        return result;
-    }
-    protected Double division(Double a, Double b) {
-        return result;
+    public CalcAbstract() {
+        this.a = 0.0;
+        this.b = 0.0;
     }
 
-    public CalcAbstract(Double result, Double a, Double b) {
-        this.result = result;
-        this.a = a;
-        this.b = b;
-    }
+    public abstract Double getResult(Double a, Double b, char ch);
 
     @Override
     public String toString() {
-        return "CalcAbstract {" +
-                "result = " + result +
-                ", a = " + a +
-                ", b = " + b +
-                '}';
+        return "a = " + a +
+                ", b = " + b + ", Результат = " + String.format("%.00f", result) +
+                '.';
     }
 }

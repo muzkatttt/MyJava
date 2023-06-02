@@ -1,30 +1,41 @@
-public class Operations extends CalcAbstract{
+public class Operations extends CalcAbstract {
+
     @Override
-    protected Double addition(Double a, Double b) {
-        return super.addition(a, b);
+    public Double getResult(Double a, Double b, char ch) {
+        super.a = a != null ? a : 0;
+        super.b = b != null ? b : 0;
+        super.ch = ((ch == '+') || (ch == '-') || (ch == '*') || (ch == '/')) ? ch : ' ';
+        // добавить switch case
+        return switch (ch) {
+            case '+' -> addition(a, b);
+            case '-' -> subtraction(a, b);
+            case '*' -> multiplication(a, b);
+            case '/' -> division(a, b);
+            default -> null;
+        };
     }
 
     @Override
-    protected Double subtraction(Double a, Double b) {
-        return super.subtraction(a, b);
+    public Double addition(Double a, Double b) {
+        super.result = a + b;
+        return super.result;
     }
 
     @Override
-    protected Double multiplication(Double a, Double b) {
-        return super.multiplication(a, b);
+    public Double subtraction(Double a, Double b) {
+        super.result = a - b;
+        return super.result;
     }
 
     @Override
-    protected Double division(Double a, Double b) {
-        return super.division(a, b);
-    }
-
-    public Operations(Double result, Double a, Double b) {
-        super(result, a, b);
+    public Double multiplication(Double a, Double b) {
+        super.result = a * b;
+        return super.result;
     }
 
     @Override
-    public String toString() {
-        return super.toString();
+    public Double division(Double a, Double b) {
+        super.result = a / b;
+        return super.result;
     }
 }
