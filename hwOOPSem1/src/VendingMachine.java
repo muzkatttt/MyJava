@@ -1,6 +1,12 @@
-import java.util.LinkedList;
-
 public interface VendingMachine {
-    public HotDrink getHotDrinks();
+    String getHotDrinks();
+
+    abstract String getDrink();
+
+    abstract Integer getPrice();
+
+    abstract Integer getVolume();
+
+    abstract Integer getTemperature();
 }
 

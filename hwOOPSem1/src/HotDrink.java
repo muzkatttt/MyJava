@@ -1,14 +1,28 @@
 
-public class HotDrink extends AllDrink {
+public class HotDrink extends AllDrink implements VendingMachine {
     protected String drink;
     protected int volume;
     protected int temperature;
+    protected int price;
 
     public HotDrink(String drink, int volume, int temperature) {
         this.drink = drink;
         this.volume = volume;
         this.temperature = temperature;
     }
+
+    public HotDrink(String drink, int price, int volume, int temperature) {
+        this.drink = drink;
+        this.price = price;
+        this.volume = volume;
+        this.temperature = temperature;
+    }
+
+    @Override
+    public String getHotDrinks() {
+        return drink;
+    }
+
 
     public String getDrink() {
         return drink;
@@ -18,7 +32,7 @@ public class HotDrink extends AllDrink {
         return price;
     }
 
-    public Integer getVolume(){
+    public Integer getVolume() {
         return volume;
     }
 
@@ -26,20 +40,9 @@ public class HotDrink extends AllDrink {
         return temperature;
     }
 
-    public void setDrink(String drink) {
-        this.drink = drink;
-    }
-
-    public HotDrink(String drink, int price, int volume, int temperature) {
-        super.drink = drink;
-        this.price = price;
-        this.volume = volume;
-        this.temperature = temperature;
-    }
-
     @Override
     public String toString() {
-        return "Напиток " + super.getDrink() + ", цена " + price + ", объем " + volume + " ml," +
+        return "Напиток " + drink + ", цена " + price + ", объем " + volume + " ml," +
                 " температура " + temperature + ".";
     }
 }
