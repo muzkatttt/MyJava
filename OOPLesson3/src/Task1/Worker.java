@@ -17,6 +17,6 @@ public class Worker {
     }
 
     public String fullName() {
-        return String.format("%s %s", firstName, lastName);
+        return String.format("%s %s %s %s", firstName, lastName, age, salary);
     }
 }
