@@ -8,12 +8,12 @@ public class Program {
         
         Notepad notes = new Notepad();
         notes.newFile();
-        notes.currentDocument().addAllText("text1");
-        notes.currentDocument().addAllText("text2");
-        notes.currentDocument().addAllText("text3");
-        notes.SaveAs("file1", new Txt());
-        notes.SaveAs("file2", new Md());
-        notes.SaveAs("file3", new Doc());
+        notes.currentDocument().addAllText("привет");
+        notes.currentDocument().addAllText("здравствуйте");
+        notes.currentDocument().addAllText("какой-то текст еще");
+        notes.SaveAs("file10", new Txt());
+        notes.SaveAs("file11", new Md());
+        notes.SaveAs("file12", new Doc());
         System.out.println(notes.toString());
 
 
