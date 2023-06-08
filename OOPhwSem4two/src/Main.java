@@ -26,9 +26,15 @@ public class Main {
                 .collect(Collectors.toList());
         System.out.println(list.toString());
 
-        TeacherGroup teachers1 = new TeacherGroup(1, "Василиса", "Премудрая", "Васильевна");
-        TeacherGroup teachers2 = new TeacherGroup(2, "Мальвина", "Всезнающая", "Карловна");
-        TeacherGroup teacher3 = new TeacherGroup(3, "Юрий", "Гагарин", "Алексеевич");
+
+        TeacherGroup teachers = new TeacherGroup(List.of(new Teacher(10001L, "Василиса",
+                "Максимова", "Ивановна"),
+                new Teacher(10002L, "Мальвина", "Денисова", "Петровна"),
+                new Teacher(10003L, "Забава", "Любимова", "Михайловна")));
+//        TeacherGroup teachers1 = new TeacherGroup(1, "Василиса", "Премудрая", "Васильевна");
+//        TeacherGroup teachers2 = new TeacherGroup(2, "Мальвина", "Всезнающая", "Карловна");
+//        TeacherGroup teacher3 = new TeacherGroup(3, "Юрий", "Гагарин", "Алексеевич");
+
 
         Iterator<Teacher> teacherIterator = teachers.iterator();
         while(teacherIterator.hasNext()){
