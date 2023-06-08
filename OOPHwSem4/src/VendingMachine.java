@@ -3,7 +3,7 @@ public interface VendingMachine {
 
     abstract String getDrink();
 
-    abstract Integer getPrice();
+    abstract Long getPrice();
 
     abstract Integer getVolume();
 

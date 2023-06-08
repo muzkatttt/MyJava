@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a9d41076-782f-418a-91fe-b2ee8fc81308" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../OOPLesson3/src/Task1/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOPLesson3/src/Task1/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OOPLesson3/src/Task1/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOPLesson3/src/Task1/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OOPlesson2/src/Task4/BaseHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOPlesson2/src/Task4/BaseHero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OOPlesson2/src/Task4/Druid.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOPlesson2/src/Task4/Druid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OOPlesson2/src/Task4/Dwarf.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOPlesson2/src/Task4/Dwarf.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2QqKfmtIwZlXIotoQd0q7UFzC5q" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/ekaterinarodionova/Desktop/MyJava/OOPworkSeminar4"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a9d41076-782f-418a-91fe-b2ee8fc81308" name="Changes" comment="" />
+      <created>1686075777180</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686075777180</updated>
+    </task>
+    <servers />
+  </component>
+</project>

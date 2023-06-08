@@ -10,10 +10,10 @@ public class Main {
         Подписать фамилию и номер группы
         */
 
-        HotDrink blackTea = new HotDrink("Black tea", 100, 300, 40);
-        HotDrink greenTea = new HotDrink("Green tea", 150, 400, 80);
-        HotDrink hotBlackTea = new HotDrink("Black tea", 150, 400, 90);
-        HotDrink aqua = new HotDrink("Aqua", 80, 100, 10);
+        HotDrink blackTea = new HotDrink("Black tea", 100L, 300, 40);
+        HotDrink greenTea = new HotDrink("Green tea", 150L, 400, 80);
+        HotDrink hotBlackTea = new HotDrink("Black tea", 150L, 400, 90);
+        HotDrink aqua = new HotDrink("Aqua", 80L, 100, 10);
         HotDrink coffee = new HotDrink("Coffee", 300, 90);
 
         System.out.println(blackTea);

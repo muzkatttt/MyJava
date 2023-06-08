@@ -3,7 +3,7 @@ public class HotDrink extends AllDrink implements VendingMachine {
     protected String drink;
     protected int volume;
     protected int temperature;
-    protected int price;
+    protected Long price;
 
     public HotDrink(String drink, int volume, int temperature) {
         this.drink = drink;
@@ -11,7 +11,7 @@ public class HotDrink extends AllDrink implements VendingMachine {
         this.temperature = temperature;
     }
 
-    public HotDrink(String drink, int price, int volume, int temperature) {
+    public HotDrink(String drink, Long price, int volume, int temperature) {
         this.drink = drink;
         this.price = price;
         this.volume = volume;
@@ -28,7 +28,7 @@ public class HotDrink extends AllDrink implements VendingMachine {
         return drink;
     }
 
-    public Integer getPrice() {
+    public Long getPrice() {
         return price;
     }
 

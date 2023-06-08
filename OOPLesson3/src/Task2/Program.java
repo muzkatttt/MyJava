@@ -27,7 +27,7 @@ public class Program {
         //#region Worker Iterator
        
          Worker worker = new Worker(
-             "Имя", "Фамилия", 23, 4567);
+             "Имя", "Фамилия", 23, 1000);
 
          Iterator<String> components = worker;
 
