@@ -1,7 +1,7 @@
 import java.util.Iterator;
 import java.util.List;
 
-public class TeacherGroupIterator implements Iterator<Teacher> {
+public class TeacherGroupIterator implements Iterable<Teacher> {
 
     private int id;
     private List<Teacher> teachers;

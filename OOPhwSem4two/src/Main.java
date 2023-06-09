@@ -1,4 +1,6 @@
+import java.sql.Array;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,19 +30,21 @@ public class Main {
 
 
         TeacherGroup teachers = new TeacherGroup(List.of(new Teacher(10001L, "Василиса",
-                "Максимова", "Ивановна"),
+                        "Максимова", "Ивановна"),
                 new Teacher(10002L, "Мальвина", "Денисова", "Петровна"),
-                new Teacher(10003L, "Забава", "Любимова", "Михайловна")));
-//        TeacherGroup teachers1 = new TeacherGroup(1, "Василиса", "Премудрая", "Васильевна");
-//        TeacherGroup teachers2 = new TeacherGroup(2, "Мальвина", "Всезнающая", "Карловна");
-//        TeacherGroup teacher3 = new TeacherGroup(3, "Юрий", "Гагарин", "Алексеевич");
+                new Teacher(10003L, "Забава", "Попова", "Царевна")));
 
 
-        Iterator<Teacher> teacherIterator = teachers.iterator();
-        while(teacherIterator.hasNext()){
-            System.out.println(teacherIterator.next().toString());
+        List<Teacher> list3 = new ArrayList<>();
+        Iterator<Teacher> iterator = list3.iterator();
+        Teacher a;
+        while (iterator.hasNext()) {
+            a = iterator.next();
         }
 
+
+//        List<Teacher> list2 = teachers.getTeachers().stream().sorted().collect(Collectors.toList());
+       System.out.println(list3);
 
     }
 }
