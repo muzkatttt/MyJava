@@ -1,12 +1,14 @@
+import java.util.List;
+
 public interface VendingMachine {
-    String getHotDrinks();
 
-    abstract String getDrink();
+    Long getPrice(String drink);
 
-    abstract Long getPrice();
+    void addDrink(String drink, Long price, int volume);
 
-    abstract Integer getVolume();
+    HotDrink getHotDrink(String drink, int temperature);
 
-    abstract Integer getTemperature();
+    List<HotDrink> myList();
+
 }
 
