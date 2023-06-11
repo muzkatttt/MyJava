@@ -1,4 +1,7 @@
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -9,11 +12,40 @@ public class Main {
         Подписать фамилию и номер группы
         */
 
-        HotDrink blackTea = new HotDrink("Black tea", 100L, 300, 40);
-        HotDrink greenTea = new HotDrink("Green tea", 150L, 400, 80);
-        HotDrink hotBlackTea = new HotDrink("Black tea", 150L, 400, 90);
-        HotDrink aqua = new HotDrink("Aqua", 80L, 100, 10);
-        HotDrink coffee = new HotDrink("Coffee", 300, 90);
+        //test();
+        HotDrinkMachine drink = new HotDrinkMachine();
+//        System.out.println(drink.getPrice("Black Tea"));
+//        System.out.println(drink.getPrice("Green Tea"));
+//        System.out.println(drink.getPrice("Red Tea"));
+//        System.out.println(drink.getPrice("Aqua"));
+//        System.out.println(drink.getPrice("Coffee"));
+
+
+        drink.addDrink("White Tea", 299L, 400);
+        //System.out.println(drink.getPrice("White Tea"));
+
+        System.out.println(drink.getHotDrink("White Tea", 40));
+        System.out.println(drink.getHotDrink("Black Tea", 79));
+        System.out.println(drink.getHotDrink("Green Tea", 70));
+        System.out.println(drink.getHotDrink("Red Tea", 80));
+        System.out.println(drink.getHotDrink("Aqua", 10));
+        System.out.println(drink.getHotDrink("Coffee", 80));
+
+        System.out.println();
+        for(HotDrink hz : drink.myList()){
+            System.out.println(hz);
+        }
+
+        System.out.println();
+
+    }
+
+    private static void test() {
+        HotDrink blackTea = new HotDrink("Black tea", 350L, 400, 79);
+        HotDrink greenTea = new HotDrink("Green tea", 400L, 450, 70);
+        HotDrink hotBlackTea = new HotDrink("Black tea", 300L, 399, 80);
+        HotDrink aqua = new HotDrink("Aqua", 100L, 10, 10);
+        HotDrink coffee = new HotDrink("Coffee", 299L, 300, 80);
 
         List<HotDrink> list = new ArrayList<>();
         list.add(blackTea);
@@ -21,22 +53,11 @@ public class Main {
         list.add(hotBlackTea);
         list.add(aqua);
         list.add(coffee);
-
-//        Collections.sort(list);
         System.out.println(list);
+        System.out.println(list.stream().sorted().toList()); // Comparable
+        System.out.println();
+        list.sort(new HotDrinkComparatorPrice().reversed());
 
-        Iterator iterator = list.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
-//        list.sort(new HotDrinkVendingMachine("Black tea",
-//                300, 50), new HotDrinkVendingMachine("Green Tea", 400, 70),
-//                new HotDrinkVendingMachine("Aqua", 500, 10));
-//        PriceComparator priceComparator = new PriceComparator();
-
-//        System.out.println(priceComparator);
-//        Collections.sort(list);
-        list.sort((o1, o2) -> Long.compare(o1.price, o2.price));
         System.out.println(list);
     }
 }
