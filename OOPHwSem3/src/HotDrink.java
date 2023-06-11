@@ -1,9 +1,11 @@
+import java.util.List;
 
 public class HotDrink extends AllDrink implements VendingMachine {
     protected String drink;
     protected int volume;
     protected int temperature;
     protected Long price;
+    protected List<HotDrink> priceDrink;
 
     public HotDrink(String drink, int volume, int temperature) {
         this.drink = drink;
@@ -38,6 +40,10 @@ public class HotDrink extends AllDrink implements VendingMachine {
 
     public Integer getTemperature() {
         return temperature;
+    }
+
+    public void addDrink(List<String> priceDrink){
+        priceDrink.add(drink);
     }
 
     @Override

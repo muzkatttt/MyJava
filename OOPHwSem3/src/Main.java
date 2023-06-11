@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -23,6 +24,12 @@ public class Main {
         System.out.println(coffee);
 
         List<String> list = new ArrayList<>();
-
+        blackTea.addDrink(list);
+        greenTea.addDrink(list);
+        hotBlackTea.addDrink(list);
+        aqua.addDrink(list);
+        coffee.addDrink(list);
+        Collections.sort(list);
+        System.out.println(list);
     }
 }
