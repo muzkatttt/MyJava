@@ -33,6 +33,8 @@ public class Main {
             System.out.println(hz);
         }
 
+        System.out.println();
+
     }
 
     private static void test() {
