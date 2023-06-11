@@ -6,5 +6,4 @@ public class HotDrinkComparatorPrice implements Comparator<HotDrink> {
     public int compare(HotDrink o1, HotDrink o2) {
         return Long.compare(o1.getPrice(), o2.getPrice());
     }
-
 }
