@@ -1,4 +1,4 @@
-package Task2MyCode.ExBeverageMy.
+
 import java.util.ArrayList;
 import java.util.List;
 
