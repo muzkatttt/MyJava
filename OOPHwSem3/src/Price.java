@@ -1,7 +1,7 @@
 public abstract class Price {
-    public String price;
+    public Long price;
 
-    public Price(String price){
+    public Price(Long price){
         this.price = price;
     }
 

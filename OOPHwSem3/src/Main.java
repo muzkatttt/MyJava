@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,19 +15,28 @@ public class Main {
         HotDrink aqua = new HotDrink("Aqua", 80L, 100, 10);
         HotDrink coffee = new HotDrink("Coffee", 300, 90);
 
-        System.out.println(blackTea);
-        System.out.println(greenTea);
-        System.out.println(hotBlackTea);
-        System.out.println(aqua);
-        System.out.println(coffee);
+        List<HotDrink> list = new ArrayList<>();
+        list.add(blackTea);
+        list.add(greenTea);
+        list.add(hotBlackTea);
+        list.add(aqua);
+        list.add(coffee);
 
-        List<String> list = new ArrayList<>();
-        blackTea.addDrink(list);
-        greenTea.addDrink(list);
-        hotBlackTea.addDrink(list);
-        aqua.addDrink(list);
-        coffee.addDrink(list);
-        Collections.sort(list);
+//        Collections.sort(list);
+        System.out.println(list);
+
+        Iterator iterator = list.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+//        list.sort(new HotDrinkVendingMachine("Black tea",
+//                300, 50), new HotDrinkVendingMachine("Green Tea", 400, 70),
+//                new HotDrinkVendingMachine("Aqua", 500, 10));
+//        PriceComparator priceComparator = new PriceComparator();
+
+//        System.out.println(priceComparator);
+//        Collections.sort(list);
+        list.sort((o1, o2) -> Long.compare(o1.price, o2.price));
         System.out.println(list);
     }
 }

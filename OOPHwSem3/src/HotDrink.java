@@ -42,10 +42,6 @@ public class HotDrink extends AllDrink implements VendingMachine {
         return temperature;
     }
 
-    public void addDrink(List<String> priceDrink){
-        priceDrink.add(drink);
-    }
-
     @Override
     public String toString() {
         return "Напиток " + drink + ", цена " + price + ", объем " + volume + " ml," +
