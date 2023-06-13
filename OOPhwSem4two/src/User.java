@@ -49,10 +49,10 @@ public class User {
     @Override
     public String toString() {
         return "User " +
-                "имя " + firstName + '\'' +
-                ", фамилия " + secondName + '\'' +
-                ", отчество " + patronymic + '\'' +
-                ", дата рождения " + dateOfBirth +
+                "имя " + getFirstName() + '\'' +
+                ", фамилия " + getSecondName() + '\'' +
+                ", отчество " + getPatronymic() + '\'' +
+                ", дата рождения " + getDateOfBirth() +
                 '.';
     }
 

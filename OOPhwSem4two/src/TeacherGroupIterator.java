@@ -1,7 +1,9 @@
+import javax.swing.text.html.HTMLDocument;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 
-public class TeacherGroupIterator implements Iterable<Teacher> {
+public class TeacherGroupIterator implements Iterator<Teacher> {
 
     private int id;
     private List<Teacher> teachers;
@@ -14,6 +16,11 @@ public class TeacherGroupIterator implements Iterable<Teacher> {
     @Override
     public boolean hasNext() {
         return id < teachers.size();
+    }
+
+    @Override
+    public void forEachRemaining(Consumer<? super Teacher> action) {
+        Iterator.super.forEachRemaining(action);
     }
 
     @Override

@@ -22,7 +22,7 @@ class Team<T> {
 
     @Override
     public String toString() {
-        return String.format("%s: %s", name, programmers);
+        return String.format("%s: %s", getName(), programmers);
     }
 
 }

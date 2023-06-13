@@ -1,11 +1,10 @@
 import java.time.LocalDate;
-import java.util.Comparator;
 
 public class Teacher extends User implements Comparable<Teacher>{
 
-    private Long teacherId;
+    private int teacherId;
 
-    public Teacher(Long teacherId, String firstName, String secondName, String patronymic, LocalDate dateOfBirth) {
+    public Teacher(Integer teacherId, String firstName, String secondName, String patronymic, LocalDate dateOfBirth) {
         super(firstName, secondName, patronymic, dateOfBirth);
         this.teacherId = teacherId;
     }
@@ -15,17 +14,26 @@ public class Teacher extends User implements Comparable<Teacher>{
     }
 
 
-    public Long getTeacherId() {
+    public Integer getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(Long teacherId) {
+    public void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
     }
 
     @Override
     public int compareTo(Teacher o) {
-        return this.teacherId.compareTo(o.teacherId);
+        return getTeacherId().compareTo(o.teacherId);
+    }
+
+    @Override
+    public String toString() {
+        return "Преподаватель " +
+                "фамилия " + getSecondName() +
+                ", имя " + getFirstName() +
+                ", отчество " + getPatronymic() +
+                ", teacherId " + getTeacherId();
     }
 }
 
