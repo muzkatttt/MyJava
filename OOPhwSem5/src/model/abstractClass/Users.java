@@ -29,7 +29,7 @@ public abstract class Users {
 
     @Override
     public String toString() {
-        return "Users{" +
+        return "{" +
                 "firstName='" + getFirstName() + '\'' +
                 ", secondName='" + getSecondName() + '\'' +
                 '}';

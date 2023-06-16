@@ -27,4 +27,12 @@ public class StudentGroup implements Iterable<Student>{
     public void setGroupStudents(List<Student> groupStudents) {
         this.groupStudents = groupStudents;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("StudentGroup{");
+        sb.append("groupStudents=").append(getGroupStudents());
+        sb.append('}');
+        return sb.toString();
+    }
 }

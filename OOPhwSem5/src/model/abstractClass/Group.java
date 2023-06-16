@@ -1,16 +1,19 @@
 package model.abstractClass;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Group {
+public abstract class Group<T extends Users> {
     int numberOfGroup;
+    private List<T> users;
 
-    private List<Users> users;
-
-    protected abstract void addToGroup();
+    public Group(int numberOfGroup, List<T> users) {
+        this.numberOfGroup = numberOfGroup;
+        this.users = users;
+    }
 
     public Group(int numberOfGroup) {
-        this.numberOfGroup = numberOfGroup;
+        this(numberOfGroup, new ArrayList<>());
     }
 
     public int getNumberOfGroup() {
@@ -21,15 +24,13 @@ public abstract class Group {
         this.numberOfGroup = numberOfGroup;
     }
 
-    public Group(List<Users> users) {
-        this.users = users;
-    }
+    protected abstract void addToGroup();
 
-    public List<Users> getUsers() {
+    public List<T> getUsers() {
         return users;
     }
 
-    public void setUsers(List<Users> users) {
+    public void setUsers(List<T> users) {
         this.users = users;
     }
 

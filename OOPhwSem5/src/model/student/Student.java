@@ -35,4 +35,8 @@ public class Student extends Users {
     public String toString() {
         return super.toString();
     }
+
+    public int getNumberId() {
+        return numberId;
+    }
 }

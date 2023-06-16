@@ -10,8 +10,5 @@ public interface Service {
 
     public void create(Student inputStudent);
 
-
     public void read();
-
-
 }
