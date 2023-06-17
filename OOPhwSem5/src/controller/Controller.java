@@ -34,11 +34,11 @@ public class Controller implements Service {
 
     @Override
     public List<Student> getStudents() {
-        return null;
+        return studyGroupService.getStudents();
     }
 
     @Override
     public Teacher getTeacher() {
-        return null;
+        return studyGroupService.getTeacher();
     }
 }

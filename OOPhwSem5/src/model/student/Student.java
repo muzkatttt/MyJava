@@ -7,8 +7,9 @@ public class Student extends Users {
 
     private int numberId;
 
-    public Student(String firstName, String secondName) {
+    public Student(String firstName, String secondName, int numberId) {
         super(firstName, secondName);
+        this.numberId = numberId;
     }
 
     @Override
@@ -33,7 +34,9 @@ public class Student extends Users {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Student ID " + getNumberId()
+                + " name " + getFirstName() + " "
+                + getSecondName();
     }
 
     public int getNumberId() {

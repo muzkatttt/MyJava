@@ -39,11 +39,19 @@ public class StudyGroupService implements Service{
 
     @Override
     public List<Student> getStudents() {
-        return null;
+        return studyGroup.getUsers();
     }
 
     @Override
     public Teacher getTeacher() {
-        return null;
+        return studyGroup.getTeacher();
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("StudyGroupService{");
+        sb.append("studyGroup=").append(studyGroup);
+        sb.append('}');
+        return sb.toString();
     }
 }

@@ -1,10 +1,7 @@
 package model;
 import model.abstractClass.Group;
-import model.abstractClass.Users;
 import model.student.Student;
-import model.student.StudentGroup;
 import model.teacher.Teacher;
-
 import java.util.List;
 
 public class StudyGroup extends Group<Student> {
