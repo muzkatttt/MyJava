@@ -9,7 +9,7 @@ public class Teacher extends User implements Comparable<Teacher>, UserInterface 
 
     private int teacherId;
 
-    public Teacher(int teacherId, String firstName, String secondName, String patronymic, LocalDate dateOfBirth) {
+    public Teacher(String firstName, String secondName, String patronymic, LocalDate dateOfBirth, int teacherId) {
         super();
         setFirstName(firstName);
         setSecondName(secondName);

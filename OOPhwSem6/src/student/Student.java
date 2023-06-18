@@ -7,16 +7,12 @@ import java.time.LocalDate;
 public class Student extends User implements Comparable<Student> {
     private int studentCourse;
 
-
-    public Student(int studentCourse, String firstName, String secondName,
-                   String patronymic, LocalDate dateOfBirth) {
-        super();
-        setFirstName(firstName);
-        setSecondName(secondName);
-        setPatronymic(patronymic);
-        setDateOfBirth(dateOfBirth);
+    public Student(Integer studentCourse, String firstName, String secondName,
+                   String patronymic, LocalDate dateOfBirth, Integer userId) {
+        super(firstName, secondName, patronymic, dateOfBirth, userId);
         setStudentCourse(studentCourse);
     }
+
 
     public int getStudentCourse() {
         return studentCourse;

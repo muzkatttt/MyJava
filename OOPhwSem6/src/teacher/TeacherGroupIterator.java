@@ -1,13 +1,12 @@
 package teacher;
 
-import interfaceUser.UserGroupInterface;
-import users.UserGroup;
 
+import users.UserGroup;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class TeacherGroupIterator extends UserGroup implements Iterator<Teacher>, UserGroupInterface {
+public class TeacherGroupIterator extends UserGroup implements Iterator<Teacher>{
 
     private int id;
     private List<Teacher> teachers;

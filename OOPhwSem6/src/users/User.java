@@ -6,10 +6,13 @@ import interfaceUser.UserInterface;
 import java.time.LocalDate;
 
 public class User extends BaseUser implements UserInterface {
-    private LocalDate dateOfBirth;
-    private int userId;
+    protected String firstName;
+    protected String secondName;
+    protected String patronymic;
+    protected LocalDate dateOfBirth;
+    protected Integer userId;
 
-    public User() {
+    public User(String firstName, String secondName, String patronymic, LocalDate dateOfBirth, Integer userId) {
         setFirstName(firstName);
         setSecondName(secondName);
         setPatronymic(patronymic);
@@ -17,12 +20,32 @@ public class User extends BaseUser implements UserInterface {
         setUserId(userId);
     }
 
-    public int getUserId() {
-        return userId;
+    public User() {
+
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
     }
 
     public LocalDate getDateOfBirth() {
@@ -32,6 +55,16 @@ public class User extends BaseUser implements UserInterface {
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+
 
     @Override
     public String toString() {
@@ -45,15 +78,15 @@ public class User extends BaseUser implements UserInterface {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
         }
-        if (!(obj instanceof User)) {
+        if (!(o instanceof User)) {
             return false;
         }
 
-        User user = (User) obj;
+        User user = (User) o;
 
         if (getFirstName() != null ? !getFirstName().equals(user.getFirstName()) :
                 user.getFirstName() != null) {
@@ -67,7 +100,13 @@ public class User extends BaseUser implements UserInterface {
                 user.getPatronymic() != null) {
             return false;
         }
-        return getDateOfBirth() != null ? getDateOfBirth().equals(user.getDateOfBirth()) :
+        if (getUserId() != null ? !getUserId().equals(user.getUserId()) : user.getUserId() != null) {
+            return false;
+        }
+        return getDateOfBirth() != null ? !getDateOfBirth().equals(user.getDateOfBirth()) :
                 user.getDateOfBirth() == null;
     }
 }
+
+
+
