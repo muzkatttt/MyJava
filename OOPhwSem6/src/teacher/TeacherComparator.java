@@ -1,3 +1,5 @@
+package teacher;
+
 import java.util.Comparator;
 
 public class TeacherComparator implements Comparator<Teacher> {
@@ -8,12 +10,17 @@ public class TeacherComparator implements Comparator<Teacher> {
         if (resultOfCompare == 0) {
             resultOfCompare = o1.getFirstName().compareTo(o2.getFirstName());
             if (resultOfCompare == 0) {
-                return o1.getPatronymic().compareTo(o2.getPatronymic());
+                resultOfCompare = o1.getPatronymic().compareTo(o2.getPatronymic());
+                if (resultOfCompare == 0) {
+                    resultOfCompare = o1.getTeacherId().compareTo(o2.getTeacherId());
+                    return o1.getTeacherId().compareTo(o2.getTeacherId());
+                } else {
+                    return resultOfCompare;
+                }
             } else {
                 return resultOfCompare;
             }
-        } else {
-            return resultOfCompare;
         }
+        return resultOfCompare;
     }
 }

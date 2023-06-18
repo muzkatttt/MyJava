@@ -1,44 +1,28 @@
+package users;
+
 import abstractClasses.BaseUser;
+import interfaceUser.UserInterface;
 
 import java.time.LocalDate;
 
-public class User extends BaseUser {
-
-    private String firstName;
-    private String secondName;
-    private String patronymic;
+public class User extends BaseUser implements UserInterface {
     private LocalDate dateOfBirth;
+    private int userId;
 
-    public User(String firstName, String secondName, String patronymic, LocalDate dateOfBirth) {
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.patronymic = patronymic;
-        this.dateOfBirth = dateOfBirth;
+    public User() {
+        setFirstName(firstName);
+        setSecondName(secondName);
+        setPatronymic(patronymic);
+        setDateOfBirth(dateOfBirth);
+        setUserId(userId);
     }
 
-
-    public String getFirstName() {
-        return firstName;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
-
-    public String getPatronymic() {
-        return patronymic;
-    }
-
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public LocalDate getDateOfBirth() {
@@ -51,24 +35,25 @@ public class User extends BaseUser {
 
     @Override
     public String toString() {
-        return "User " +
+        return "users.User " +
                 "имя " + getFirstName() + '\'' +
                 ", фамилия " + getSecondName() + '\'' +
                 ", отчество " + getPatronymic() + '\'' +
-                ", дата рождения " + getDateOfBirth() +
+                ", дата рождения " + getDateOfBirth() + '\'' +
+                ", id " + getUserId() +
                 '.';
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (!(o instanceof User)) {
+        if (!(obj instanceof User)) {
             return false;
         }
 
-        User user = (User) o;
+        User user = (User) obj;
 
         if (getFirstName() != null ? !getFirstName().equals(user.getFirstName()) :
                 user.getFirstName() != null) {

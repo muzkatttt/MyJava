@@ -1,12 +1,18 @@
+package student;
+
+import interfaceUser.UserInterface;
+import teacher.Teacher;
+import users.UserGroup;
+
 import java.util.List;
 
-public class StudentGroup implements Iterable<Student> {
+public class StudentGroup extends UserGroup implements Iterable<Student>, UserInterface {
     private List<Student> students;
     private Teacher teacher;
 
     public StudentGroup(List<Student> students) {
-        this.students = students;
-        this.teacher = teacher;
+        setStudents(students);
+        setTeacher(teacher);
     }
 
     public List<Student> getStudents() {
@@ -28,8 +34,8 @@ public class StudentGroup implements Iterable<Student> {
     @Override
     public String toString() {
         return "Группа" +
-                "студент" + students +
-                ", преподаватель" + teacher +
+                "студент" + getStudents() +
+                ", преподаватель" + getTeacher() +
                 '.';
     }
 

@@ -1,3 +1,9 @@
+import student.Student;
+import student.StudentGroup;
+import teacher.Teacher;
+import teacher.TeacherComparator;
+import teacher.TeacherGroup;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,7 +18,7 @@ public class Main {
         какой принцип применяем и почему.
          */
 
-        //taskFromSem();
+        taskFromSem();
 
         List<Teacher> listT = new ArrayList<>();
         listT.add(new Teacher(10001,
@@ -44,14 +50,14 @@ public class Main {
     }
 
     private static void taskFromSem() {
-        StudentGroup students = new StudentGroup(List.of(new Student(3, "Добрыня",
+        StudentGroup students = new StudentGroup(List.of(new Student(1, "Добрыня",
                         "Красилов", "Никитич", LocalDate.now()),
                 new Student(2, "Алеша", "Кузнецов", "Попович", LocalDate.now()),
                 new Student(1, "Кощей", "Бессмертный", "Кощеевич", LocalDate.now()),
                 new Student(4, "Илья", "Муромец", "Иванович", LocalDate.now())));
 
 
-        Iterator<Student> studentIterator = students.iterator();
+        Iterator<student.Student> studentIterator = students.iterator();
         while (studentIterator.hasNext()) {
             System.out.println(studentIterator.next().toString());
         }

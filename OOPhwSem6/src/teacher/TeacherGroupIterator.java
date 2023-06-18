@@ -1,8 +1,13 @@
+package teacher;
+
+import interfaceUser.UserGroupInterface;
+import users.UserGroup;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class TeacherGroupIterator implements Iterator<Teacher> {
+public class TeacherGroupIterator extends UserGroup implements Iterator<Teacher>, UserGroupInterface {
 
     private int id;
     private List<Teacher> teachers;
@@ -28,5 +33,10 @@ public class TeacherGroupIterator implements Iterator<Teacher> {
             throw new RuntimeException("Teachers");
         }
         return teachers.get(id++);
+    }
+
+    @Override
+    public void remove() {
+        Iterator.super.remove();
     }
 }

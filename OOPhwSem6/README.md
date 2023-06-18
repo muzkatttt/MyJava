@@ -21,4 +21,11 @@ _*Формат сдачи: ссылка на гитхаб проект*_
 ### нижних уровней. Оба типа модулей должны зависеть от абстракций.
 Абстракции не должны зависеть от деталей. Детали должны зависеть от абстракций.
 
-## Добавлены классы Teacher, TeacherComparator, TeacherGroup, TeacherGroupIterator
+## Добавлены классы teacher.Teacher, teacher.TeacherComparator, teacher.TeacherGroup, teacher.TeacherGroupIterator
+
+#### Применение принципов SOLID при выполнении работы:
+- принцип единственной ответственности (Single Responsibility Principle) реализован в классах student.Student & teacher.Teacher.
+Которые наследуются от класса users.User, но имеют одно поле (ID), которое определено в каждом из классов для определенной категории.
+А также в классах student.StudentGroup & teacher.TeacherGroup, которые наследуются от UserGroup.
+- 
+- 

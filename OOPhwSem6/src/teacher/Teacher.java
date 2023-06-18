@@ -1,18 +1,22 @@
+package teacher;
+
+import interfaceUser.UserInterface;
+import users.User;
+
 import java.time.LocalDate;
 
-public class Teacher extends User implements Comparable<Teacher>{
+public class Teacher extends User implements Comparable<Teacher>, UserInterface {
 
     private int teacherId;
 
-    public Teacher(Integer teacherId, String firstName, String secondName, String patronymic, LocalDate dateOfBirth) {
-        super(firstName, secondName, patronymic, dateOfBirth);
-        this.teacherId = teacherId;
+    public Teacher(int teacherId, String firstName, String secondName, String patronymic, LocalDate dateOfBirth) {
+        super();
+        setFirstName(firstName);
+        setSecondName(secondName);
+        setPatronymic(patronymic);
+        setDateOfBirth(dateOfBirth);
+        setTeacherId(teacherId);
     }
-
-    public Teacher(String firstName, String secondName, String patronymic, LocalDate dateOfBirth) {
-        super(firstName, secondName, patronymic, dateOfBirth);
-    }
-
 
     public Integer getTeacherId() {
         return teacherId;
@@ -33,6 +37,6 @@ public class Teacher extends User implements Comparable<Teacher>{
                 "фамилия " + getSecondName() +
                 ", имя " + getFirstName() +
                 ", отчество " + getPatronymic() +
-                ", teacherId " + getTeacherId();
+                ", teacherId " + getTeacherId() + ".";
     }
 }

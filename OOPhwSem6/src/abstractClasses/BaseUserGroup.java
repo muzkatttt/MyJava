@@ -1,6 +1,6 @@
 package abstractClasses;
 
-public class BaseUserGroup extends BaseUser{
+public abstract class BaseUserGroup extends BaseUser{
     public BaseUserGroup() {
     }
 }
