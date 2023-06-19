@@ -7,6 +7,13 @@ import java.time.LocalDate;
 
 public class Teacher extends User implements Comparable<Teacher>, UserInterface {
 
+ /*
+ К классам, рассмотренным на семинаре добавлен класс Teacher, в котором применены принципы инкапсуляции
+ (обращение к полям класса через get и set), наследование (класс Teacher наследует атрибуты класса User),
+ полиморфизм
+
+
+  */
     private int teacherId;
 
     public Teacher(String firstName, String secondName, String patronymic, LocalDate dateOfBirth, int teacherId) {
