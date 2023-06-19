@@ -12,6 +12,8 @@ public class User extends BaseUser implements UserInterface {
     protected LocalDate dateOfBirth;
     protected Integer userId;
 
+    // Применение принципа полиморфизма, то есть в зависимости от переданного типа данных можно применять одну
+    // и ту же функцию, но для объекта с разными типами данных, например, Integer и Long
     public User(String firstName, String secondName, String patronymic, LocalDate dateOfBirth, Integer userId) {
         setFirstName(firstName);
         setSecondName(secondName);
@@ -20,6 +22,13 @@ public class User extends BaseUser implements UserInterface {
         setUserId(userId);
     }
 
+    public User(String firstName, String secondName, String patronymic, LocalDate dateOfBirth, Long userId) {
+        setFirstName(firstName);
+        setSecondName(secondName);
+        setPatronymic(patronymic);
+        setDateOfBirth(dateOfBirth);
+        setUserId(userId);
+    }
     public User() {
 
     }
@@ -63,6 +72,8 @@ public class User extends BaseUser implements UserInterface {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+    public void setUserId(Long userId) {this.userId = Math.toIntExact(userId);}
 
 
 
