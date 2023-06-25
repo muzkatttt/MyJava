@@ -1,13 +1,10 @@
 package interfaceCalculate;
 
+
 import java.util.logging.Logger;
 
-public class CalcInterfaceImpl implements CalcInterface {
+public class CalcInterfaceImpl implements CalcInterface{
     Logger logger = Logger.getLogger("logger");
-
-    public CalcInterfaceImpl(Logger logger) {
-        this.logger = logger;
-    }
 
     public CalcInterfaceImpl() {
 
