@@ -10,7 +10,7 @@ public class Lesson1 {
 //        for (Integer integer : availableDivider){
 //            System.out.println(integer);
 //        }
-        List<Integer> availableSimple = findSimpleNumbers(100);
+        List<Integer> availableSimple = findSimpleNumbers(6);
         for (Integer integer : availableSimple){
             System.out.println(integer);
         }
@@ -26,16 +26,21 @@ public class Lesson1 {
 //    }
 
     public static List<Integer> findSimpleNumbers(int max){
+        // добавим счетчик для счета количества операций
+        int counter = 0;
         List<Integer> result = new ArrayList<>();
         for (int i = 1; i <= max; i++){
             boolean simple = true;
             for (int j = 2; j < i; j++){
+                counter++;
                 if (i % j == 0) simple = false;
+                //break; ввод команды break сильно упростить сложность алгоритма
             }
             if (simple){
                 result.add(i);
             }
         }
+        System.out.println("Counter: " + counter);
         return result;
     }
 }
