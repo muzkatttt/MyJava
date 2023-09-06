@@ -3,7 +3,7 @@ package lesson1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lesson1 {
+public class SimpleSort {
 
     public static void main(String[] args){
 //        List<Integer> availableDivider = findAvailableDivider(35);
