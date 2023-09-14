@@ -45,7 +45,6 @@ public class RedBlackTree {
                 }
             }
         }
-        return true;
     }
 
     private Node rebalance(Node node) {
@@ -99,6 +98,7 @@ public class RedBlackTree {
         node.leftchild.color = Node.Color.BLACK;
         node.color = Node.Color.RED;
     }
+
     private class Node{
         private int value;
         private Color color;
