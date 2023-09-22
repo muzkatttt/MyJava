@@ -30,7 +30,7 @@ public class Answer {
         //b = new int[]{1, 2, 3, 4};
         int[] c = new int[a.length];
         if (a.length != b.length) {
-            return new int[]{1};
+            return new int[]{0};
             //throw new RuntimeException("Массивы не равны");
         } else {
             for (int i = 0; i < a.length; i++) {
