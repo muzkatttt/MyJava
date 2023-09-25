@@ -1,6 +1,6 @@
 package sem1.calculate;
 
-public class Calculate {
+public class Calculator {
     public static int calculation(int firstOperand, int secondOperand, char operator) {
         int result;
 

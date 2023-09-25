@@ -3,19 +3,19 @@ package sem1.calculate;
 public class CalculateTest {
     public static void main(String[] args) {
         // Проверка базового функционала с целыми числами:
-        if (8 != Calculate.calculation(2, 6, '+')) {
+        if (8 != Calculator.calculation(2, 6, '+')) {
             throw new AssertionError("Ошибка в методе");
         }
 
-        if (0 != Calculate.calculation(2, 2, '-')) {
+        if (0 != Calculator.calculation(2, 2, '-')) {
             throw new AssertionError("Ошибка в методе");
         }
 
-        if (14 != Calculate.calculation(2, 7, '*')) {
+        if (14 != Calculator.calculation(2, 7, '*')) {
             throw new AssertionError("Ошибка в методе");
         }
 
-        if (2 != Calculate.calculation(100, 50, '/')) {
+        if (2 != Calculator.calculation(100, 50, '/')) {
             throw new AssertionError("Ошибка в методе");
         }
 
@@ -30,10 +30,10 @@ public class CalculateTest {
         // }
 
         // Проверка базового функционала с целыми числами, с использованием утверждений:
-        assert 8 == Calculate.calculation(2, 6, '+');
-        assert 0 == Calculate.calculation(2, 2, '-');
-        assert 14 == Calculate.calculation(2, 7, '*');
-        assert 2 == Calculate.calculation(100, 50, '/');
+        assert 8 == Calculator.calculation(2, 6, '+');
+        assert 0 == Calculator.calculation(2, 2, '-');
+        assert 14 == Calculator.calculation(2, 7, '*');
+        assert 2 == Calculator.calculation(100, 50, '/');
 
         // Проверка базового функционала с целыми числами, с использованием утверждений AssertJ:
 //        assertThat(Calculator.calculation(2, 6, '+')).isEqualTo(8);
@@ -46,8 +46,8 @@ public class CalculateTest {
 //                Calculator.calculation(8, 4, '_')
 //        ).isInstanceOf(IllegalStateException.class);
 
-        System.out.println(Calculate.calculation(2_147_483_647, 1, '+')); // integer overflow
-        System.out.println(Calculate.squareRootExtraction(169));
+        System.out.println(Calculator.calculation(2_147_483_647, 1, '+')); // integer overflow
+        System.out.println(Calculator.squareRootExtraction(169));
 
         // Примерные решения домашних заданий из 1 лекции:
 

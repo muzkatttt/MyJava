@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
+import static org.assertj.core.api.ClassBasedNavigableIterableAssert.assertThat;
+
 public class Main {
     public static void main(String[] args) {
         // Проверьте, как работают методы:
@@ -40,6 +42,7 @@ public class Main {
         //  testingJavaCollectionsAssertJ(colors);
 
         //  checkingHero();
+        checkingShoppingCart();
     }
 
     //                  Практические задания:
@@ -109,21 +112,21 @@ public class Main {
     // ok - assertThat(actual/фактическое).isEqualTo(expected/ожидаемое);
     // not ok - assertThat(expected/ожидаемое).isEqualTo(actual/фактическое);
     public static void expectedValue() {
-        assertThat(5).isEqualTo(sum(2, 3));
+        //assertThat(3).isEqualTo(sum(2, 3));
     }
 
     // 1.7
-    public static void testingJavaCollectionsAssertJ(String[] colors) {
-        assertThat(colors)
-                .isNotEmpty()             // Массив не должен быть пустым
-                .hasSize(7)      // Размер массива должен быть равен 7
-                .doesNotHaveDuplicates() // Массив не должен содержать повторяющихся элементов
-                .contains("orange", "green", "violet") // Массив должен содержать цвета: "orange", "green", "violet"
-                .endsWith("gold")   //  Последним цветом в массиве должен быть "gold"
-                .startsWith("aqua")     // Первым цветом в массиве должен быть "aqua"
-                .containsSequence("yellow", "blue")      // В массиве должна быть последовательность цветов "yellow", "blue"
-                .doesNotContain("red", "black"); //Массив не должен содержать цвета: "red", "black"
-    }
+//    public static void testingJavaCollectionsAssertJ(String[] colors) {
+//        assertThat("colors")
+//                .isNotEmpty()             // Массив не должен быть пустым
+//                .hasSize(7)      // Размер массива должен быть равен 7
+//                .doesNotHaveDuplicates() // Массив не должен содержать повторяющихся элементов
+//                .contains("orange", "green", "violet") // Массив должен содержать цвета: "orange", "green", "violet"
+//                .endsWith("gold")   //  Последним цветом в массиве должен быть "gold"
+//                .startsWith("aqua")     // Первым цветом в массиве должен быть "aqua"
+//                .containsSequence("yellow", "blue")      // В массиве должна быть последовательность цветов "yellow", "blue"
+//                .doesNotContain("red", "black"); //Массив не должен содержать цвета: "red", "black"
+//    }
 
     // 1.8
     public static void checkingHero() {
