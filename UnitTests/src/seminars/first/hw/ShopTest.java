@@ -48,7 +48,7 @@ public class ShopTest {
         assertThat(shop.getMostExpensiveProduct().getCost()).isEqualTo(100);
 
         //магазин возвращает верный отсортированный по цене список продуктов
-        assertThat(shop.getSortedListProducts());
+        assertThat(shop.getSortedListProducts().get(2).equals(productFromBasket0));
     }
 }
 
