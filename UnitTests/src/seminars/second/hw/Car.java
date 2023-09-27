@@ -1,6 +1,6 @@
 package seminars.second.hw;
 
-public class Car extends Vehicle {
+public class Car extends VehicleAbstract {
     private String company;
     private String model;
     private int yearRelease;

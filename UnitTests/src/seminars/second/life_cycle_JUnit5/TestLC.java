@@ -1,34 +1,34 @@
 package seminars.second.life_cycle_JUnit5;
 
-import org.junit.jupiter.api.*;
+//import org.junit.jupiter.api.*;
 
 public class TestLC {
-    @BeforeAll
+    //@BeforeAll
     static void setup() {
         System.out.println("@BeforeAll");
     }
 
-    @BeforeEach
+    //@BeforeEach
     void setupThis() {
         System.out.println("@BeforeEach");
     }
 
-    @Test
+    //@Test
     void testOne() {
         System.out.println("testOne");
     }
 
-    @Test
+    //@Test
     void testTwo() {
         System.out.println("testTwo");
     }
 
-    @AfterEach
+    //@AfterEach
     void tearThis() {
         System.out.println("@AfterEach");
     }
 
-    @AfterAll
+    //@AfterAll
     static void tear() {
         System.out.println("@AfterAll");
     }
