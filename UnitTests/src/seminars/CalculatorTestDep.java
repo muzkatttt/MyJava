@@ -1,3 +1,7 @@
+package seminars;
+
+import seminars.first.model.Calculator;
+
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -70,9 +74,9 @@ public class CalculatorTestDep {
         //    assertThat(Calculator.calculation(2, 6, '+')).isEqualTo(0);
 
         //HW2.3L: Добавьте функцию возведения в степень в калькулятор и протестируйте
-        assertThat(Calculator.pow(10, 0)).isEqualTo(1);
-        assertThat(Calculator.pow(10, 1)).isEqualTo(10);
-        assertThat(Calculator.pow(2, 8)).isEqualTo(256);
+        assertThat(Calculator.squareRootExtraction(16)).isEqualTo(4);
+        assertThat(Calculator.squareRootExtraction(100)).isEqualTo(10);
+        assertThat(Calculator.squareRootExtraction(4)).isEqualTo(2);
 
         // HW2.1: Нужно написать в калькуляторе метод вычисления суммы покупки (метод принимает сумму, процент скидки и
         // возвращает сумму со скидкой) и проверить его используя AssertJ (отрицательное числа, 0, дроби, проценты >=100%, обычные скидки).
