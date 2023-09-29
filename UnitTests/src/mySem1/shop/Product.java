@@ -1,4 +1,4 @@
-package sem1.shop;
+package mySem1.shop;
 
 public class Product {
         private Integer cost; // Стоимость продукта

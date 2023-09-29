@@ -1,4 +1,4 @@
-package sem1.shop;
+package mySem1.shop;
 
 import java.util.List;
 

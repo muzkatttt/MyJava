@@ -1,4 +1,4 @@
-package sem1;
+package mySem1;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

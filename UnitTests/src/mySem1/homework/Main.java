@@ -1,4 +1,4 @@
-package sem1.homework;
+package mySem1.homework;
 
 public class Main {
     /*
