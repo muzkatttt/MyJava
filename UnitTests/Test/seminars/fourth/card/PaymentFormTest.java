@@ -1,5 +1,9 @@
 package seminars.fourth.card;
 
+import org.junit.jupiter.api.Test;
+
+import static org.mockito.Mockito.*;
+
 class PaymentFormTest {
 
     /**
@@ -12,6 +16,23 @@ class PaymentFormTest {
      * Создайте объект класса `PaymentForm`, передайте ему мок-объект в качестве аргумента.
      * Вызовите метод `pay()` и убедитесь, что мок-объект вызывает метод `charge()`
      */
+    @Test
+    public void methodPayWillCallMethodCharge(){
+        CreditCard creditCardMock = mock(CreditCard.class);
+
+        when(creditCardMock.getCardHolder()).thenReturn("CardHolder");
+        when(creditCardMock.getCardNumber()).thenReturn("12234212");
+        when(creditCardMock.getExpiryDate()).thenReturn("11.30");
+        when(creditCardMock.getCvv()).thenReturn("011");
+
+        PaymentForm paymentForm = new PaymentForm(creditCardMock);
+
+        paymentForm.pay(100);
+        // дублирование вызова метода pay для вызова ошибки
+        // paymentForm.pay(100);
+        // проверка метода через аргумент times(1)
+        verify(creditCardMock, times(1)).charge(100);
+    }
 
 
 

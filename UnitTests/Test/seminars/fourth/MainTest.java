@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
 
 class MainTest {
 
@@ -34,9 +37,24 @@ class MainTest {
       public void iteratorWillReturnHelloWorld() {
           // Arrange
           Iterator iteratorMock = mock(Iterator.class);
-          //when(iteratorMock.next()).thenReturn("Hello")...;
+          // для нескольких методов через запятую
+          when(iteratorMock.next()).thenReturn("Hello", "World").thenReturn("Hello", "World");
           // Act
-          // ...
+          String result = iteratorMock.next() + " " + iteratorMock.next();
+          assertEquals("Hello World", result);
       }
 
+      /*
+      @Test
+      public void iteratorWillReturnHelloWorld() {
+          // Arrange
+          Iterator iteratorMock = mock(Iterator.class);
+          when(iteratorMock.next()).thenReturn("Hello", "World");
+//          when(iteratorMock.next()).thenReturn("Hello", "World").thenReturn();
+          // Act
+          String result = iteratorMock.next() + " " + iteratorMock.next();
+          // ...
+          assertEquals("Hello World", result);
+      }
+       */
 }
