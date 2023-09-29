@@ -10,7 +10,7 @@ public class Motorcycle extends Venicle {
     private int numWheels;
     private int speed;
 
-    public Motorcycle (String company, String model, int year) {
+    public Motorcycle(String company, String model, int year) {
         this.company = company;
         this.model = model;
         this.yearRelease = year;
@@ -39,7 +39,6 @@ public class Motorcycle extends Venicle {
         return speed;
     }
     public String toString() {
-        return "This motorcycle is a " + getCompany() + ", year " + getYearRelease() +
-                ", model " + getModel() + ";";
+        return "This motorcycle is a “ + getYearRelease + “ “ + make + “ “ + model + “;";
     }
 }

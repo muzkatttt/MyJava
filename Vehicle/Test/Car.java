@@ -51,6 +51,4 @@ public class Car extends Venicle{
         return "This car is a " + getCompany() + ", year " + getYearRelease() +
                 ", model " + getModel() + ";";
     }
-
-
 }
