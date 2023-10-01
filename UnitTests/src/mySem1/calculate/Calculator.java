@@ -1,6 +1,9 @@
 package mySem1.calculate;
 
+import java.util.Scanner;
+
 public class Calculator {
+    private static final Scanner scanner = new Scanner(System.in);
     public static int calculation(int firstOperand, int secondOperand, char operator) {
         int result;
 
@@ -47,4 +50,27 @@ public class Calculator {
         // discountAmount - размер скидки
         return 0; // Метод должен возвращать сумму покупки со скидкой
     }
+    public static char getOperator() {
+        System.out.println("Enter operation: ");
+        char operation = scanner.next().charAt(0);
+        return operation;
+    }
+
+    public static int getOperand() {
+        System.out.println("Enter operand: ");
+        int operand;
+        if (scanner.hasNextInt()) {
+            operand = scanner.nextInt();
+        } else {
+            System.out.println("You have mistaken, try again");
+            if (scanner.hasNext()) {
+                scanner.next();
+                operand = getOperand();
+            } else {
+                throw new IllegalStateException("Input error");
+            }
+        }
+        return operand;
+    }
+
 }

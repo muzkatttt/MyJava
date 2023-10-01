@@ -3,7 +3,7 @@ package seminars.fourth.message;
 
 import org.junit.jupiter.api.Test;
 
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 
 class NotificationServiceTest {
@@ -19,30 +19,19 @@ class NotificationServiceTest {
     void notificationServiceTest(){
         MessageService messageServiceMock = mock(MessageService.class);
         NotificationService notificationService = new NotificationService(messageServiceMock);
-
-        // можно через переменные
-
-
         notificationService.sendNotification("message", "muzkat");
 
-        // исправить после семинара
-        //verify(messageServiceMock, times(1)).sendMessage("message", "muzkat");
+        verify(messageServiceMock, times(1)).sendMessage("message", "muzkat");
 
 
+        // можно через переменные
+        // MessageService messageServiceMock = mock(MessageService.class);
+        // NotificationService notificationService = new NotificationService(messageServiceMock);
+
+        // String message = "this not so easy";
+        // String receiver = "evil_coder";
+        // notificationService.sendNotification(message, receiver);
+
+        // verify(messageServiceMock, times(1)).sendMessage(message, receiver);
     }
-
-    /* Ришат решал на семинаре
-    @Test
-    public void messageDeligateTest() {
-        MessageService messageServiceMock = mock(MessageService.class);
-        NotificationService notificationService = new NotificationService(messageServiceMock);
-
-        String message = "this not so easy";
-        String receiver = "evil_coder";
-        notificationService.sendNotification(message, receiver);
-
-        verify(messageServiceMock, times(1)).sendMessage(message, receiver);
-    }
-     */
-
 }

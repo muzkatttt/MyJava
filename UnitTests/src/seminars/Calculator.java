@@ -1,6 +1,12 @@
+package seminars;
+
 import java.util.Scanner;
 
 public class Calculator {
+    /*
+    Попробуйте реализовать в калькуляторе
+с помощью методологии TDD (с описанием шагов) функцию расчета длины окружности
+     */
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
