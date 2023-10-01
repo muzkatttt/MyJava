@@ -8,6 +8,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class BookServiceTest {
+
+
     /**
      * Задание 2.
      * У вас есть класс BookService, который использует интерфейс BookRepository
@@ -18,13 +20,13 @@ class BookServiceTest {
     @Test
 
     public void bookServiceTest() {
+        Book book = new Book("1", "Winter", "Kate");
         BookRepository bookRepositoryMock = mock(BookRepository.class);
-
-        when(bookRepositoryMock.findById("1")).thenReturn(new Book("1", "Book1", "Author1"));
+        when(bookRepositoryMock.findById("1")).thenReturn(new Book("2", "Book1", "Author1"));
 
         BookService bookService = new BookService(bookRepositoryMock);
 
-        assertThat(bookService.findBookById("1")).isEqualTo("1");
+        assertThat(bookService.findBookById("2")).isEqualTo(book.getId());
 
     }
 }
