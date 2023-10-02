@@ -1,5 +1,7 @@
 package hwSem3;
 
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
         /**
@@ -24,16 +26,44 @@ public class Main {
          * с информацией, что именно неверно.
          * Если всё введено и обработано верно, должен создаться файл с названием,
          * равным фамилии, в него в одну строку должны записаться полученные данные,
-         * вида <Фамилия><Имя><Отчество><датарождения> <номертелефона><пол>
+         * вида <Фамилия><Имя><Отчество><датарождения><номертелефона><пол>
          * Однофамильцы должны записаться в один и тот же файл, в отдельные строки.
          * Не забудьте закрыть соединение с файлом.
          * При возникновении проблемы с чтением-записью в файл,
          * исключение должно быть корректно обработано, пользователь
          * должен увидеть стектрейс ошибки.
          */
-        User user = new User(
-                "Фамилия", "Имя", "Отчество",
-                "10.10.2010", "1111", "male");
-        System.out.println(user);
+
+        String stringMessage = inputFromUser();
+        List<String> userList = parseStringFromUser(stringMessage);
+
     }
+
+    public static String inputFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите фамилию, имя, отчество, дату рождения, номер телефона, пол через пробел \n>>>");
+        String message = scanner.nextLine();
+        return message;
+    }
+
+    public static List<String> parseStringFromUser(String message) {
+        List<String> userList = Arrays.asList(message.split(" "));
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("<");
+        stringBuilder.append(userList.get(0));
+        stringBuilder.append(" ");
+        stringBuilder.append(userList.get(1));
+        stringBuilder.append(" ");
+        stringBuilder.append(userList.get(2));
+        stringBuilder.append("><");
+        stringBuilder.append(userList.get(3));
+        stringBuilder.append("><");
+        stringBuilder.append(userList.get(4));
+        stringBuilder.append("><");
+        stringBuilder.append(userList.get(5));
+        stringBuilder.append(">");
+        System.out.println(stringBuilder);
+        return userList;
+    }
+
 }
