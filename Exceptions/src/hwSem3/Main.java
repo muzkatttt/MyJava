@@ -38,11 +38,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         InputFromUser inputFromUser = new InputFromUser(scanner);
-        UseWriteToFile useWriteToFile = new UseWriteToFile();
+        WriteUserToFile writeUserToFile = new WriteUserToFile();
 
         try {
-            User user = inputFromUser.readFromUser();
-            useWriteToFile.writeUserData(user);
+            User user = inputFromUser.inputFromUser();
+            writeUserToFile.writeUserToFile(user);
         } catch (UserException | IOException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }

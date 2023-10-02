@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class UseWriteToFile {
-    public void writeUserData(User user) throws IOException {
+public class WriteUserToFile {
+    public void writeUserToFile(User user) throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите название файла для записи: \n>>> ");
         String fileName = scanner.nextLine();
-        FileWriter writer = new FileWriter(fileName, true);
+        FileWriter fileWriter = new FileWriter(fileName, false);
         String userDataString = String.join(" ",
                 user.getSurname(),
                 user.getName(),
@@ -18,9 +18,9 @@ public class UseWriteToFile {
                 user.getDateOfBirth().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
                 String.valueOf(user.getNumberOfTelephone()),
                 user.getGender().toString());
-        writer.write(userDataString);
-        writer.write("\n");
-        writer.close();
+        fileWriter.write(userDataString);
+        fileWriter.write("\n");
+        fileWriter.close();
         System.out.println("Данные пользователя успешно обавлены в файл");
     }
 }
