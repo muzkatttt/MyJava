@@ -1,20 +1,21 @@
 package hwSem3;
 
-import javax.print.attribute.SetOfIntegerSyntax;
+import java.time.LocalDate;
 
 public class User {
-    public String surname;
-    public String name;
+    private String surname;
+    private String name;
 
-    public String patronymic;
+    private String patronymic;
 
-    public String dateOfBirth;
+    private LocalDate dateOfBirth;
 
-    public String numberOfTelephone;
+    private String numberOfTelephone;
 
-    public String gender;
+    private Gender gender;
 
-    public User(String surname, String name, String patronymic, String dateOfBirth, String numberOfTelephone, String gender) {
+    public User(String surname, String name, String patronymic, LocalDate dateOfBirth,
+                String numberOfTelephone, Gender gender) {
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
@@ -47,12 +48,12 @@ public class User {
         this.patronymic = patronymic;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+        this.dateOfBirth = LocalDate.parse(dateOfBirth);
     }
 
     public String getNumberOfTelephone() {
@@ -63,12 +64,12 @@ public class User {
         this.numberOfTelephone = numberOfTelephone;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
     public void setGender(String gender) {
-        this.gender = gender;
+        this.gender = Gender.valueOf(gender);
     }
 
     @Override
