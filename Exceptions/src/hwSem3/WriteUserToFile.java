@@ -12,13 +12,13 @@ public class WriteUserToFile {
         String fileName = scanner.nextLine();
         FileWriter fileWriter = new FileWriter(fileName, true);
         // true - добавлять файл, false - перезаписывает файл
-        String userDataString = String.join(" ",
-                user.getSurname(),
+        String userDataString = String.join("><",
+                "<" + user.getSurname(),
                 user.getName(),
                 user.getPatronymic(),
                 user.getDateOfBirth().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
                 String.valueOf(user.getNumberOfTelephone()),
-                user.getGender().toString());
+                user.getGender().toString()) + ">";
         fileWriter.write(userDataString);
         fileWriter.write("\n");
         fileWriter.close();

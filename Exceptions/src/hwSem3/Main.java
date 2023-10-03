@@ -48,5 +48,7 @@ public class Main {
         } catch (UserException | IOException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
+
+        System.out.println("Проверьте файл, данные записаны.");
     }
 }

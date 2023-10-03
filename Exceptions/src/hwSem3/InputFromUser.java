@@ -50,7 +50,7 @@ public class InputFromUser {
         try {
             return phoneNumberString;
         } catch (NumberFormatException e) {
-            throw new ExceptionParseFromUser();
+            throw new ExceptionParseFromUser(e.getMessage());
         }
     }
 
@@ -58,7 +58,7 @@ public class InputFromUser {
         try {
             return LocalDate.parse(dateOfBirthString, DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         } catch (Exception e) {
-            throw new ExceptionParseFromUser();
+            throw new ExceptionParseFromUser(e.getMessage());
         }
     }
 
