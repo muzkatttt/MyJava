@@ -1,12 +1,14 @@
 package hwSem3;
 
+import hwSem3.myExceptions.ExceptionParseFromUser;
+import hwSem3.myExceptions.UserException;
+
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class InputFromUser {
-
     private Scanner scanner;
 
     public InputFromUser(Scanner scanner) {
@@ -18,7 +20,7 @@ public class InputFromUser {
         while (true) {
             System.out.println("Введите через пробел: \n" +
                     "фамилию, имя, отчество --> русскими или латинскими буквами\n" +
-                    "дату рождения --> в формате dd.mm.yyyy,\n" +
+                    "дату рождения --> в формате dd.MM.yyyy,\n" +
                     "номер телефона --> строковое значение,\n" +
                     "пол --> male или female, где male = мужской, female = женский\n>>> ");
             try {

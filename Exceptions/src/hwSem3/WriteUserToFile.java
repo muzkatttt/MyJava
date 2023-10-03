@@ -22,6 +22,6 @@ public class WriteUserToFile {
         fileWriter.write(userDataString);
         fileWriter.write("\n");
         fileWriter.close();
-        System.out.println("Данные пользователя успешно обавлены в файл");
+        System.out.println("Данные пользователя записаны в файл");
     }
 }

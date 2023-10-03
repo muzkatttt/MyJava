@@ -1,5 +1,7 @@
 package hwSem3;
 
+import hwSem3.myExceptions.UserException;
+
 import java.io.IOException;
 import java.util.*;
 
