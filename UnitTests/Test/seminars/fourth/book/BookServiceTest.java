@@ -46,4 +46,17 @@ class BookServiceTest {
         assertThat(bookService.findBookById("1")).isEqualTo(book);
     }
 
+    @Test
+    public void bookServiceTestAllFind() {
+        Book book1 = new Book("2", "Book2", "Author2");
+        InMemoryBookRepository inMemoryBookRepositoryMock = mock(InMemoryBookRepository.class);
+
+        // прописываем поведение inMemoryBookRepositoryMock, от которого ожидаем
+        // строковое значение ID книги и сравниваем его с экземпляром класса book
+        when(inMemoryBookRepositoryMock.findById("2")).thenReturn(book1);
+
+        // проверяем, содержит ли inMemoryBookRepositoryMock book1
+        assertThat(inMemoryBookRepositoryMock.findAll().contains(book1));
+    }
+
 }
