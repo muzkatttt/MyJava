@@ -4,8 +4,9 @@ package seminars.fourth.book;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.*;
 
 class BookServiceTest {
 
@@ -18,15 +19,31 @@ class BookServiceTest {
      * используя Mockito для создания мок-объекта BookRepository.
      */
     @Test
-
-    public void bookServiceTest() {
+    public void bookServiceTestEquals() {
         Book book = new Book("1", "Winter", "Kate");
+
+        // создаем instance class --> bookRepositoryMock, который содержит метод findById()
         BookRepository bookRepositoryMock = mock(BookRepository.class);
-        when(bookRepositoryMock.findById("1")).thenReturn(new Book("2", "Book1", "Author1"));
+        // прописываем поведение bookRepositoryMock, от которого ожидаем любое строковое значение ID книги
+        // и сравниваем его с экземпляром класса book
+        when(bookRepositoryMock.findById(anyString())).thenReturn(book);
 
         BookService bookService = new BookService(bookRepositoryMock);
 
-        assertThat(bookService.findBookById("2")).isEqualTo(book.getId());
-
+        assertEquals(bookService.findBookById("1"), book);
     }
+    @Test
+    public void bookServiceTest() {
+        Book book = new Book("2", "Winter", "Kate");
+        BookRepository bookRepositoryMock = mock(BookRepository.class);
+
+        // прописываем поведение bookRepositoryMock, от которого ожидаем
+        // строковое значение ID книги и сравниваем его с экземпляром класса book
+        when(bookRepositoryMock.findById("1")).thenReturn(book);
+
+        BookService bookService = new BookService(bookRepositoryMock);
+
+        assertThat(bookService.findBookById("1")).isEqualTo(book);
+    }
+
 }
