@@ -1,4 +1,5 @@
 package seminars.five;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +21,7 @@ public class SeleniumTest {
 
     @Test
     public void checkBrowserTest(){
-        //System.setProperty("webdriver.chrome.driver", ); // скачать exe файл и добавить его путь вторым аргументом
+        //System.setProperty("webdriver.chrome.driver", "/Users/ekaterinarodionova/Desktop/MyJava/UnitTests/Test/chromedriver"); // скачать exe файл и добавить его путь вторым аргументом
         WebDriver driver = new ChromeDriver(); // сюда ставим название драйвера
         driver.get("http://www.google.com");
         WebElement searchBox = driver.findElement(By.name("q"));
