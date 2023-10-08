@@ -1,4 +1,4 @@
-package seminars.sixth.hwSem6;
+package seminars.hwSem6;
 
 import java.util.Arrays;
 

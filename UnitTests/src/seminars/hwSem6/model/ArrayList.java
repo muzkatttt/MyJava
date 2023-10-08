@@ -1,4 +1,4 @@
-package seminars.sixth.hwSem6.model;
+package seminars.hwSem6.model;
 
 public class ArrayList extends AbstractClass implements ListInterface {
 
