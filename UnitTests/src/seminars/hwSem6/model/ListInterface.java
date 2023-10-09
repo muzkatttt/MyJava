@@ -1,6 +1,12 @@
 package seminars.hwSem6.model;
 
+import java.util.List;
+
 public interface ListInterface {
 
-    void compareArrays(ArrayList array1, ArrayList array2);
+    void compareList(List<Integer> list1, List<Integer> list2);
+    double averageList(List<Integer> list);
+
+    public abstract List<Integer> addList(int num);
+
 }

@@ -1,24 +1,26 @@
 package seminars.hwSem6.model;
 
+import java.util.List;
+
 public abstract class AbstractClass {
-    public ArrayList list;
+    public List<Integer> list;
 
     int resultAverage;
 
-    public AbstractClass(ArrayList list) {
+    public AbstractClass() {
         this.list = list;
     }
 
-    public AbstractClass(ArrayList list, int resultAverage) {
+    public AbstractClass(List<Integer> list, int resultAverage) {
         this.list = list;
         this.resultAverage = resultAverage;
     }
 
-    public ArrayList getList() {
+    public List<Integer> getList() {
         return list;
     }
 
-    public void setList(ArrayList list) {
+    public void setList(List<Integer> list) {
         this.list = list;
     }
 
@@ -29,4 +31,5 @@ public abstract class AbstractClass {
     public void setResultAverage(int resultAverage) {
         this.resultAverage = resultAverage;
     }
+
 }

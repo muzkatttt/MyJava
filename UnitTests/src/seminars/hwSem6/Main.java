@@ -1,6 +1,6 @@
 package seminars.hwSem6;
 
-import java.util.Arrays;
+import seminars.hwSem6.model.MyList;
 
 public class Main {
     /*
@@ -29,13 +29,36 @@ public class Main {
 - Объяснение того, какие сценарии покрыты тестами и почему вы выбрали именно эти сценарии.
      */
     public static void main(String[] args){
-        // создаем массив целых чисел
-        Integer[] array1 = {1, 2, 3, 4, 5};
+        // создаем лист с целыми числами
+        MyList<Integer> list1 = new MyList<>();
+        list1.addList(1);
+        list1.addList(1);
+        list1.addList(1);
+        list1.addList(1);
+        list1.addList(1);
+        list1.addList(1);
+        list1.addList(1);
+        MyList<Integer> list2 = new MyList<>();
+        list2.addList(5);
+        list2.addList(0);
+        list2.addList(5);
+        list2.addList(6);
+        list2.addList(2);
+        list2.addList(1);
+        System.out.println(list1 + " " + list2);
 
-        Integer[] array2 = {0, 1, 0 , 1};
 
-        System.out.println(Arrays.asList(array1));
-        System.out.println(Arrays.asList(array2));
+        //IntSummaryStatistics avg1 = list1.stream().collect(Collectors.summarizingInt(Integer::intValue));
+        //System.out.println(avg1);
+
+        //double avg2 = list2.getResultAverage();
+        //System.out.println(avg2);
+        //List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
+        //List<Integer> list2 = Arrays.asList(1, 2, 3, 4, 5);
+        //System.out.println(Arrays.asList(1,2,3,4,5).stream().collect(Collectors.summarizingInt(Integer::intValue)));
+        // System.out.println(list1.stream().mapToInt(Integer::intValue).average());
+
+
 
     }
 }
