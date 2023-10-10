@@ -27,23 +27,24 @@ public class Main {
 - Объяснение того, какие сценарии покрыты тестами и почему вы выбрали именно эти сценарии.
      */
     public static void main(String[] args){
-        // создаем массив с целыми числами
-        
-//        проверка работоспособности кода
-//        int[] array = new int[]{1, 2, 3, 4, 5};
-//        System.out.println(Arrays.stream(array).average());
-//
-//        MyList myList = new MyList(new int[]{1, 2, 3, 4, 5});
-//        myList.averageArray(array);
-//        System.out.println(myList.averageArray(array));
+        /*
+        проверка работоспособности методов
+        int[] array = new int[]{1, 2, 3, 4, 5};
+        System.out.println(Arrays.stream(array).average());
+
+        MyList myList = new MyList(new int[]{1, 2, 3, 4, 5});
+        myList.averageArray(array);
+        System.out.println(myList.averageArray(array));
+        */
 
         Controller controller = new Controller();
+
         int[] array1 = controller.createArray();
-        controller.toString(array1);
-        int[] array2 = controller.createArray();
-        controller.toString(array2);
         double averageArray1 = controller.averageArray(array1);
+
+        int[] array2 = controller.createArray();
         double averageArray2 = controller.averageArray(array2);
+
         controller.compareArray(averageArray1, averageArray2);
     }
 }

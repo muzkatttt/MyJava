@@ -6,8 +6,6 @@ public abstract class AbstractClass {
     double resultAverage;
 
     int[] createArray() {
-        return new int[5];
+        return new int[10];
     }
-
-    abstract String toString(int[] array);
 }

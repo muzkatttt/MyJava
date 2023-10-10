@@ -2,8 +2,6 @@ package seminars.hwSem6;
 
 import seminars.hwSem6.model.MyList;
 
-import java.util.Arrays;
-
 public class Controller {
     MyList myList;
 
@@ -23,8 +21,4 @@ public class Controller {
         return myList.createArray();
     }
 
-    public String toString(int[] array) {
-        return "Массив: " + Arrays.toString(myList.getArray()) + ". Среднее значение списка (average): "
-                + myList.getResultAverage() + ".";
-    }
 }

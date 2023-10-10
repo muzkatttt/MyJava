@@ -1,6 +1,6 @@
 package seminars.hwSem6.model;
 
-import java.util.Arrays;
+import java.util.Random;
 
 public class MyList extends AbstractClass implements ListInterface {
     public int[] array;
@@ -32,17 +32,21 @@ public class MyList extends AbstractClass implements ListInterface {
         for (int i = 0; i < array.length; i++) {
             sum = sum + array[i];
         }
-        resultAverage = sum / array.length;
+        resultAverage = Math.round(sum / array.length);
+        System.out.println("Среднее значение списка = " + resultAverage + ".");
         return resultAverage;
     }
 
     @Override
     public int[] createArray() {
-        int[] array = new int[5];
+        Random random = new Random();
+        int[] array = new int[10];
         for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 10);
+            array[i] = Math.abs(random.nextInt(3, 10));
+            System.out.print(array[i] + " ");
         }
-        System.out.println("Массив" + Arrays.stream(array).toString());
+
+        System.out.println("\n");
         return array;
     }
 
@@ -62,9 +66,4 @@ public class MyList extends AbstractClass implements ListInterface {
         this.resultAverage = resultAverage;
     }
 
-    @Override
-    public String toString(int[] array) {
-        return "Массив: " + getArray() + ". Среднее значение списка (average): "
-                + getResultAverage() + ".";
-    }
 }
