@@ -3,7 +3,7 @@ package seminars.hwSem6.model;
 import java.util.Random;
 
 public class MyList extends AbstractClass implements ListInterface {
-    public int[] array;
+    private int[] array;
     double resultAverage;
 
     public MyList() {
@@ -11,9 +11,6 @@ public class MyList extends AbstractClass implements ListInterface {
         this.resultAverage = resultAverage;
     }
 
-    public MyList(int[] array) {
-        this.array = array;
-    }
     @Override
     public void compareArray(double resultAverage1, double resultAverage2) {
         if(resultAverage1 == resultAverage2) {
@@ -33,7 +30,7 @@ public class MyList extends AbstractClass implements ListInterface {
             sum = sum + array[i];
         }
         resultAverage = Math.round(sum / array.length);
-        System.out.println("Среднее значение списка = " + resultAverage + ".");
+        System.out.println("\nСреднее значение списка = " + resultAverage + ".\n");
         return resultAverage;
     }
 
@@ -43,27 +40,9 @@ public class MyList extends AbstractClass implements ListInterface {
         int[] array = new int[10];
         for (int i = 0; i < array.length; i++) {
             array[i] = Math.abs(random.nextInt(3, 10));
-            System.out.print(array[i] + " ");
+            System.out.printf(array[i] + " ");
         }
-
-        System.out.println("\n");
         return array;
-    }
-
-    public int[] getArray() {
-        return array;
-    }
-
-    public void setArray(int[] array) {
-        this.array = array;
-    }
-
-    public double getResultAverage() {
-        return resultAverage;
-    }
-
-    public void setResultAverage(double resultAverage) {
-        this.resultAverage = resultAverage;
     }
 
 }
