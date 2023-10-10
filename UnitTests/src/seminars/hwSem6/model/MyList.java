@@ -3,12 +3,8 @@ package seminars.hwSem6.model;
 import java.util.Random;
 
 public class MyList extends AbstractClass implements ListInterface {
-    private int[] array;
-    double resultAverage;
 
     public MyList() {
-        this.array = array;
-        this.resultAverage = resultAverage;
     }
 
     @Override
@@ -24,12 +20,11 @@ public class MyList extends AbstractClass implements ListInterface {
 
     @Override
     public double averageArray(int[] array) {
-        double resultAverage = 0;
         double sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            sum = sum + array[i];
+        for (int j : array) {
+            sum = sum + j;
         }
-        resultAverage = Math.round(sum / array.length);
+        double resultAverage = Math.round(sum / array.length);
         System.out.println("\nСреднее значение списка = " + resultAverage + ".\n");
         return resultAverage;
     }
