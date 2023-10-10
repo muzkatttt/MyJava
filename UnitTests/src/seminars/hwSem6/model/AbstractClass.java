@@ -1,35 +1,13 @@
 package seminars.hwSem6.model;
 
-import java.util.List;
-
 public abstract class AbstractClass {
-    public List<Integer> list;
+    int[] array;
 
-    int resultAverage;
+    double resultAverage;
 
-    public AbstractClass() {
-        this.list = list;
+    int[] createArray() {
+        return new int[5];
     }
 
-    public AbstractClass(List<Integer> list, int resultAverage) {
-        this.list = list;
-        this.resultAverage = resultAverage;
-    }
-
-    public List<Integer> getList() {
-        return list;
-    }
-
-    public void setList(List<Integer> list) {
-        this.list = list;
-    }
-
-    public double getResultAverage() {
-        return resultAverage;
-    }
-
-    public void setResultAverage(int resultAverage) {
-        this.resultAverage = resultAverage;
-    }
-
+    abstract String toString(int[] array);
 }

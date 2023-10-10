@@ -21,7 +21,7 @@ public class SeleniumTest {
 
     @Test
     public void checkBrowserTest(){
-        //System.setProperty("webdriver.chrome.driver", "/Users/ekaterinarodionova/Desktop/MyJava/UnitTests/Test/chromedriver"); // скачать exe файл и добавить его путь вторым аргументом
+        //System.setProperty("webdriver.chrome.driver", "/Users/ekaterinarodionova/Desktop/GB/UnitTests/chromedriver"); // скачать exe файл и добавить его путь вторым аргументом
         WebDriver driver = new ChromeDriver(); // сюда ставим название драйвера
         driver.get("http://www.google.com");
         WebElement searchBox = driver.findElement(By.name("q"));
@@ -39,4 +39,29 @@ public class SeleniumTest {
         assertTrue(a);
         driver.quit();
     }
+
+    /*
+    @Test
+    public void testGoogleSearch() {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.google.com");
+        WebElement searchBox = driver.findElement(By.name("q"));
+        searchBox.sendKeys(new CharSequence[]{"Selenium"});
+        searchBox.submit();
+        List<WebElement> searchResults = driver.findElements(By.cssSelector("div.g"));
+        boolean isFound = false;
+        Iterator var5 = searchResults.iterator();
+
+        while(var5.hasNext()) {
+            WebElement webElement = (WebElement)var5.next();
+            if (webElement.getText().contains("https://www.selenium.dev")) {
+                isFound = true;
+                break;
+            }
+        }
+
+        Assertions.assertTrue(isFound);
+        driver.quit();
+
+     */
 }
