@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class MyListTest {
 
@@ -55,6 +57,13 @@ class MyListTest {
         }
 
         assertThat(array).containsExactly(1);
+    }
+
+    // тест, который проверяет создание нового списка в классе MyList
+    @Test
+    void createMyListTest(){
+        MyList myListMock = mock(MyList.class);
+        when(myListMock.createArray()).thenReturn(new int[]{1,1,1,1,1});
     }
 
 }
