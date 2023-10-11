@@ -6,13 +6,13 @@ import static org.mockito.Mockito.*;
 
 
 class ControllerTest {
-    Controller controllerMock = mock(Controller.class);
+    final Controller controllerMock = mock(Controller.class);
 
-    int[] array = new int[]{1, 1, 1, 1, 1};
-    double averageArray = 1.0;
+    final int[] array = new int[]{1, 1, 1, 1, 1};
+    final double averageArray = 1.0;
 
-    int[] array1 = new int[]{2, 2, 2, 2, 2};
-    double averageArray1 = 2.0;
+    // --Commented out by Inspection (11.10.2023, 20:34):int[] array1 = new int[]{2, 2, 2, 2, 2};
+    final double averageArray1 = 2.0;
 
 
     // тест, что в контроллере создается новый массив с заданными значениями
