@@ -16,8 +16,7 @@ public class Decorator {
         /*
          * Метод декорирует число, добавляя к нему строку
          * при помощи функции форматирования строк
-         * */
+         */
         return String.format("Here is your number: %d.", a);
     }
 }
-

@@ -4,8 +4,9 @@ import ru.sem1.regular.Decorator;
 import ru.sem1.regular.OtherClass;
 
 /**
+ * c семинара комментарии от преподавателя
  * https://www.docker.com/products/docker-desktop/
- *  https://hub.docker.com/
+ * https://hub.docker.com/
  * cd C:\sources\gb\coreV2\group2\lesson1\out\artifacts\lesson1_jar
  * java -jar lesson1.jar
  * cd C:\sources\gb\coreV2\group2\lesson1\src\main
