@@ -4,17 +4,17 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-/**
- * 1. Полностью разобраться с кодом программы разработанной на семинаре, переписать программу.
- * Это минимальная задача для сдачи домашней работы.
- *
- * Усложняем задачу:
- * 2.* Переработать метод проверки победы, логика проверки победы должна работать для поля 5х5
- * и количества фишек 4. Очень желательно не делать это просто набором условий
- * для каждой из возможных ситуаций! Используйте вспомогательные методы, используйте циклы!
- *
- * 3.**** Доработать искусственный интеллект, чтобы он мог блокировать ходы игрока.
- */
+    /**
+     * 1. Полностью разобраться с кодом программы разработанной на семинаре, переписать программу.
+     * Это минимальная задача для сдачи домашней работы.
+     * <p>
+     * Усложняем задачу:
+     * 2.* Переработать метод проверки победы, логика проверки победы должна работать для поля 5х5
+     * и количества фишек 4. Очень желательно не делать это просто набором условий
+     * для каждой из возможных ситуаций! Используйте вспомогательные методы, используйте циклы!
+     * <p>
+     * 3.**** Доработать искусственный интеллект, чтобы он мог блокировать ходы игрока.
+     */
     private static final char DOT_HUMAN = 'X';
     private static final char DOT_AI = '0';
     private static final char DOT_EMPTY = '_';
@@ -24,14 +24,15 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static final Random random = new Random();
 
-    private static  char[][] field;
+    private static char[][] field;
     private static int fieldSizeX;
     private static int fieldSizeY;
+
     public static void main(String[] args) {
-        while (true){
+        while (true) {
             initializeGame();
             printField();
-            while (true){
+            while (true) {
                 humanMove();
                 printField();
                 if (checkGameState(DOT_HUMAN, "Вы победили!"))
@@ -47,47 +48,47 @@ public class Main {
         }
     }
 
-    static void initializeGame(){
+    static void initializeGame() {
         System.out.println("Введите высоту и ширину поля через пробел:\n ");
         fieldSizeY = scanner.nextInt();
         fieldSizeX = scanner.nextInt();
 
         field = new char[fieldSizeY][fieldSizeX];
-        for (int y = 0; y < fieldSizeY; y++){
-            for (int x = 0; x < fieldSizeX; x++){
+        for (int y = 0; y < fieldSizeY; y++) {
+            for (int x = 0; x < fieldSizeX; x++) {
                 field[y][x] = DOT_EMPTY;
             }
         }
     }
 
-    private static void printField(){
+    private static void printField() {
         System.out.print(" ");
         for (int i = 0; i < fieldSizeX; i++) {
-            System.out.print("_" + (i+1));
+            System.out.print("_" + (i + 1));
         }
         System.out.println("-");
 
         for (int y = 0; y < fieldSizeY; y++) {
-            System.out.print(y+1 +"|");
+            System.out.print(y + 1 + "|");
             for (int x = 0; x < fieldSizeX; x++) {
                 System.out.print(field[y][x] + "|");
             }
             System.out.println();
         }
 
-        for (int i = 0; i < fieldSizeX*2+2; i++) {
+        for (int i = 0; i < fieldSizeX * 2 + 2; i++) {
             System.out.print("--");
         }
         System.out.println(" ");
     }
 
-    static void humanMove(){
+    static void humanMove() {
         int x;
         int y;
 
         do {
             System.out.print("Введите координаты хода X и Y (Для X от 1 до " + fieldSizeX +
-                    "), (Для Y от 1 до " + fieldSizeY+ " через пробел: \n ");
+                    "), (Для Y от 1 до " + fieldSizeY + " через пробел: \n ");
             x = scanner.nextInt() - 1;
             y = scanner.nextInt() - 1;
         }
@@ -96,7 +97,7 @@ public class Main {
         field[y][x] = DOT_HUMAN;
     }
 
-    static void aiMove(){
+    static void aiMove() {
         int x;
         int y;
 
@@ -111,40 +112,43 @@ public class Main {
 
     /**
      * Проверка, является ли ячейка игрового поля пустой
+     *
      * @param x
      * @param y
      * @return
      */
-    static boolean isCellEmpty(int x, int y){
+    static boolean isCellEmpty(int x, int y) {
         return field[y][x] == DOT_EMPTY;
     }
 
     /**
      * Проверка доступности ячейки игрового поля
+     *
      * @param x
      * @param y
      * @return
      */
-    static boolean isCellValid(int x, int y){
-        return x >= 0 && x< fieldSizeX && y >= 0 && y < fieldSizeY;
+    static boolean isCellValid(int x, int y) {
+        return x >= 0 && x < fieldSizeX && y >= 0 && y < fieldSizeY;
     }
 
     /**
      * Метод проверки состояния игры
+     *
      * @param dot фишка игрока
-     * @param s победный слоган
+     * @param s   победный слоган
      * @return результат проверки состояния игры
      */
-    static boolean checkGameState(char dot, String s){
-        if (checkWinDiagonals(dot)){
+    static boolean checkGameState(char dot, String s) {
+        if (checkWin(dot)) {
             System.out.println(s);
             return true;
         }
-        if (checkWinHorizontalAndVertical(dot)){
-            System.out.println(s);
-            return true;
-        }
-        if (checkDraw()){
+//        if (checkWinHorizontalAndVertical(dot)) {
+//            System.out.println(s);
+//            return true;
+//        }
+        if (checkDraw()) {
             System.out.println("Ничья!");
             return true;
         }
@@ -153,11 +157,12 @@ public class Main {
 
     /**
      * Проверка на ничью
+     *
      * @return
      */
-    static boolean checkDraw(){
-        for (int y = 0; y < fieldSizeY; y++){
-            for (int x = 0; x < fieldSizeX; x++){
+    static boolean checkDraw() {
+        for (int y = 0; y < fieldSizeY; y++) {
+            for (int x = 0; x < fieldSizeX; x++) {
                 if (isCellEmpty(x, y))
                     return false;
             }
@@ -171,15 +176,32 @@ public class Main {
      * @return признак победы
      */
 
+
+    static boolean checkWin(char dot) {
+        int winCount = WIN_COUNT;
+        for (int i = 0; i < fieldSizeY; i++) {
+            for (int j = 0; j < fieldSizeX; j++) {
+                check0(i, j, dot, winCount);
+                check1(i, j, dot, winCount);
+                check2(i, j, dot, winCount);
+                check3(i, j, dot, winCount);
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
+
     // проверка по горизонтали
     static boolean checkWinDiagonals(char dot){
         boolean clockwise = true;
-        boolean counterclockwise = true;
+        boolean counterClockWise = true;
         for (int i = 0; i < fieldSizeX; i++) {
             clockwise &= (field[i][i] == dot);
-            counterclockwise &= (field[fieldSizeX - i - 1][i] == dot);
+            counterClockWise &= (field[fieldSizeX - i - 1][i] == dot);
         }
-        return clockwise || counterclockwise;
+        return clockwise || counterClockWise;
     }
 
     static boolean checkWinHorizontalAndVertical(char dot){
@@ -211,16 +233,67 @@ public class Main {
 //        return false;
 //    }
 
+    // по горизонтали
+    static boolean check0(int x, int y, char dot, int winCount){
+        winCount = WIN_COUNT;
+        int countDot = 0;
+        for (int i = 0; i < y; i++) {
+            if (field[y][x] == dot) {
+                countDot++;
+            } else return false;
+        }
+        if (countDot == winCount) {
+            return true;
+        }
+        return false;
+    }
+
+    // по вертикали
+    static boolean check1(int x, int y, char dot, int winCount){
+        winCount = WIN_COUNT;
+        int countDot = 0;
+        for (int i = 0; i < x; i++) {
+            if (field[y][x] == dot) {
+                countDot++;
+            } else return false;
+        }
+        if (countDot == winCount) {
+            return true;
+        }
+        return false;
+    }
+
+    // по диагонали вниз
     static boolean check2(int x, int y, char dot, int winCount){
+        winCount = WIN_COUNT;
+        int countDot = 0;
+        for (int i = 0; i < y; i++) {
+            for (int j = 0; j < x; j++) {
+                if (field[y][x] == dot) {
+                    countDot++;
+                } else return false;
+            }
+            if (countDot == winCount) {
+                return true;
+            }
+        }
         return false;
     }
 
-    static boolean check3(int x, int y, char dot, int winCount){
+    // по диагонали вверх
+    static boolean check3(int x, int y, char dot, int winCount) {
+        winCount = WIN_COUNT;
+        int countDot = 0;
+        for (int i = 0; i < y; i--) {
+            for (int j = 0; j < x; j--) {
+                if (field[y][x] == dot) {
+                    countDot++;
+                } else return false;
+            }
+            if (countDot == winCount) {
+                return true;
+            }
+        }
         return false;
     }
-
-    static boolean check4(int x, int y, char dot, int winCount){
-        return false;
-    }
-
 }
