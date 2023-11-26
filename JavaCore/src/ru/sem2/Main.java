@@ -144,10 +144,11 @@ public class Main {
             System.out.println(s);
             return true;
         }
-//        if (checkWinHorizontalAndVertical(dot)) {
-//            System.out.println(s);
-//            return true;
-//        }
+        if (checkWinHorizontalAndVertical(dot)) {
+            System.out.println(s);
+            return true;
+        }
+
         if (checkDraw()) {
             System.out.println("Ничья!");
             return true;
@@ -181,13 +182,10 @@ public class Main {
         int winCount = WIN_COUNT;
         for (int i = 0; i < fieldSizeY; i++) {
             for (int j = 0; j < fieldSizeX; j++) {
-                check0(i, j, dot, winCount);
-                check1(i, j, dot, winCount);
-                check2(i, j, dot, winCount);
-                check3(i, j, dot, winCount);
-                return true;
+                if(check0(i, j, dot, winCount) || check1(i, j, dot, winCount) || check3(i, j, dot, winCount) || check4(i, j, dot, winCount)) {
+                    return true;
+                }
             }
-            return false;
         }
         return false;
     }
@@ -233,7 +231,6 @@ public class Main {
 //        return false;
 //    }
 
-    // по горизонтали
     static boolean check0(int x, int y, char dot, int winCount){
         winCount = WIN_COUNT;
         int countDot = 0;
@@ -250,7 +247,7 @@ public class Main {
 
     // по вертикали
     static boolean check1(int x, int y, char dot, int winCount){
-        winCount = WIN_COUNT;
+        winCount = WIN_COUNT - 1;
         int countDot = 0;
         for (int i = 0; i < x; i++) {
             if (field[y][x] == dot) {
@@ -280,20 +277,67 @@ public class Main {
         return false;
     }
 
-    // по диагонали вверх
-    static boolean check3(int x, int y, char dot, int winCount) {
+//    static boolean check2(int x, int y, char dot, int winCount){
+//        winCount = WIN_COUNT - 1;
+//        int countDot = 0;
+//        for (int i = 0; i < y; i++) {
+//            for (int j = 0; j < x; j++) {
+//                if (field[y][x] == dot) {
+//                    countDot++;
+//                } else return false;
+//            }
+//            if (countDot == winCount) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+
+    // по диагонали вниз
+    static boolean check4(int x, int y, char dot, int winCount){
         winCount = WIN_COUNT;
         int countDot = 0;
-        for (int i = 0; i < y; i--) {
-            for (int j = 0; j < x; j--) {
-                if (field[y][x] == dot) {
-                    countDot++;
-                } else return false;
-            }
-            if (countDot == winCount) {
+        boolean clockWise = true;
+        for (int i = 0; i < fieldSizeX; i++) {
+            clockWise &= (field[i][i] == dot);
+            countDot++;
+            if(countDot == winCount){
                 return true;
             }
         }
-        return false;
+        return clockWise;
     }
+
+        // по диагонали вверх
+
+//    static boolean check3(int x, int y, char dot, int winCount) {
+//        winCount = WIN_COUNT - 1;
+//        int countDot = 0;
+//        for (int i = 0; i < y; i--) {
+//            for (int j = 0; j < x; j--) {
+//                if (field[y][x] == dot) {
+//                    countDot++;
+//                } else return false;
+//            }
+//            if (countDot == winCount) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+        static boolean check3(int x, int y, char dot, int winCount) {
+            winCount = WIN_COUNT;
+            int countDot = 0;
+            boolean counterClockWise = true;
+            for (int i = 0; i < fieldSizeX; i--) {
+                if (counterClockWise &= (field[i][i] == dot)) {
+                    countDot++;
+                    if (countDot == winCount) {
+                        return true;
+                    }
+                }
+            }
+            return counterClockWise;
+        }
 }
+
