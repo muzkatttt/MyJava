@@ -7,12 +7,10 @@ public class Main {
     /**
      * 1. Полностью разобраться с кодом программы разработанной на семинаре, переписать программу.
      * Это минимальная задача для сдачи домашней работы.
-     * <p>
      * Усложняем задачу:
      * 2.* Переработать метод проверки победы, логика проверки победы должна работать для поля 5х5
      * и количества фишек 4. Очень желательно не делать это просто набором условий
      * для каждой из возможных ситуаций! Используйте вспомогательные методы, используйте циклы!
-     * <p>
      * 3.**** Доработать искусственный интеллект, чтобы он мог блокировать ходы игрока.
      */
     private static final char DOT_HUMAN = 'X';
@@ -66,7 +64,7 @@ public class Main {
         for (int i = 0; i < fieldSizeX; i++) {
             System.out.print("_" + (i + 1));
         }
-        System.out.println("-");
+        System.out.println("_");
 
         for (int y = 0; y < fieldSizeY; y++) {
             System.out.print(y + 1 + "|");
@@ -77,7 +75,7 @@ public class Main {
         }
 
         for (int i = 0; i < fieldSizeX * 2 + 2; i++) {
-            System.out.print("--");
+            System.out.print(" ");
         }
         System.out.println(" ");
     }
@@ -144,11 +142,6 @@ public class Main {
             System.out.println(s);
             return true;
         }
-        if (checkWinHorizontalAndVertical(dot)) {
-            System.out.println(s);
-            return true;
-        }
-
         if (checkDraw()) {
             System.out.println("Ничья!");
             return true;
@@ -171,173 +164,70 @@ public class Main {
         return true;
     }
 
+
     /**
-     * Проверка победы игрока
-     * @param dot фишка игрока
-     * @return признак победы
+     * Проверка, есть ли победитель
+     * @param dot
+     * @return
      */
-
-
     static boolean checkWin(char dot) {
-        int winCount = WIN_COUNT;
-        for (int i = 0; i < fieldSizeY; i++) {
-            for (int j = 0; j < fieldSizeX; j++) {
-                if(check0(i, j, dot, winCount) || check1(i, j, dot, winCount) || check3(i, j, dot, winCount) || check4(i, j, dot, winCount)) {
-                    return true;
+        // проверка по горизонтали
+        for (int x = 0; x < fieldSizeX; x++) {
+            boolean win = true;
+            for (int y = 0; y < fieldSizeY; y++) {
+                if (field[x][y] != dot) {
+                    win = false;
+                    break;
                 }
             }
-        }
-        return false;
-    }
-
-
-    // проверка по горизонтали
-    static boolean checkWinDiagonals(char dot){
-        boolean clockwise = true;
-        boolean counterClockWise = true;
-        for (int i = 0; i < fieldSizeX; i++) {
-            clockwise &= (field[i][i] == dot);
-            counterClockWise &= (field[fieldSizeX - i - 1][i] == dot);
-        }
-        return clockwise || counterClockWise;
-    }
-
-    static boolean checkWinHorizontalAndVertical(char dot){
-        boolean columns, rows;
-        for (int col = 0; col < fieldSizeY; col++) {
-            columns = true;
-            rows = true;
-            for (int row = 0; row < fieldSizeX; row++) {
-                columns &= (field[col][row] == dot);
-                rows &= (field[row][col] == dot);
+            if (win) {
+                return true;
             }
-            if (columns || rows) return true;
+        }
 
-        }
-        return false;
-    }
-//    static boolean checkWinHorizontalAndVertical(char dot){
-//        boolean columns, rows;
-//        for (int col = 0; col < fieldSizeY; col++) {
-//            columns = true;
-//            rows = true;
-//            for (int row = 0; row < fieldSizeX; row++) {
-//                columns &= (field[col][row] == dot);
-//                rows &= (field[row][col] == dot);
-//            }
-//            if (columns || rows) return true;
-//
-//        }
-//        return false;
-//    }
-
-    static boolean check0(int x, int y, char dot, int winCount){
-        winCount = WIN_COUNT;
-        int countDot = 0;
-        for (int i = 0; i < y; i++) {
-            if (field[y][x] == dot) {
-                countDot++;
-            } else return false;
-        }
-        if (countDot == winCount) {
-            return true;
-        }
-        return false;
-    }
-
-    // по вертикали
-    static boolean check1(int x, int y, char dot, int winCount){
-        winCount = WIN_COUNT - 1;
-        int countDot = 0;
-        for (int i = 0; i < x; i++) {
-            if (field[y][x] == dot) {
-                countDot++;
-            } else return false;
-        }
-        if (countDot == winCount) {
-            return true;
-        }
-        return false;
-    }
-
-    // по диагонали вниз
-    static boolean check2(int x, int y, char dot, int winCount){
-        winCount = WIN_COUNT;
-        int countDot = 0;
-        for (int i = 0; i < y; i++) {
-            for (int j = 0; j < x; j++) {
-                if (field[y][x] == dot) {
-                    countDot++;
-                } else return false;
+        // проверка по вертикали
+        for (int y = 0; y < fieldSizeY; y++) {
+            boolean win = true;
+            for (int x = 0; x < fieldSizeX; x++) {
+                if (field[x][y] != dot) {
+                    win = false;
+                    break;
+                }
             }
-            if (countDot == winCount) {
+            if (win) {
+                return true;
+            }
+        }
+
+        // проверка по диагонали
+        boolean win;
+        for (int k = 0; k < Math.max(fieldSizeX, fieldSizeY) - Math.min(fieldSizeX, fieldSizeY) + 1; k++) {
+            win = true;
+            for (int i = 0; i < Math.min(fieldSizeX, fieldSizeY); i++) {
+                if (field[i][i + k] != dot) {
+                    win = false;
+                    break;
+                }
+            }
+            if (win) {
+                return true;
+            }
+        }
+
+        // проверка по диагонали вверх
+        for (int k = 0; k < Math.max(fieldSizeX, fieldSizeY) - Math.min(fieldSizeX, fieldSizeY) + 1; k++) {
+            win = true;
+            for (int i = 0; i < Math.min(fieldSizeX, fieldSizeY); i++) {
+                if (field[i][fieldSizeY - 1 - i - k] != dot) {
+                    win = false;
+                    break;
+                }
+            }
+            if (win) {
                 return true;
             }
         }
         return false;
     }
-
-//    static boolean check2(int x, int y, char dot, int winCount){
-//        winCount = WIN_COUNT - 1;
-//        int countDot = 0;
-//        for (int i = 0; i < y; i++) {
-//            for (int j = 0; j < x; j++) {
-//                if (field[y][x] == dot) {
-//                    countDot++;
-//                } else return false;
-//            }
-//            if (countDot == winCount) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-
-    // по диагонали вниз
-    static boolean check4(int x, int y, char dot, int winCount){
-        winCount = WIN_COUNT;
-        int countDot = 0;
-        boolean clockWise = true;
-        for (int i = 0; i < fieldSizeX; i++) {
-            clockWise &= (field[i][i] == dot);
-            countDot++;
-            if(countDot == winCount){
-                return true;
-            }
-        }
-        return clockWise;
-    }
-
-        // по диагонали вверх
-
-//    static boolean check3(int x, int y, char dot, int winCount) {
-//        winCount = WIN_COUNT - 1;
-//        int countDot = 0;
-//        for (int i = 0; i < y; i--) {
-//            for (int j = 0; j < x; j--) {
-//                if (field[y][x] == dot) {
-//                    countDot++;
-//                } else return false;
-//            }
-//            if (countDot == winCount) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-        static boolean check3(int x, int y, char dot, int winCount) {
-            winCount = WIN_COUNT;
-            int countDot = 0;
-            boolean counterClockWise = true;
-            for (int i = 0; i < fieldSizeX; i--) {
-                if (counterClockWise &= (field[i][i] == dot)) {
-                    countDot++;
-                    if (countDot == winCount) {
-                        return true;
-                    }
-                }
-            }
-            return counterClockWise;
-        }
 }
 
