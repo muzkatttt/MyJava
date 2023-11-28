@@ -11,11 +11,11 @@ public class Main {
         Создание новых экземпляров, их добавление в список типа <AbstractWorker> и вывод в консоль с помощью итератора
          */
 
-        Freelancer freelancer0 = Freelancer.create("Nika", 35_000.00, "engineer");
-        Worker worker1 = Worker.create("Alex", 50_000.00, "tester");
-        Freelancer freelancer2 = Freelancer.create("Den", 50_000.00, "analyst");
-        Worker worker3 = Worker.create("Mike", 60_000.00, "developer");
-        AbstractWorker worker4 = Worker.create("Kate", 30_000.00, "designer");
+        Freelancer freelancer0 = Freelancer.create("Nika", 35_000, "engineer");
+        Worker worker1 = Worker.create("Alex", 50_000, "tester");
+        Freelancer freelancer2 = Freelancer.create("Den", 50_000, "analyst");
+        Worker worker3 = Worker.create("Mike", 60_000, "developer");
+        AbstractWorker worker4 = Worker.create("Kate", 30_000, "designer");
 
         List<AbstractWorker> list = new ArrayList<>();
         list.add(freelancer0);
@@ -31,6 +31,10 @@ public class Main {
 
         System.out.println("\n");
 
+
+        for (AbstractWorker w: worker) {
+            System.out.println(w);
+        }
         /*
         Вариант 2. Создание табеля учета сотрудников, с помощью методов класса TimeSheet их добавление в табель учета
         и вывод в консоль
@@ -43,5 +47,11 @@ public class Main {
         timeSheet.addWorkerToList(worker3);
         timeSheet.addWorkerToList(worker4);
         timeSheet.showAllWorkers();
+
+        for (AbstractWorker w: worker) {
+            System.out.println(w);
+        }
+
+
     }
 }

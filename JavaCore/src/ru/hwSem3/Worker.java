@@ -5,7 +5,7 @@ import ru.sem3.Cat;
 public class Worker extends AbstractWorker {
 
     // region Конструкторы
-    public Worker(String name, double salary, String postWorker) {
+    public Worker(String name, int salary, String postWorker) {
         super(name, salary, postWorker);
     }
 
@@ -13,7 +13,7 @@ public class Worker extends AbstractWorker {
 
     // region Методы
 
-    public static Worker create(String name, double salary, String postWorker){
+    public static Worker create(String name, int salary, String postWorker){
         return new Worker(name, salary, postWorker);
     }
     @Override
@@ -31,7 +31,7 @@ public class Worker extends AbstractWorker {
     }
 
     @Override
-    public void setSalary(double salary) {
+    public void setSalary(int salary) {
         super.setSalary(salary);
     }
 
@@ -53,7 +53,7 @@ public class Worker extends AbstractWorker {
 
     // region Поля
     @Override
-    public double getSalary() {
+    public int getSalary() {
         return super.getSalary();
     }
 

@@ -1,16 +1,18 @@
 package ru.hwSem3;
 
-import ru.sem3.Cat;
 
-public abstract class AbstractWorker {
-
+public abstract class AbstractWorker implements Comparable<AbstractWorker>{
+    @Override
+    public int compareTo(AbstractWorker o) {
+        return Integer.compare(this.salary, o.salary);
+    }
     // region Поля
 
     protected String name;
-    protected double salary;
+    protected int salary;
     public String postWorker;
 
-    public double getSalary() {
+    public int getSalary() {
         return salary;
     }
 
@@ -25,7 +27,7 @@ public abstract class AbstractWorker {
     // endregion
 
     // region Конструкторы
-    public AbstractWorker(String name, double salary, String postWorker) {
+    public AbstractWorker(String name, int salary, String postWorker) {
         this.name = name;
         this.salary = salary;
         this.postWorker = postWorker;
@@ -43,7 +45,7 @@ public abstract class AbstractWorker {
         this.name = name;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 

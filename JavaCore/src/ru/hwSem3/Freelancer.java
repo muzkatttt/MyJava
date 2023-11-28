@@ -9,10 +9,10 @@ public class Freelancer extends AbstractWorker {
      */
 
     // region Поля
-    protected double rate;
+    protected int rate;
 
     @Override
-    public double getSalary() {
+    public int getSalary() {
         return super.getSalary();
     }
 
@@ -29,21 +29,21 @@ public class Freelancer extends AbstractWorker {
     // endregion Поля
 
     // region Конструктор
-    public Freelancer(String name, double salary, String postWorker) {
+    public Freelancer(String name, int salary, String postWorker) {
         super(name, salary, postWorker);
     }
     // endregion Конструктор
 
     // region Методы
 
-    public static Freelancer create(String name, double salary, String postWorker){
+    public static Freelancer create(String name, int salary, String postWorker){
         return new Freelancer(name, salary, postWorker);
     }
     @Override
     public void calculateSalary() {
         // Для «повременщиков» формула для расчета такова:
         // «среднемесячная заработная плата = 20.8 * 8 * почасовая ставка»
-        salary = rate * 20.8 * 8;
+        salary = (int) (rate * 20.8 * 8);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class Freelancer extends AbstractWorker {
     }
 
     @Override
-    public void setSalary(double salary) {
+    public void setSalary(int salary) {
         super.setSalary(salary);
     }
 
