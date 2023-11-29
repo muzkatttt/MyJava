@@ -1,8 +1,7 @@
 package ru.hwSem3;
 
-import ru.sem3.Cat;
 
-public class Worker extends AbstractWorker {
+public class Worker extends AbstractWorker implements Comparable<Worker>{
 
     // region Конструкторы
     public Worker(String name, int salary, String postWorker) {
@@ -49,6 +48,19 @@ public class Worker extends AbstractWorker {
                 '.';
     }
 
+    /**
+     *
+     * @param o объект для сравнения.
+     * Сортировка группы сотрудников по уровню заработной платы от меньшей к большей
+     * @return
+     */
+    @Override
+    public int compareTo(Worker o) {
+        if (this.getSalary() > o.getSalary()) return 1;
+        else if (this.getSalary() < o.getSalary()) return -1;
+        else return 0;
+    }
+
     // endregion
 
     // region Поля
@@ -67,6 +79,6 @@ public class Worker extends AbstractWorker {
         return super.getName();
     }
 
-    // endregion Поляуцй
+    // endregion Поля
 
 }

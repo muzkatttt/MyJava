@@ -1,24 +1,16 @@
 package ru.hwSem3;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
-public class TimeSheet implements ListWorker, Comparator<AbstractWorker> {
-    @Override
-    public int compare(AbstractWorker o1, AbstractWorker o2) {
-        if (o1.salary == o2.salary) {
-            return 0;
-        }
-        else if(o1.salary > o2.salary){
-            return 1;
-        }
-        else return -1;
-    }
-
+public class TimeSheet implements ListWorker {
 
     /* Создание на базе абстрактного класса коллекции (списка) сотрудников и его заполнение */
+
+    // region Поля
     List<AbstractWorker> timeSheet = new ArrayList<>();
+
+    // endregion
 
     // region Методы
 

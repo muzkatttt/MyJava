@@ -1,11 +1,8 @@
 package ru.hwSem3;
 
 
-public abstract class AbstractWorker implements Comparable<AbstractWorker>{
-    @Override
-    public int compareTo(AbstractWorker o) {
-        return Integer.compare(this.salary, o.salary);
-    }
+public abstract class AbstractWorker{
+
     // region Поля
 
     protected String name;
@@ -55,11 +52,11 @@ public abstract class AbstractWorker implements Comparable<AbstractWorker>{
 
     @Override
     public String toString() {
-        return "AbstractWorker{" +
-                "name='" + name + '\'' +
-                ", salary=" + salary +
-                ", postWorker='" + postWorker + '\'' +
-                '}';
+        return "AbstractWorker: " +
+                "name: '" + name + '\'' +
+                ", salary: " + salary +
+                ", postWorker: '" + postWorker + '\'' +
+                '.';
     }
     // endregion
 }

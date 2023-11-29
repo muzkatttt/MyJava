@@ -1,6 +1,6 @@
 package ru.hwSem3;
 
-public class Freelancer extends AbstractWorker {
+public class Freelancer extends AbstractWorker implements Comparable<Freelancer> {
 
     /**
      * Класс Freelancer
@@ -32,6 +32,7 @@ public class Freelancer extends AbstractWorker {
     public Freelancer(String name, int salary, String postWorker) {
         super(name, salary, postWorker);
     }
+
     // endregion Конструктор
 
     // region Методы
@@ -39,9 +40,10 @@ public class Freelancer extends AbstractWorker {
     public static Freelancer create(String name, int salary, String postWorker){
         return new Freelancer(name, salary, postWorker);
     }
+
     @Override
     public void calculateSalary() {
-        // Для «повременщиков» формула для расчета такова:
+        // Для «повременщиков» формула для расчета:
         // «среднемесячная заработная плата = 20.8 * 8 * почасовая ставка»
         salary = (int) (rate * 20.8 * 8);
     }
@@ -68,6 +70,19 @@ public class Freelancer extends AbstractWorker {
                 ", salary: " + salary +
                 ", postWorker: '" + postWorker + '\'' +
                 '.';
+    }
+
+    /**
+     *
+     * @param o the object to be compared.
+     * Сортировка группы фрилансеров по уровню заработной платы от большей к меньшей
+     * @return
+     */
+    @Override
+    public int compareTo(Freelancer o) {
+        if(this.getSalary() > o.getSalary()) return -1;
+        else if (this.getSalary() < o.getSalary()) return 1;
+        else return 0;
     }
 
     // endregion
