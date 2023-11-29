@@ -1,13 +1,16 @@
 package ru.lesson5;
 
 import java.io.File;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
+import java.util.Arrays;
+import java.util.List;
+
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // работа с файлами через класс File
         // данный цикл покажет все файлы в текущей директории
         File folder = new File(".");
@@ -69,10 +72,56 @@ public class Main {
 
         Path pathSecond = Paths.get("./sources-draft/../pics/logo.png");
         System.out.println(pathSecond.normalize());
+
+
+        // Класс Files - в него вынесены статические методы работы с класса File
+        // Манипулирование файлом
+
+        Path file3 = Files.createFile(Paths.get("../pics/file.txt")); // создаем файл
+        System.out.println("File was captired successfully in pics directory? ");
+        System.out.println(Files.exists(Paths.get("../pics/file.txt")));
+
+        Path testDirectory = Files.createDirectory(Paths.get("./testing"));
+        System.out.println("Was the test directory created successfully?");
+        System.out.println(Files.exists(Paths.get("./testing")));
+
+        file = Files.move(file3, Paths.get("./testing/file.txt"), REPLACE_EXISTING).toFile();
+        System.out.println("Is our file still in the pics directory?");
+        System.out.println(Files.exists(Paths.get("../pics/file.txt")));
+        System.out.println("Has our file been moved to testDirectory?");
+        System.out.println(Files.exists(Paths.get("./testing/file.txt")));
+
+        Path copyFile = Files.copy(file3, Paths.get("../pics/file.txt"), REPLACE_EXISTING);
+        System.out.println("Has our file been copied to pics directory?");
+        System.out.println(Files.exists(Paths.get("../pics/file.txt")));
+
+        Files.delete(file3);
+        System.out.println("Does the file exist in test directory?");
+        System.out.println(Files.exists(Paths.get("./testing/file.txt")));
+        System.out.println("Does the test directory exist?");
+        System.out.println(Files.exists(Paths.get("./testing")));
+
+        // Работа с содержимым
+
+        List<String> lines = Arrays.asList(
+                "The cat wants to play with you",
+                "But you don`t want to play with it");
+
+        Path file4 = Files.createFile(Paths.get("cat.txt"));
+        if (Files.exists(file4)) {
+            Files.write(file4, lines, StandardCharsets.UTF_8);
+            lines = Files.readAllLines(
+                    Paths.get("cat.txt"), StandardCharsets.UTF_8);
+
+            for (String s : lines) {
+                System.out.println(s);
+            }
+        }
+
+
+
+
+
     }
-
-    // Класс Files - в него вынесены статические методы работы с класса File
-
-
 
 }
