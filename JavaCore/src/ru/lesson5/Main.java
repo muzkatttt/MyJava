@@ -1,7 +1,6 @@
 package ru.lesson5;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.Arrays;
@@ -76,7 +75,7 @@ public class Main {
 
         // Класс Files - в него вынесены статические методы работы с класса File
         // Манипулирование файлом
-
+/*
         Path file3 = Files.createFile(Paths.get("../pics/file.txt")); // создаем файл
         System.out.println("File was captired successfully in pics directory? ");
         System.out.println(Files.exists(Paths.get("../pics/file.txt")));
@@ -100,7 +99,7 @@ public class Main {
         System.out.println(Files.exists(Paths.get("./testing/file.txt")));
         System.out.println("Does the test directory exist?");
         System.out.println(Files.exists(Paths.get("./testing")));
-
+*/
         // Работа с содержимым
 
         List<String> lines = Arrays.asList(
@@ -117,8 +116,57 @@ public class Main {
                 System.out.println(s);
             }
         }
+        System.out.println();
 
+        // Классы ByteArrayInputStream и ByteArrayOutputStream
 
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        out.write(1);
+        out.write(-1);
+        out.write(0);
+
+        ByteArrayInputStream in = new ByteArrayInputStream(out.toByteArray());
+
+        int value = in.read();
+        System.out.println("First element is - " + value);
+
+        value = in.read();
+        System.out.println("Second element is - " + value +
+                ". If (byte)value - " + (byte)value);
+
+        value = in.read();
+        System.out.println("Third element is - " + value);
+
+        // Файловый потоковый ввод-вывод
+
+        byte[] bytesToWrite = {0, 10, 12, 14, 55, 13, 23};
+        byte[] bytesToRead = new byte[10];
+        File file5 = new File("bytes.txt");
+
+        try {
+            System.out.println("Begin");
+            FileOutputStream outFile = new FileOutputStream(file5);
+            outFile.write(bytesToWrite);
+            outFile.close();
+            System.out.println("Bytes written");
+
+            FileInputStream inFile = new FileInputStream(file5);
+            int bytesAvailable = inFile.available();
+            System.out.println("Ready to read " + bytesAvailable + " bytes");
+
+            int count = inFile.read(bytesToRead, 0 , bytesAvailable);
+            for (int i = 0; i < count; i++) {
+                System.out.println(" " + bytesToRead[i]);
+            }
+            System.out.println();
+            inFile.close();
+            System.out.println("Input stream closed");
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write data to file - " + file.getName());
+        } catch (IOException e) {
+            System.out.println("Error input/output: " + e.toString());
+        }
 
 
 
