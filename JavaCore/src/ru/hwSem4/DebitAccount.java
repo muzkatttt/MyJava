@@ -1,18 +1,14 @@
 package ru.hwSem4;
 
-public class CreditAccount extends Account {
+public class DebitAccount extends Account{
 
     // region Конструкторы
-    public CreditAccount(String accountHolder, double initialAccountBalance) {
+    public DebitAccount(String accountHolder, double initialAccountBalance) {
         super(accountHolder, initialAccountBalance);
     }
 
-    public CreditAccount(String accountHolder, double initialAccountBalance, double depositAmount) {
+    public DebitAccount(String accountHolder, double initialAccountBalance, double depositAmount) {
         super(accountHolder, initialAccountBalance, depositAmount);
-    }
-
-    public double transactionFromAccount1ToAccount2 (Account account1, Account account2){
-        return account1.getInitialAccountBalance() - account2.getDepositAmount();
     }
 
     // endregion

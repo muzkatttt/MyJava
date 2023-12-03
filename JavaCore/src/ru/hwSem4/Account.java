@@ -2,20 +2,6 @@ package ru.hwSem4;
 
 
 public class Account {
-    /*
-Программа должна позволять пользователю вводить начальный баланс счета,
-сумму депозита и сумму снятия средств.
-При этом она должна обрабатывать следующие исключительные ситуации:
-Попытка создать счет с отрицательным начальным балансом должна вызывать
-исключение IllegalArgumentException с соответствующим сообщением.
-Попытка внести депозит с отрицательной суммой должна вызывать исключение
-IllegalArgumentException с соответствующим сообщением.
-Попытка снять средства, сумма которых превышает текущий баланс, должна
-вызывать исключение InsufficientFundsException с сообщением о недостаточных
-средствах и текущим балансом. Продемонстрируйте работу вашего приложения:
-Программа должна обрабатывать все исключения с помощью конструкции try-catch,
-выводя соответствующие сообщения об ошибках.
-     */
 
     // region Поля
 
@@ -88,16 +74,14 @@ IllegalArgumentException с соответствующим сообщением.
      * @return finalAccountBalance окончательный баланс счета
      */
     public double debitFromAccount(double depositAmount) throws InsufficientFundsException{
-        try {
-            if (depositAmount < initialAccountBalance)
-               return finalAccountBalance = initialAccountBalance - depositAmount;
-        }
-        catch (IllegalArgumentException e) {
+        if (depositAmount >= initialAccountBalance)
             throw new InsufficientFundsException(
-                    "Недостаточно средств " + initialAccountBalance
-                            + " для перевода! Текущий баланс меньше суммы перевода!" + depositAmount);
-        }
-        return initialAccountBalance;
+                    "Перевод средств, сумма которых превышает текущий баланс!\n" +
+                    "Проверьте текущий баланс и сумму перевода!");
+
+        double finalAccountBalance = 0;
+        finalAccountBalance = initialAccountBalance - depositAmount;
+        return finalAccountBalance;
     }
 
     /**
