@@ -31,13 +31,14 @@ public class Main {
             System.out.println(accountIterator.next().toString());
         }
 
+        /*
         // попытка перевести средства, превышающие баланс владельца счета
         try {
             System.out.println(account1.debitFromAccount(5000.00));
         } catch (InsufficientFundsException e) {
             throw new RuntimeException(e);
         }
-
+        */
 
         /**
          * Задача №2. Создать несколько типов счетов, унаследованных от Account (CreditAccount, DebitAccount).
