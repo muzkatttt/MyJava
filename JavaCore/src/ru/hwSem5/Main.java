@@ -2,16 +2,21 @@ package ru.hwSem5;
 
 
 import java.io.File;
+import java.io.IOException;
 
 public class Main {
     /**
      * TODO: Доработать метод print, необходимо распечатывать директории и файлы
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         // вызов функции print()
         print(new File("."), " ", true);
+
+        // копированиe папки
+        new CopyDirectory("./src/ru/hwSem5").copyFilesAndFolders();
+
     }
     static void print(File file, String indent, boolean isLast) {
         System.out.print(indent);
@@ -66,6 +71,7 @@ public class Main {
             }
         }
     }
+
 }
 
 
