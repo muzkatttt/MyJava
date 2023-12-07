@@ -15,7 +15,7 @@ public class Main {
         print(new File("."), " ", true);
 
         // копированиe папки
-        new CopyDirectory("./src/ru/hwSem5").copyFilesAndFolders();
+        CopyDirectory.copyFilesAndFolders();
 
     }
     static void print(File file, String indent, boolean isLast) {

@@ -8,14 +8,14 @@ import java.nio.file.StandardCopyOption;
 
 public class CopyDirectory {
 
-    public CopyDirectory(String s) {
-    }
+//    public CopyDirectory(String s) {
+//    }
 
     /**
      * функция copy() копирует указанную в папку /src/ru/backup
      * @throws IOException
      */
-    public void copyFilesAndFolders(){
+    public static void copyFilesAndFolders(){
 
         Path sourcePath = Paths.get("./src/ru/hwSem5");
         Path destPath = Paths.get("./src/ru/backup");
