@@ -33,9 +33,10 @@ public class SettingWindow extends JFrame {
                 gameWindow.startNewGame(mode, fieldSizeSlider.getValue(), fieldSizeSlider.getValue(), winLengthSlider.getValue());
             }
         });
-
+        // добавление панели управления в settingWindow
         add(createSettingPanel());
 
+        // размещение кнопки внизу BorderLayout.SOUTH
         add(btnStart, BorderLayout.SOUTH);
     }
     private Component createModePanel(){
@@ -61,7 +62,6 @@ public class SettingWindow extends JFrame {
         jPanel.add(jLabel);
         jPanel.add(labelFieldSize);
         jPanel.add(fieldSizeSlider);
-
         fieldSizeSlider.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
@@ -73,11 +73,9 @@ public class SettingWindow extends JFrame {
     }
     private Component createWinLengthPanel(){
         JPanel jPanel = new JPanel(new GridLayout(3, 1));
-//        JSlider fieldSizeSlider, winLengthSlider;
-//        JLabel labelFieldSize, labelWinLength;
         winLengthSlider = new JSlider(3, 10, 3);
         labelWinLength = new JLabel();
-        JLabel jLabel = new JLabel("Выберите длину поля выигрыша");
+        JLabel jLabel = new JLabel("Выберите количество фишек подряд для выигрыша");
         jPanel.add(jLabel);
         jPanel.add(labelWinLength);
         jPanel.add(winLengthSlider);
@@ -85,18 +83,19 @@ public class SettingWindow extends JFrame {
         winLengthSlider.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                labelWinLength.setText("Установленный размер поля: " + fieldSizeSlider.getValue());
+                labelWinLength.setText("Установленный размер поля: " + winLengthSlider.getValue());
 
             }
         });
         return jPanel;
     }
+
     private Component createSettingPanel(){
         JPanel settingPanel = new JPanel(new GridLayout(3, 1));
-        settingPanel.add(createModePanel());
-        settingPanel.add(createSizePanel());
-        settingPanel.add(createWinLengthPanel());
-        //settingPanel.add(createSettingPanel());
+        //добавление панелей управления на главную панель управления
+        settingPanel.add(createModePanel()); // первая панель
+        settingPanel.add(createSizePanel()); // вторая панель
+        settingPanel.add(createWinLengthPanel()); // третья панель
         return settingPanel;
     }
 }
