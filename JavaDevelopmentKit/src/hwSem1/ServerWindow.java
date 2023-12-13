@@ -13,15 +13,8 @@ public class ServerWindow extends JFrame {
 
     private final JButton btnStart = new JButton("Старт");
     private final JButton btnStop = new JButton("Стоп");
-
-    private final JTextArea log = new JTextArea();
-
     private boolean isServerWorking;
 
-
-//    public static void main(String[] args){
-//        new ServerWindow();
-//    }
 
     ServerWindow() {
         isServerWorking = false;
