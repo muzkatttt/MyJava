@@ -1,5 +1,8 @@
 package hwSem1;
 
+import sem2.client.Client;
+import sem2.client.View;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -22,7 +25,7 @@ public class ClientGui extends JFrame {
     private final JPasswordField textForPassword = new JPasswordField("123456");
     private final JButton btnLogin = new JButton("Login");
     private final JButton btnSend = new JButton("Send");
-    private final ServerWindow serverWindow;
+    private ServerWindow serverWindow;
     private String name;
     private boolean isConnected;
 
