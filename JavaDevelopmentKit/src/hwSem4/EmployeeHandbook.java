@@ -22,6 +22,7 @@ public class EmployeeHandbook {
     // endregion
 
 
+    // region Методы
     /**
      * Метод, который ищет сотрудника по стажу работы
      * @param workExperience стаж работы сотрудника
@@ -39,11 +40,10 @@ public class EmployeeHandbook {
 
 
     /**
-     *
-     * @param name
-     * @return
+     * Метод, который возвращает номер телефона сотрудника по имени
+     * @param name имя сотрудника
+     * @return searchResult, если по заданным параметрам найденоо совпадение
      */
-    //Добавить метод, который возвращает номер телефона сотрудника по имени (может быть список)
     public ArrayList<Worker> searchTelephone(String name) {
         ArrayList<Worker> searchResult = new ArrayList<>();
         for (Worker worker : this.employeeHandbook) {
@@ -53,8 +53,12 @@ public class EmployeeHandbook {
         }
         return searchResult;
     }
-//    Добавить метод, который ищет сотрудника по табельному номеру
 
+    /**
+     * Метод, который ищет сотрудника по табельному номеру
+     * @param searchIdWorker табельный номер для поиска
+     * @return worker, если найдено совпадение в списке сотрудников
+     */
     public Worker searchByIdWorker(int searchIdWorker) {
         for (Worker worker : this.employeeHandbook) {
             if (worker.getIdWorker().equals(searchIdWorker)){
@@ -63,13 +67,30 @@ public class EmployeeHandbook {
         }
         return null;
     }
-//    Добавить метод добавление нового сотрудника в справочник
+
+
+    /**
+     * Vетод добавлениz нового сотрудника в справочник
+     * @param worker экземпляр класса, который добавляется в справочник
+     */
     public void addNewWorker(Worker worker) {
         this.employeeHandbook.add(worker);
     }
 
+
+    /**
+     * Вывод справочника сотрудников на экран
+     *
+     * @return список сотрудников
+     */
     @Override
     public String toString() {
-        return "Cправочник сотрудников: " + "\n" + employeeHandbook;
+        ArrayList<Worker> result = new ArrayList<>();
+        System.out.println("Cправочник сотрудников: " + "\n");
+        for (Worker worker: employeeHandbook) {
+            System.out.println("- " + worker);
+        }
+        return null;
     }
+    // endregion
 }

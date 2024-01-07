@@ -48,11 +48,10 @@ public class Worker<T extends Number> {
 
     @Override
     public String toString() {
-        return "Worker: " +
-                "idWorker: " + getIdWorker() +
-                ", telephone: " + getTelephone() +
-                ", name: " + getName() +
-                ", experience: " + getExperience() + ".";
+        return "Сотрудник: табельный номер: " + getIdWorker() +
+                ", телефон: " + getTelephone() +
+                ", имя: " + getName() +
+                ", стаж работы: " + getExperience() + ".";
     }
 
     // endregion
