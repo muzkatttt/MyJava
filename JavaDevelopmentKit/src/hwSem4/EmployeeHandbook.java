@@ -70,7 +70,7 @@ public class EmployeeHandbook {
     }
 
     /**
-     * Vетод добавления нового сотрудника в справочник
+     * Метод добавления нового сотрудника в справочник
      * @param worker экземпляр класса, который добавляется в справочник
      */
     public void addNewWorker(Worker worker) {
