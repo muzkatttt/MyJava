@@ -21,37 +21,36 @@ public class EmployeeHandbook {
     }
     // endregion
 
-
     // region Методы
     /**
      * Метод, который ищет сотрудника по стажу работы
      * @param workExperience стаж работы сотрудника
      * @return result, если сотрудник найден
      */
-    public ArrayList<Worker> searchByExperience(String workExperience) {
-        ArrayList<Worker> result = new ArrayList<>();
+    public Worker searchByExperience(String workExperience) {
+        System.out.println("Поиск по стажу работы в компании: ");
         for (Worker worker : this.employeeHandbook) {
             if (worker.getExperience().equals(workExperience)) {
-                result.add(worker);
+                System.out.println("По запросу " + "\'workExperience\'" + " найден: ");
+                return worker;
             }
         }
-        return result;
+        return null;
     }
-
 
     /**
      * Метод, который возвращает номер телефона сотрудника по имени
      * @param name имя сотрудника
-     * @return searchResult, если по заданным параметрам найденоо совпадение
+     * @return searchResult, если по заданным параметрам найдено совпадение
      */
-    public ArrayList<Worker> searchTelephone(String name) {
-        ArrayList<Worker> searchResult = new ArrayList<>();
+    public String searchTelephone(String name) {
         for (Worker worker : this.employeeHandbook) {
             if (worker.getName().equals(name)) {
-                searchResult.add(worker);
+                System.out.println("По введенному имени найден номер телефона сотрудника " + name + ":");
+                return worker.getTelephone();
             }
         }
-        return searchResult;
+        return null;
     }
 
     /**
@@ -59,38 +58,36 @@ public class EmployeeHandbook {
      * @param searchIdWorker табельный номер для поиска
      * @return worker, если найдено совпадение в списке сотрудников
      */
-    public Worker searchByIdWorker(int searchIdWorker) {
+    public Worker searchByIdWorker(Number searchIdWorker) {
+        System.out.println("Поиск сотрудника по табельному номеру:");
         for (Worker worker : this.employeeHandbook) {
             if (worker.getIdWorker().equals(searchIdWorker)){
+                System.out.println("По запросу " + searchIdWorker + " найден:");
                 return worker;
             }
         }
         return null;
     }
 
-
     /**
-     * Vетод добавлениz нового сотрудника в справочник
+     * Vетод добавления нового сотрудника в справочник
      * @param worker экземпляр класса, который добавляется в справочник
      */
     public void addNewWorker(Worker worker) {
         this.employeeHandbook.add(worker);
     }
 
-
     /**
      * Вывод справочника сотрудников на экран
-     *
      * @return список сотрудников
      */
     @Override
     public String toString() {
-        ArrayList<Worker> result = new ArrayList<>();
         System.out.println("Cправочник сотрудников: " + "\n");
         for (Worker worker: employeeHandbook) {
             System.out.println("- " + worker);
         }
-        return null;
+        return "";
     }
     // endregion
 }

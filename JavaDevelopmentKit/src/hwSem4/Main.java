@@ -21,12 +21,14 @@ public class Main {
         System.out.println(employeeHandbook);
 
         // поиск по стажу работы
-        String searchByExperience = String.valueOf(employeeHandbook.searchByExperience("22 year"));
+        String searchByExperience = String.valueOf(employeeHandbook.searchByExperience("6 months"));
         System.out.println(searchByExperience);
+        System.out.println();
 
         // поиск по имени -> возвращает номер телефона
-        String searchByTelephone = String.valueOf(employeeHandbook.searchTelephone("Alex"));
+        String searchByTelephone = String.valueOf(employeeHandbook.searchTelephone("Den"));
         System.out.println(searchByTelephone);
+        System.out.println();
 
         // поиск по табельному номеру
         String searchByIdWorker = String.valueOf(employeeHandbook.searchByIdWorker(1));
