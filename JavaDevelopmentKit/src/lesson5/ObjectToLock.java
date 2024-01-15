@@ -1,8 +1,7 @@
 package lesson5;
 
-import java.util.Objects;
-
 public class ObjectToLock {
+    // ReentrantLock - возобновляемая блокировка как альтернатива synchronized
     public synchronized void stepOne(ObjectToLock object){
         System.out.println("stepOne: " + Thread.currentThread().getName());
         object.stepTwo(this);

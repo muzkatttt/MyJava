@@ -1,26 +1,48 @@
 package hwSem5;
 
-public class Philosopher {
-    /*
-    philosopher
-    Размышлять, пока не освободится левая вилка. Когда вилка освободится — взять её.
-Размышлять, пока не освободится правая вилка. Когда вилка освободится — взять её.
-Есть
-Положить левую вилку
-Положить правую вилку
-Повторить алгоритм сначала
+public class Philosopher implements Runnable {
+    private final Fork leftFork;
+    private final Fork rightFork;
 
-     while(true) {
-    // Initially, thinking about life, universe, and everything
-    think();
+    public Philosopher(Fork leftFork, Fork rightFork) {
+        this.leftFork = leftFork;
+        this.rightFork = rightFork;
+    }
 
-    // Take a break from thinking, hungry now
-    pick_up_left_fork();
-    pick_up_right_fork();
-    eat();
-    put_down_right_fork();
-    put_down_left_fork();
+    public void think() throws InterruptedException {
+        wait((long) Math.random() * 10);
+    }
 
-    // Not hungry anymore. Back to thinking!
-}*/
+    public void stepAction(String active) throws InterruptedException {
+        System.out.println(Thread.currentThread().getName() + " " + active);
+        Thread.sleep(((int) (Math.random() * 500)));
+    }
+
+    @Override
+    public void run() {
+        try {
+            while (true) {
+                //think();
+                // думает
+                stepAction(System.nanoTime() + ": философ думает");
+                //берет левую вилку
+                synchronized (leftFork) {
+                    stepAction(System.nanoTime() + ": взял левую вилку");
+                    Thread.sleep((int) (Math.random() * 50));
+                    synchronized (rightFork) {
+                        // взял правую вилку
+                        stepAction(System.nanoTime() + ": взял правую вилку, ест спагетти");
+                        // ест спагетти
+                        stepAction(System.nanoTime() + " положил правую вилку на место");
+                    }
+                    // погружается в мыслительный процесс
+                    stepAction(System.nanoTime() + " положил левую вилку, погрузился в размышления");
+                }
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            //return;
+        }
+    }
 }
+
