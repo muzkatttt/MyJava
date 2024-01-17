@@ -3,6 +3,7 @@ package hwSem5;
 public class Main {
     public static void main(String[] args) throws Exception {
 
+
         final Philosopher[] philosopher = new Philosopher[5];
         Fork[] forks = new Fork[philosopher.length];
 
@@ -14,7 +15,9 @@ public class Main {
             Fork leftFork = forks[i];
             Fork rightFork = forks[(i + 1) % forks.length];
             if (i == philosopher.length - 1) {
+
                 // последний философ берет правую вилку
+
                 philosopher[i] = new Philosopher(rightFork, leftFork);
             } else {
                 philosopher[i] = new Philosopher(leftFork, rightFork);
@@ -22,11 +25,10 @@ public class Main {
 
             philosopher[i] = new Philosopher(leftFork, rightFork);
 
-            Thread thread = new Thread(philosopher[i], "философ: " + (i + 1));
+            Thread thread = new Thread(philosopher[i], "Философ " + (i + 1) + ": в ");
             thread.start();
         }
     }
-
 }
 
 
