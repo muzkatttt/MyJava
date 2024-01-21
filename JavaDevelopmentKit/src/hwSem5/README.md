@@ -18,3 +18,5 @@
 6) Кладет на стол левую вилку.
 7) Кладет на стол правую вилку.
 8) Снова погружается в размышления.
+
+https://github.com/Liberate520/jdk_lesson5_homework/tree/master/src/homework
