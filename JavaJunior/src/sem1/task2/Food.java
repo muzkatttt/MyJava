@@ -9,7 +9,7 @@ public interface Food extends Thing {
      * Получить наличие протеинов в еде
      * @return Наличие протеинов
      */
-    boolean  getProteins();
+    boolean getProteins();
 
     /**
      * Получить наличие жиров в еде
