@@ -43,6 +43,11 @@ public class Program {
         String updateQuery = queryBuilder.buildUpdateQuery(user);
         System.out.println("Update Query: " + updateQuery);
 
+        // домашнее задание к семинару 2
+        // Генерация SQL-запроса для удаления
+        String deleteQuery = queryBuilder.buildDeleteQuery(user, pk);
+        System.out.println("Delete Query: " + deleteQuery);
+
     }
 
 }

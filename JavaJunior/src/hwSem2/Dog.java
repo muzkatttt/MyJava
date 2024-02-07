@@ -1,18 +1,33 @@
 package hwSem2;
 
 public class Dog extends Animal{
-    String name;
-    String age;
+
+    // region Поля
     String breed;
 
+    // endregion
+
+    // region Конструкторы
+
     public Dog(String name, String age, String breed) {
-        this.name = name;
-        this.age = age;
+        super(name, age);
         this.breed = breed;
     }
 
+    // endregion
+
+    // region Методы
     public static Dog create(String name, String age, String breed){
         return new Dog(name, age, breed);
+    }
+
+    public void doCommands(){
+        System.out.printf("The dog %s executes the command \"SHOW THE BUNNY\"\n", getName());
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.printf("The dog %s says gaf\n", getName());
     }
 
     @Override
@@ -24,4 +39,6 @@ public class Dog extends Animal{
         sb.append('}');
         return sb.toString();
     }
+
+    // endregion
 }

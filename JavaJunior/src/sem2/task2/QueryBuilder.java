@@ -95,7 +95,6 @@ public class QueryBuilder {
 
     /**
      * Построить запрос на удаление данных из бд
-     *
      * @param obj
      * @return
      */
@@ -106,7 +105,6 @@ public class QueryBuilder {
         }
 
         StringBuilder query = new StringBuilder("UPDATE ");
-
 
         Table tableAnnotation = clazz.getAnnotation(Table.class);
         query.append(tableAnnotation.name()).append(" SET ");
@@ -151,12 +149,36 @@ public class QueryBuilder {
     }
 
     /**
-     * TODO: Доработать метод Delete в рамках выполнения домашней работы
+     * Домашнее задание к семинару 2 Java Junior: Доработать метод Delete
      * @return
      */
-    public String buildDeleteQuery(){
-        return "";
+
+    public String buildDeleteQuery(Object obj, UUID primaryKey){
+        Class<?> clazz = obj.getClass();
+        if (!clazz.isAnnotationPresent(Table.class)) {
+            return "";
+        }
+
+        StringBuilder query = new StringBuilder("DELETE FROM ");
+
+        Table tableAnnotation = clazz.getAnnotation(Table.class);
+        query.append(tableAnnotation.name()).append(" WHERE ");
+
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field field : fields) {
+            if (field.isAnnotationPresent(Column.class)) {
+                Column columnAnnotation = field.getAnnotation(Column.class);
+                if (columnAnnotation.primaryKey()) {
+                    query.append(columnAnnotation.name())
+                            .append(" = ")
+                            .append("'")
+                            .append(primaryKey)
+                            .append("'");
+                    break;
+                }
+            }
+        }
+
+        return query.toString();
     }
-
-
 }
