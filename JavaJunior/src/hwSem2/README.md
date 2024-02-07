@@ -8,3 +8,33 @@
 ### Дополнительная задача:
 Доработайте метод генерации запроса на удаление объекта из таблицы БД (DELETE FROM <Table> WHERE ID = '<id>')
 В классе QueryBuilder который мы разработали на семинаре.
+~~~ 
+    public String buildDeleteQuery(Object obj, UUID primaryKey){
+        Class<?> clazz = obj.getClass();
+        if (!clazz.isAnnotationPresent(Table.class)) {
+            return "";
+        }
+
+        StringBuilder query = new StringBuilder("DELETE FROM ");
+
+        Table tableAnnotation = clazz.getAnnotation(Table.class);
+        query.append(tableAnnotation.name()).append(" WHERE ");
+
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field field : fields) {
+            if (field.isAnnotationPresent(Column.class)) {
+                Column columnAnnotation = field.getAnnotation(Column.class);
+                if (columnAnnotation.primaryKey()) {
+                    query.append(columnAnnotation.name())
+                            .append(" = ")
+                            .append("'")
+                            .append(primaryKey)
+                            .append("'");
+                    break;
+                }
+            }
+        }
+
+        return query.toString();
+    }
+~~~
