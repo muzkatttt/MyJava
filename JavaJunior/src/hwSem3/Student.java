@@ -24,10 +24,6 @@ public class Student implements Serializable {
         return age;
     }
 
-    public double getGPA() {
-        return GPA;
-    }
-
     public static Student create(String name, int age, double GPA) {
         return new Student(name, age, GPA);
     }
