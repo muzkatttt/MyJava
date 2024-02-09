@@ -16,6 +16,9 @@ public class Student implements Serializable {
         this.GPA = GPA;
     }
 
+    public Student() {
+    }
+
     public String getName() {
         return name;
     }
@@ -23,6 +26,10 @@ public class Student implements Serializable {
     public int getAge() {
         return age;
     }
+
+    public double getGPA(){
+        return GPA;
+    };
 
     public static Student create(String name, int age, double GPA) {
         return new Student(name, age, GPA);
