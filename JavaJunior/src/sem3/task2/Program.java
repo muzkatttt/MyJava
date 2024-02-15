@@ -10,6 +10,7 @@ import static sem3.task2.ToDoListApp.*;
 public class Program {
 
     public static void main(String[] args) {
+        System.out.println(loadTasksFromFile(FILE_JSON).toString());
 
         List<ToDoV2> tasks;
         File f = new File(FILE_JSON);

@@ -37,6 +37,7 @@ public class ToDoV2 implements Externalizable {
 
     /**
      * Получить наименование задачи
+     *
      * @return наименование задачи
      */
     public String getTitle() {
@@ -45,6 +46,7 @@ public class ToDoV2 implements Externalizable {
 
     /**
      * Получить статус выполнения задачи
+     *
      * @return статус выполнения задачи
      */
     public boolean isDone() {
@@ -53,6 +55,7 @@ public class ToDoV2 implements Externalizable {
 
     /**
      * Изменить статус выполнения задачи
+     *
      * @param done новый статус задачи
      */
     public void setDone(boolean done) {
@@ -71,6 +74,16 @@ public class ToDoV2 implements Externalizable {
         isDone = in.readBoolean();
     }
 
-    //endregion
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ToDoV2{");
+        sb.append("title='").append(title).append('\'');
+        sb.append(", isDone=").append(isDone);
+        sb.append('}');
+        return sb.toString();
+    }
+
+
+//endregion
 
 }

@@ -2,7 +2,6 @@ package hwSem3;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.io.Externalizable;
 import java.io.Serializable;
 
 public class Student implements Serializable {
