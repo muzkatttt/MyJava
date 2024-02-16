@@ -1,6 +1,6 @@
 package sem4.task1;
 
-import ru.geekbrains.junior.lesson4.models.Student;
+import sem4.models.Student;
 
 import java.sql.*;
 import java.util.ArrayList;
