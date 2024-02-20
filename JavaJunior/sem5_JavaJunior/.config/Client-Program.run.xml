@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Client-Program" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="ru.gb.junior.chat.client.Program" />
+    <module name="chat-client" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
