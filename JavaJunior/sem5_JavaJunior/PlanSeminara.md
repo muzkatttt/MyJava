@@ -1,7 +1,8 @@
-План работы на семинаре 5 Java Junior
+### План работы на семинаре 5 Java Junior
 Для запуска проекта чат-сервера необходимо сначала настроить проект таким образом, чтобы два модуля
 взаимодействовали между собой (клиент и сервер). Для этого в папке с проектом создаем два модуля:
-New -> New Module, задаем имя (chat-server или chat-client), location (текущая папка), ЯП Java, build system Maven. 
+New -> New Module, задаем имя (chat-server или chat-client), location (текущая папка), 
+ЯП Java, build system Maven. 
 В Advanced settings выбираем groupId (ru.gb.javaJunior) и artifactId (chat-server / chat-client).
 После того, как создали два модуля в основных вкладках Build -> Build Project (в директории появятся два файла .iml).
 Далее в директории chat-client (chat-client/src/main/java) создаем пакет ru.gb.junior.chat.client, 
@@ -28,3 +29,5 @@ store as project и сохраняем в папку .config).
 Compound позволит продемонстрировать работу чата (сервер + клиенты).
 В конфиг Compound добавить уже имеющиеся в рамках проекта скопированные конфиги Client-Program, Client-Program-2,
 Client-Program-3 и Server-Program -> apply -> ok.
+Для целей отладки работы приложения задать две точки остановы в классе Program 
+(можно в строке приветственного сообщения).

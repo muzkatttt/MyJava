@@ -3,15 +3,22 @@ package ru.gb.junior.chat.server;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ClientManager implements Runnable {
 
+    // region Поля
     private Socket socket;
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
     private String name;
     public static ArrayList<ClientManager> clients = new ArrayList<>();
+    private static HashMap<String, ClientManager> clientMap = new HashMap<>();
 
+    // endregion
+
+
+    // region Конструкторы
     public ClientManager(Socket socket) {
         try {
             this.socket = socket;
@@ -19,12 +26,57 @@ public class ClientManager implements Runnable {
             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             clients.add(this);
             //TODO: ...
+            // i`ll be back...
+            startListening();
             name = bufferedReader.readLine();
-            System.out.println(name + " подключился к чату.");
-            broadcastMessage("Server: " + name + " подключился к чату.");
-        }
-        catch (Exception e){
+            clientMap.put(name, this);
+            System.out.println(name + " подключился к чату");
+            //broadcastMessage("Server: " + name + " подключился к чату."); // с семинара
+
+        } catch (Exception e) {
             closeEverything(socket, bufferedReader, bufferedWriter);
+        }
+    }
+
+    // endregion
+
+
+    // region Методы
+
+    private void startListening() {
+        new Thread(() -> {
+            try {
+                String message;
+                while ((message = bufferedReader.readLine()) != null) {
+                    if (message.startsWith("@")) {
+                        // Личное сообщение
+                        String[] parts = message.split(" ", 2);
+                        String recipient = parts[0].substring(1); // Получатель сообщения
+                        String msg = parts[1];
+                        sendPrivateMessage(recipient, msg);
+                    } else {
+                        // сообщение всем участникам, если оно не личное
+                        broadcastMessage(name + ": " + message);
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
+    private void sendPrivateMessage(String recipient, String message) {
+        ClientManager recipientClient = clientMap.get(recipient);
+        if (recipientClient != null && message.startsWith("@")) {
+            try {
+                recipientClient.bufferedWriter.write(recipient + " " + message + "\n");
+                recipientClient.bufferedWriter.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            // если получатель не найден
+            System.out.printf("Участник чата не найден", recipient);
         }
     }
 
@@ -58,6 +110,7 @@ public class ClientManager implements Runnable {
         broadcastMessage("Server: " + name + " покинул чат.");
     }
 
+
     /**
      * Отправка сообщения всем слушателям
      *
@@ -66,8 +119,8 @@ public class ClientManager implements Runnable {
     private void broadcastMessage(String message) {
         for (ClientManager client : clients) {
             try {
-                if (!client.equals(this) && message != null){
-                //if (!client.name.equals(name) && message != null) {
+                if (!client.equals(this) && message != null) {
+                    //if (!client.name.equals(name) && message != null) { // на семинаре
                     client.bufferedWriter.write(message);
                     client.bufferedWriter.newLine();
                     client.bufferedWriter.flush();
@@ -80,20 +133,23 @@ public class ClientManager implements Runnable {
 
     @Override
     public void run() {
-        String massageFromClient;
+        String messageFromClient;
         while (!socket.isClosed()) {
             try {
                 // Чтение данных
-                massageFromClient = bufferedReader.readLine();
-                // Отправка данных всем слушателям
-                broadcastMessage(massageFromClient);
-            }
-            catch (Exception e){
+                messageFromClient = bufferedReader.readLine();
+                // отправка личных сообщений
+                sendPrivateMessage(name, messageFromClient);
+
+                // отправка сообщений всем участникам чата
+                //broadcastMessage(messageFromClient);
+            } catch (Exception e) {
                 closeEverything(socket, bufferedReader, bufferedWriter);
                 //break;
             }
         }
     }
 
-
+    // endregion
 }
+
