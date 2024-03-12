@@ -78,3 +78,7 @@ Generate build using new APIs and behavior (some features may change in the next
 (переходим по ссылке и выбираем build.gradle.kts) -> OK
 дожидаемся, когда gradle соберет проект, и далее можно зайти в build.gradle.kts  
 по ссылке выбрать application (это и есть наши зависимости в проекте, их можно дополнять и менять)
+запускаем сборку проекта 
+~~~
+gradle build
+~~~

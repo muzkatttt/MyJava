@@ -1,3 +1,10 @@
+package ru.gb.diplom_muzkat;
+
+import org.springframework.stereotype.Component;
+
+import java.util.UUID;
+
+@Component
 public class Receipt<T extends Number> {
 
     String numberReceipt;
@@ -12,7 +19,7 @@ public class Receipt<T extends Number> {
     Double harmfulWorkingConditions057; // доплата за вредные условия труда
     Double summ;
 
-    public Receipt(String numberReceipt, Double hourlyRate004, Double officeHours, Double qualification025,
+    public Receipt(UUID numberReceipt, Double hourlyRate004, Double officeHours, Double qualification025,
                    Double longShoulder151, Double heavyWeight152, Double harmfulWorkingConditions057) {
         this.hourlyRate004 = hourlyRate004;
         this.officeHours = officeHours;
