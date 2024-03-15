@@ -1,0 +1,7 @@
+spring:
+#  url: sdfef
+#  username: muzkat
+#  password: password
+
+  profiles:
+    default: local
