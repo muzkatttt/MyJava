@@ -45,7 +45,7 @@ public class StudentRepository {
     public Student getByGroup(String groupName){
         return list.stream()
                 .filter(e -> e.getGroupName().equals(groupName))
-                .findFirst()
+                .findAny()
                 .orElse(null);
     }
 
