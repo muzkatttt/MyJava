@@ -20,6 +20,8 @@ public class UserController {
 //        return "<h1>Привет</h1>";
 //    }
 
+
+    //  инъекция зависимости - внедрение одного бина в другой
 //    @Autowired
     private UserRepository repository;
 
