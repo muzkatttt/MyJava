@@ -21,4 +21,19 @@ public class ReaderRepository {
             return e.getId() == id;
         }).findFirst().orElse((Reader) null);
     }
+
+    public List<Reader> getAllReaders() {
+        return List.copyOf(list);
+    }
+
+    public Reader addReader(Reader reader) {
+        list.add(reader);
+        return reader;
+    }
+
+    public void deleteReader(long id) {
+        list.removeIf(reader -> reader.getId() == id);
+    }
 }
+
+

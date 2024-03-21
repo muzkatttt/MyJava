@@ -6,6 +6,8 @@ public class Issue {
     private final long idReader;
     private final long idBook;
 
+    Book book;
+
     public Issue(long idReader, long idBook) {
         this.id = (long)(genId++);
         this.idBook = idBook;
@@ -62,5 +64,13 @@ public class Issue {
     public String toString() {
         long var10000 = this.getId();
         return "Issue(id=" + var10000 + ", idReader=" + this.getIdReader() + ", idBook=" + this.getIdBook() + ")";
+    }
+
+    public Boolean returnBook() {
+        if(book.getId() == idBook){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

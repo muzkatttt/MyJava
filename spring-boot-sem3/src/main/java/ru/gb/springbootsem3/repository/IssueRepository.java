@@ -23,5 +23,32 @@ public class IssueRepository {
             return e.getId() == id;
         }).findFirst().orElse((Issue) null);
     }
+
+
+    public int countBooksByReader(long readerId) {
+        int count = 0;
+        for (Issue issue : list) {
+            if (issue.getIdReader() == readerId) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public Boolean returnBook(long issueId) {
+        for (Issue issue : list) {
+            if (issue.getId() == issueId) {
+                return issue.returnBook();
+            }
+        }
+        return false;
+    }
+
+    public List<Issue> getAllIssues(){
+        return list;
+    }
+
 }
+
+
 

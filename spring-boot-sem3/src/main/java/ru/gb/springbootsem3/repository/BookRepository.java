@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class BookRepository {
-    private List<Book> list = new ArrayList();
+    private final List<Book> list = new ArrayList<>();
 
     public BookRepository() {
         this.list.add(new Book("Война и мир"));
@@ -20,5 +20,18 @@ public class BookRepository {
         return (Book)this.list.stream().filter((e) -> {
             return e.getId() == id;
         }).findFirst().orElse((Book) null);
+    }
+
+    public List<Book> addBook(Book book){
+        list.add(book);
+        return list;
+    }
+
+    public void deleteBook(long id){
+        list.removeIf(book -> book.getId() == id);
+    }
+
+    public List<Book> getAllBooks() {
+        return List.copyOf(list);
     }
 }
