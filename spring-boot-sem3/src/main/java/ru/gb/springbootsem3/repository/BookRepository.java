@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class BookRepository {
-    private final List<Book> list = new ArrayList<>();
 
     public BookRepository() {
         this.list.add(new Book("Война и мир"));
@@ -16,6 +15,7 @@ public class BookRepository {
         this.list.add(new Book("Приключения Буратино"));
     }
 
+    private final List<Book> list = new ArrayList<>();
     public Book findById(long id) {
         return (Book)this.list.stream().filter((e) -> {
             return e.getId() == id;

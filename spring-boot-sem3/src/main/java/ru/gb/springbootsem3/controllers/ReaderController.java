@@ -14,14 +14,13 @@ import java.util.NoSuchElementException;
 @RestController
 @RequestMapping("reader")
 public class ReaderController {
-    //1.2 Реализовать контроллер по управлению читателями
-
-    private final ReaderService readerService;
-
 
     public ReaderController(ReaderService readerService) {
         this.readerService = readerService;
     }
+    //1.2 Реализовать контроллер по управлению читателями
+    private final ReaderService readerService;
+
 
     // GET /reader- получить информацию о всех читателях
     @GetMapping

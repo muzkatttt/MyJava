@@ -2,14 +2,15 @@ package entity;
 
 
 public class Book {
-    private static long genId;
-    private final long id;
-    private final String name;
 
     public Book(String name) {
         this.id = (long)(genId++);
         this.name = name;
     }
+
+    private static long genId;
+    private final long id;
+    private final String name;
 
     public long getId() {
         return this.id;

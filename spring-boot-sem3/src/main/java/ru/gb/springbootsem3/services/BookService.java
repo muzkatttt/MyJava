@@ -10,12 +10,12 @@ import java.util.NoSuchElementException;
 @Service
 //@RequiredArgsConstructor
 public class BookService {
-    private BookRepository bookRepository;
 
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 
+    private BookRepository bookRepository;
     public List<Book> getAllBooks() {
         return bookRepository.getAllBooks();
     }

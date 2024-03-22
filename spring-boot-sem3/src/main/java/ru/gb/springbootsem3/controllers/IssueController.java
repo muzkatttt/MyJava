@@ -44,14 +44,6 @@ public class IssueController {
     }
 
 
-    @PutMapping("{issueId}")
-    public ResponseEntity<Book> returnBook(@PathVariable long issueId) {
-        if (service.returnBook(issueId)) {
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
     //добавить ресурс GET /issue/{id} - получить описание факта выдачи
     @GetMapping("{id}")
     public ResponseEntity<Issue> getIssue(@PathVariable long id) {

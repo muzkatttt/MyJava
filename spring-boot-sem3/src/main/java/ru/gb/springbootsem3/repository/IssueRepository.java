@@ -9,11 +9,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class IssueRepository {
-    private List<Issue> list = new ArrayList();
 
     public IssueRepository() {
     }
 
+    private List<Issue> list = new ArrayList();
     public void createIssue(Issue issue) {
         this.list.add(issue);
     }

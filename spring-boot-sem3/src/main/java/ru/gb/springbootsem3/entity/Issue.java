@@ -1,18 +1,18 @@
 package entity;
 
 public class Issue {
-    private static long genId;
-    private final long id;
-    private final long idReader;
-    private final long idBook;
-
-    Book book;
 
     public Issue(long idReader, long idBook) {
         this.id = (long)(genId++);
         this.idBook = idBook;
         this.idReader = idReader;
     }
+
+    private static long genId;
+    private final long id;
+    private final long idReader;
+    private final long idBook;
+    Book book;
 
     public long getId() {
         return this.id;

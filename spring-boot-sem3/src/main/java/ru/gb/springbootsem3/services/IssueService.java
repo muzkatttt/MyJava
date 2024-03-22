@@ -16,6 +16,13 @@ import repository.ReaderRepository;
 
 @Service
 public class IssueService {
+
+    public IssueService(final BookRepository bookRepository, final IssueRepository issueRepository, final ReaderRepository readerRepository) {
+        this.bookRepository = bookRepository;
+        this.issueRepository = issueRepository;
+        this.readerRepository = readerRepository;
+    }
+
     private static final Logger log = LoggerFactory.getLogger(IssueService.class);
     private final BookRepository bookRepository;
     private final IssueRepository issueRepository;
@@ -40,13 +47,6 @@ public class IssueService {
             return issue;
         }
     }
-
-    public IssueService(final BookRepository bookRepository, final IssueRepository issueRepository, final ReaderRepository readerRepository) {
-        this.bookRepository = bookRepository;
-        this.issueRepository = issueRepository;
-        this.readerRepository = readerRepository;
-    }
-
 
     public Issue getById(long id) {
         return issueRepository.findById(id);

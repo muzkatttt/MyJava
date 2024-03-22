@@ -1,14 +1,15 @@
 package entity;
 
 public class Reader {
-    private static long genId;
-    private final long id;
-    private final String name;
 
     public Reader(String name) {
         this.id = (long)(genId++);
         this.name = name;
     }
+
+    private static long genId;
+    private final long id;
+    private final String name;
 
     public long getId() {
         return this.id;
