@@ -1,4 +1,4 @@
-package demo;
+package ru.gb.springbootsem3.demo;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;

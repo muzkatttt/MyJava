@@ -1,13 +1,14 @@
-package repository;
+package ru.gb.springbootsem3.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import entity.Issue;
+import ru.gb.springbootsem3.entity.Issue;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
+
 public class IssueRepository {
 
     public IssueRepository() {
@@ -35,14 +36,14 @@ public class IssueRepository {
         return count;
     }
 
-    public Boolean returnBook(long issueId) {
-        for (Issue issue : list) {
-            if (issue.getId() == issueId) {
-                return issue.returnBook();
-            }
-        }
-        return false;
-    }
+//    public Boolean returnBook(long issueId) {
+//        for (Issue issue : list) {
+//            if (issue.getId() == issueId) {
+//                return issue.returnBook();
+//            }
+//        }
+//        return false;
+//    }
 
     public List<Issue> getAllIssues(){
         return list;

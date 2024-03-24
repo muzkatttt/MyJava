@@ -1,12 +1,12 @@
-package controllers;
+package ru.gb.springbootsem3.controllers;
 
 
-import entity.Issue;
-import entity.Reader;
+import ru.gb.springbootsem3.entity.Issue;
+import ru.gb.springbootsem3.entity.Reader;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import services.ReaderService;
+import ru.gb.springbootsem3.services.ReaderService;
 
 import java.util.List;
 import java.util.NoSuchElementException;

@@ -1,23 +1,23 @@
-package repository;
+package ru.gb.springbootsem3.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import entity.Book;
+import ru.gb.springbootsem3.entity.Book;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class BookRepository {
 
     public BookRepository() {
-        this.list.add(new Book("Война и мир"));
-        this.list.add(new Book("Мастер и Маргарита"));
-        this.list.add(new Book("Приключения Буратино"));
+        this.list.add(new Book("Vremya"));
+        this.list.add(new Book("W&P"));
+        this.list.add(new Book("L3"));
     }
 
     private final List<Book> list = new ArrayList<>();
     public Book findById(long id) {
-        return (Book)this.list.stream().filter((e) -> {
+        return this.list.stream().filter((e) -> {
             return e.getId() == id;
         }).findFirst().orElse((Book) null);
     }

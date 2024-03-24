@@ -1,4 +1,4 @@
-package demo;
+package ru.gb.springbootsem3.demo;
 
 import org.springframework.context.ApplicationEvent;
 

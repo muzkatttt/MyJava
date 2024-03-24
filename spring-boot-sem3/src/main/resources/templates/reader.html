@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Readers page</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Имя читателя</th>
+        </tr>
+        <tr th:each="reader: ${reader}">
+            <td th:text="${reader.getId()}"></td>
+            <td th:text="${reader.getName()}"></td>
+        </tr>
+    </table>
+</body>
+</html>

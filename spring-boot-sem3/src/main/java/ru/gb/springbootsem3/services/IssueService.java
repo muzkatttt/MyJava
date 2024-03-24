@@ -1,17 +1,17 @@
-package services;
+package ru.gb.springbootsem3.services;
 
 import java.util.NoSuchElementException;
 
-import controllers.IssueRequest;
-import entity.Issue;
+import ru.gb.springbootsem3.controllers.IssueRequest;
+import ru.gb.springbootsem3.entity.Issue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import repository.BookRepository;
-import repository.IssueRepository;
-import repository.ReaderRepository;
+import ru.gb.springbootsem3.repository.BookRepository;
+import ru.gb.springbootsem3.repository.IssueRepository;
+import ru.gb.springbootsem3.repository.ReaderRepository;
 
 
 @Service
@@ -52,9 +52,9 @@ public class IssueService {
         return issueRepository.findById(id);
     }
 
-    public Boolean returnBook(long id) {
-        return issueRepository.returnBook(id);
-    }
+//    public Boolean returnBook(long id) {
+//        return issueRepository.returnBook(id);
+//    }
 
 }
 

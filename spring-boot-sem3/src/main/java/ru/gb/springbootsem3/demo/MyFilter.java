@@ -1,4 +1,4 @@
-package demo;
+package ru.gb.springbootsem3.demo;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;

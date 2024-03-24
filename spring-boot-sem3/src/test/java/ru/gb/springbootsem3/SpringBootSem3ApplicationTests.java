@@ -1,10 +1,10 @@
-package ru.gb.springbootlesson3;
+package ru.gb.springbootsem3;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootLesson3ApplicationTests {
+class SpringBootSem3ApplicationTests {
 
 	@Test
 	void contextLoads() {

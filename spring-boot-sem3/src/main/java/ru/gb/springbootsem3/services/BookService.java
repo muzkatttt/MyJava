@@ -1,8 +1,8 @@
-package services;
+package ru.gb.springbootsem3.services;
 
-import entity.Book;
+import ru.gb.springbootsem3.entity.Book;
 import org.springframework.stereotype.Service;
-import repository.BookRepository;
+import ru.gb.springbootsem3.repository.BookRepository;
 
 import java.util.List;
 import java.util.NoSuchElementException;

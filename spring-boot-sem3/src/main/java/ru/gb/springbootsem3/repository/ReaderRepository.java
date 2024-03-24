@@ -1,18 +1,18 @@
-package repository;
+package ru.gb.springbootsem3.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import entity.Reader;
+import ru.gb.springbootsem3.entity.Reader;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class ReaderRepository {
 
     public ReaderRepository() {
-        this.list.add(new Reader("Костя"));
-        this.list.add(new Reader("Василий"));
-        this.list.add(new Reader("Семен"));
+        this.list.add(new Reader("Julian"));
+        this.list.add(new Reader("John"));
+        this.list.add(new Reader("Jam"));
     }
 
     private List<Reader> list = new ArrayList();

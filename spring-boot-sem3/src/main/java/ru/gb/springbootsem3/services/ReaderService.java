@@ -1,11 +1,11 @@
-package services;
+package ru.gb.springbootsem3.services;
 
-import entity.Issue;
-import entity.Reader;
+import ru.gb.springbootsem3.entity.Issue;
+import ru.gb.springbootsem3.entity.Reader;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import repository.IssueRepository;
-import repository.ReaderRepository;
+import ru.gb.springbootsem3.repository.IssueRepository;
+import ru.gb.springbootsem3.repository.ReaderRepository;
 
 import java.util.ArrayList;
 import java.util.List;
