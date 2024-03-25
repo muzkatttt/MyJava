@@ -2,6 +2,7 @@ package ru.gb.springbootsem3.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import ru.gb.springbootsem3.entity.Issue;
 import org.springframework.stereotype.Repository;
@@ -15,12 +16,13 @@ public class IssueRepository {
     }
 
     private List<Issue> list = new ArrayList();
+
     public void createIssue(Issue issue) {
         this.list.add(issue);
     }
 
     public Issue findById(long id) {
-        return (Issue)this.list.stream().filter((e) -> {
+        return (Issue) this.list.stream().filter((e) -> {
             return e.getId() == id;
         }).findFirst().orElse((Issue) null);
     }
@@ -45,11 +47,23 @@ public class IssueRepository {
 //        return false;
 //    }
 
-    public List<Issue> getAllIssues(){
+    public List<Issue> getAllIssues() {
         return list;
     }
 
+    public Issue getIssueByDateTook(String date) {
+        return (Issue) this.list.stream().filter((e) -> {
+            return Objects.equals(e.getDateOfTook(), date);
+        }).findFirst().orElse((Issue) null);
+    }
+
+    public Issue getIssueByDateReturn(String date) {
+        return (Issue) this.list.stream().filter((e) -> {
+            return Objects.equals(e.getDateOfTook(), date);
+        }).findFirst().orElse((Issue) null);
+    }
 }
+
 
 
 

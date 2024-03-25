@@ -2,6 +2,7 @@ package ru.gb.springbootsem3.services;
 
 import java.util.NoSuchElementException;
 
+
 import ru.gb.springbootsem3.controllers.IssueRequest;
 import ru.gb.springbootsem3.entity.Issue;
 import org.slf4j.Logger;
@@ -12,6 +13,8 @@ import org.springframework.web.server.ResponseStatusException;
 import ru.gb.springbootsem3.repository.BookRepository;
 import ru.gb.springbootsem3.repository.IssueRepository;
 import ru.gb.springbootsem3.repository.ReaderRepository;
+
+import static java.time.LocalDate.now;
 
 
 @Service
@@ -37,7 +40,7 @@ public class IssueService {
         } else if (this.readerRepository.findById(request.getReaderId()) == null) {
             log.info("Не удалось найти читателя с id " + request.getReaderId());
             throw new NoSuchElementException("Не удалось найти читателя с id " + request.getReaderId());
-        // проверка, что у пользователя на руках нет книг
+            // проверка, что у пользователя на руках нет книг
         } else if (issueRepository.countBooksByReader(request.getReaderId()) == 1) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "У читателя с id " +
                     request.getReaderId() + " уже есть книга");
@@ -52,11 +55,11 @@ public class IssueService {
         return issueRepository.findById(id);
     }
 
-//    public Boolean returnBook(long id) {
-//        return issueRepository.returnBook(id);
-//    }
+    public Issue getByDateTook(String date) {
+        return issueRepository.getIssueByDateTook(date);
+    }
 
+    public Issue getByDateReturn(String date) {
+        return issueRepository.getIssueByDateTook(date);
+    }
 }
-
-
-

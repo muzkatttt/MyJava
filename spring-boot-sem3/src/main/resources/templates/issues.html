@@ -5,18 +5,18 @@
     <title>Title</title>
 </head>
 <body>
-<table>
-    <tr>
-        <th>Book</th>
-        <th>Reader</th>
-        <th>When took it</th>
-        <th>When returned it</th>
+<table style="border: 1px solid black">
+    <tr style="border: 1px solid black">
+        <th style="border: 1px solid black">Book</th>
+        <th style="border: 1px solid black">Reader</th>
+        <th style="border: 1px solid black">When took it</th>
+        <th style="border: 1px solid black">When returned it</th>
     </tr>
-    <tr th:each="issue: ${issue}">
-        <td th:text="${issue.getId()}"></td>
-        <td th:text="${issue.getName()}"></td>
-        <td th:text="${issue}"></td>
-        <td th:text="${issue}"></td>
+    <tr th:each="issues: ${issues}" style="border: 1px solid black">
+        <td th:text="${issues}" style="border: 1px solid black"></td>
+        <td th:text="${issues}" style="border: 1px solid black"></td>
+        <td th:text="${issues}" style="border: 1px solid black"></td>
+        <td th:text="${issues}" style="border: 1px solid black"></td>
     </tr>
 </table>
 </body>
