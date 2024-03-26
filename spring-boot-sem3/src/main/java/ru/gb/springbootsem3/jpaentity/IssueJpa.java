@@ -41,6 +41,6 @@ public class IssueJpa {
         this.idBook = idBook;
         this.idReader = idReader;
         this.dateOfTook = String.valueOf(LocalDate.now());
-        this.dateOfReturnBook = String.valueOf(LocalDate.now());
+        this.dateOfReturnBook = String.valueOf(LocalDate.of(2024, 3, 31));
     }
 }

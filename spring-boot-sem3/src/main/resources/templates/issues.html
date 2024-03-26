@@ -13,10 +13,10 @@
         <th style="border: 1px solid black">When returned it</th>
     </tr>
     <tr th:each="issues: ${issues}" style="border: 1px solid black">
-        <td th:text="${issues}" style="border: 1px solid black"></td>
-        <td th:text="${issues}" style="border: 1px solid black"></td>
-        <td th:text="${issues}" style="border: 1px solid black"></td>
-        <td th:text="${issues}" style="border: 1px solid black"></td>
+        <td th:text="${issues.getBookId()}" style="border: 1px solid black"></td>
+        <td th:text="${issues.getReaderId()}" style="border: 1px solid black"></td>
+        <td th:text="${issues.getDateOfTook()}" style="border: 1px solid black"></td>
+        <td th:text="${issues.getDateOfReturnBook()}" style="border: 1px solid black"></td>
     </tr>
 </table>
 </body>
