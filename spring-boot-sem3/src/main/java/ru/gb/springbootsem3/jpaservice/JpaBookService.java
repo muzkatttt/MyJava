@@ -19,4 +19,8 @@ public class JpaBookService {
     public Book getByName(String name){
         return repository.findByName(name);
     }
+
+    public Book createBook(){
+        return repository.createBook();
+    }
 }

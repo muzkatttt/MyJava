@@ -3,7 +3,9 @@ package ru.gb.springbootsem3.jpaentity;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
+import ru.gb.springbootsem3.entity.Reader;
 
+import java.awt.print.Book;
 import java.time.LocalDate;
 
 @Data
@@ -16,12 +18,12 @@ public class IssueJpa {
     private long id;
 
     @Id
-    @Column(name = "idReader")
-    private long idReader;
+    @Column(name = "id_reader")
+    Reader reader;
 
     @Id
-    @Column(name = "idBook")
-    private long idBook;
+    @Column(name = "id_book")
+    Book book;
 
     @DateTimeFormat
     @Column(name = "date_start")
@@ -32,14 +34,14 @@ public class IssueJpa {
     public String dateOfReturnBook;
 
 
-    public IssueJpa(long idReader, long idBook) {
-        this.idReader = idReader;
-        this.idBook = idBook;
+    public IssueJpa(Book book, Reader reader) {
+        this.reader = reader;
+        this.book = book;
     }
 
-    public IssueJpa(long idBook, long idReader, String dateOfTook, String dateOfReturnBook) {
-        this.idBook = idBook;
-        this.idReader = idReader;
+    public IssueJpa(Book book, Reader reader, String dateOfTook, String dateOfReturnBook) {
+        this.reader = reader;
+        this.book = book;
         this.dateOfTook = String.valueOf(LocalDate.now());
         this.dateOfReturnBook = String.valueOf(LocalDate.of(2024, 3, 31));
     }
