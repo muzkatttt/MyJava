@@ -1,12 +1,13 @@
 package ru.gb.springbootsem3.jparepository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.gb.springbootsem3.entity.Reader;
+import ru.gb.springbootsem3.jpaentity.ReaderJpa;
 
-public interface JpaReaderRepository extends JpaRepository<Reader, Long> {
 
-    Reader findById(long id);
+public interface JpaReaderRepository extends JpaRepository<ReaderJpa, Long> {
 
-    Reader findByName(String name);
+    ReaderJpa findById(long id);
+
+    ReaderJpa findByName(String name);
 
 }

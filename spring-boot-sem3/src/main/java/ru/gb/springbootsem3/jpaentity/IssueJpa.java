@@ -14,16 +14,16 @@ import java.time.LocalDate;
 public class IssueJpa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Id
     @Column(name = "id_reader")
-    Reader reader;
+    ReaderJpa reader;
 
     @Id
     @Column(name = "id_book")
-    Book book;
+    BookJpa book;
 
     @DateTimeFormat
     @Column(name = "date_start")
@@ -34,12 +34,12 @@ public class IssueJpa {
     public String dateOfReturnBook;
 
 
-    public IssueJpa(Book book, Reader reader) {
+    public IssueJpa(ReaderJpa reader, BookJpa book) {
         this.reader = reader;
         this.book = book;
     }
 
-    public IssueJpa(Book book, Reader reader, String dateOfTook, String dateOfReturnBook) {
+    public IssueJpa(BookJpa book, ReaderJpa reader, String dateOfTook, String dateOfReturnBook) {
         this.reader = reader;
         this.book = book;
         this.dateOfTook = String.valueOf(LocalDate.now());

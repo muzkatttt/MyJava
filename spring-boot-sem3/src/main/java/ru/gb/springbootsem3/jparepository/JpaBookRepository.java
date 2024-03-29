@@ -1,19 +1,15 @@
 package ru.gb.springbootsem3.jparepository;
 
-
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
-import java.awt.print.Book;
+import ru.gb.springbootsem3.jpaentity.BookJpa;
 
 
 @Repository
-public interface JpaBookRepository extends JpaRepository<Book, Long> {
-    Book findById(long id);
+public interface JpaBookRepository extends JpaRepository<BookJpa, Long> {
+    BookJpa findById(long id);
 
-    Book findByName(String name);
+    BookJpa findByName(String name);
 
-    Book createBook();
+    BookJpa createBook();
 }
