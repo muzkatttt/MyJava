@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: diplom_muzkat
+    database: POSTGRESQL
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5433/diplom
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+

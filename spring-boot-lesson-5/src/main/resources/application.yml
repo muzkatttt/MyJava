@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: spring-boot-lesson-5
+  datasource:
+    url: jdbc:h2:mem:test
+    username: kk
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
