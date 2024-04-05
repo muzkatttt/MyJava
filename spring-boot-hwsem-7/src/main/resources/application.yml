@@ -1,0 +1,10 @@
+spring:
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: http://localhost:8080/user
+  application:
+    name: spring-boot-hwsem-7
+server:
+  port: 8080

@@ -1,13 +1,11 @@
-package ru.gb.springboothwsem6.services;
+package ru.gb.springhwsem7.service;
 
+import ru.gb.springhwsem7.model.Issue;
+import ru.gb.springhwsem7.model.Reader;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
-import ru.gb.springboothwsem6.entity.Book;
-import ru.gb.springboothwsem6.entity.Issue;
-import ru.gb.springboothwsem6.entity.Reader;
-import ru.gb.springboothwsem6.repository.IssueRepository;
-import ru.gb.springboothwsem6.repository.ReaderRepository;
+import ru.gb.springhwsem7.repository.IssueRepository;
+import ru.gb.springhwsem7.repository.ReaderRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,8 +47,6 @@ public class ReaderService {
             }
         }
         return listIssueByReader;
-
     }
-
 
 }
