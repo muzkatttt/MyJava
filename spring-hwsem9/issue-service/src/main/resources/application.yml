@@ -1,5 +1,9 @@
+server:
+  port: 8280
 spring:
   application:
     name: issue-service
-server:
-  port: 8880
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

@@ -2,4 +2,8 @@ spring:
   application:
     name: book-service
 server:
-  port: 8180
+  port: 8580
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

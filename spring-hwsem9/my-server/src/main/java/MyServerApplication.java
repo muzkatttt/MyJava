@@ -1,11 +1,12 @@
-package ru.gb.issue_service;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
+@EnableEurekaServer
 @SpringBootApplication
-public class IssueServiceApplication {
+public class MyServerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(IssueServiceApplication.class, args);
+
+        SpringApplication.run(MyServerApplication.class, args);
     }
 }

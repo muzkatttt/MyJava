@@ -8,15 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("book")
 public class BookController {
-    private List<Book> books = new ArrayList<>();
+    private List<Book> books;
 
     @PostConstruct
     public void generatedBooks(){
+        books = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
             Book book = new Book();
             book.setId(UUID.randomUUID());
@@ -30,12 +32,14 @@ public class BookController {
         return books;
     }
 
-    @GetMapping("{id}")
+    @GetMapping("random")
     public Book getById(@PathVariable UUID id){
-        return books.stream()
-                .filter(book  -> id == book.getId())
-                .findFirst()
-                .orElse(null);
+        Random rand = new Random();
+        return books.get(rand.nextInt(books.size()));
+//        return books.stream()
+//                .filter(book  -> id == book.getId())
+//                .findFirst()
+//                .orElse(null);
     }
 
 
