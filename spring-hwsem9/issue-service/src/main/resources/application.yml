@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: issue-service
+server:
+  port: 8880

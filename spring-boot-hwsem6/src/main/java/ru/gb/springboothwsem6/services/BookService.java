@@ -1,5 +1,6 @@
 package ru.gb.springboothwsem6.services;
 
+
 import ru.gb.springboothwsem6.entity.Book;
 import org.springframework.stereotype.Service;
 import ru.gb.springboothwsem6.repository.BookRepository;
@@ -36,6 +37,8 @@ public class BookService {
     public void deleteBook(long id) {
         bookRepository.deleteBook(id);
     }
+
+
 
 }
 
