@@ -1,8 +1,8 @@
-server:
-  port: 8280
 spring:
   application:
     name: issue-service
+server:
+  port: 8282
 eureka:
   client:
     serviceUrl:

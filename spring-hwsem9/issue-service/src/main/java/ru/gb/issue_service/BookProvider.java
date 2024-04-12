@@ -11,7 +11,8 @@ import java.util.UUID;
 public class BookProvider {
     private final WebClient webClient;
 
-    public BookProvider(EurekaClient eurekaClient, ReactorLoadBalancerExchangeFilterFunction loadBalancerExchangeFilterFunction) {
+    public BookProvider(EurekaClient eurekaClient,
+                        ReactorLoadBalancerExchangeFilterFunction loadBalancerExchangeFilterFunction) {
         webClient = WebClient.builder()
                 .filter(loadBalancerExchangeFilterFunction)
                 .build();
@@ -20,13 +21,14 @@ public class BookProvider {
 
     public UUID getRandomBookId(){
         Book randBook = webClient.get()
-                .uri("http://localhost:8180/book/random")
+//                .uri("http://localhost:8180/book/random")
 //                .uri(getBookServiceIp() + "/book/random")
-//                .uri("http://book-service/book/random")
+                .uri("http://book-service/book/random")
                 .retrieve()
                 .bodyToMono(Book.class)
                 .block();
         System.out.println(randBook);
+        assert randBook != null;
         return randBook.getId();
     }
 
