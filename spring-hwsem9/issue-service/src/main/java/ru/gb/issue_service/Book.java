@@ -6,7 +6,6 @@ import java.util.UUID;
 
 @Data
 public class Book {
-
     UUID id;
 
 }
