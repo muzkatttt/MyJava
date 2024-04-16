@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.StreamSupport;
 
 
-@Service
+//@Service
 @RequiredArgsConstructor
 public class JpaReaderService {
     private final JpaReaderRepository jpaReaderRepository;

@@ -10,7 +10,7 @@ import ru.gb.springbootsem3.jparepository.JpaBookRepository;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
-@Service
+//@Service
 @RequiredArgsConstructor
 public class JpaBookService {
 

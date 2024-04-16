@@ -9,7 +9,7 @@ import ru.gb.springbootsem3.jpaservice.JpaReaderService;
 
 import java.util.List;
 
-@RestController
+//@RestController
 @RequiredArgsConstructor
 public class JpaReaderController {
     private final JpaReaderService jpaReaderService;
