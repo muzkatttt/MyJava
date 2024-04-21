@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: spring-boot-lesson-10
+server:
+  port: 8080

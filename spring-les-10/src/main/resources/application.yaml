@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: spring-les-10
+  datasource:
+    url: jdbc:h2:mem:notesdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true

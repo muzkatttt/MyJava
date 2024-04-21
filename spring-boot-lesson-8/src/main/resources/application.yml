@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: spring-boot-lesson-8
+  aop:
+    proxy-target-class: false

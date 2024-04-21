@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: spring-boot-lesson-11
+management:
+  endpoint:
+    env:
+      show-values: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: env, prometheus, health, info, metric
