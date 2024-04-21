@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table style="border: 1px solid black">
+    <tr style="border: 1px solid black">
+        <th style="border: 1px solid black">Book</th>
+        <th style="border: 1px solid black">Reader</th>
+        <th style="border: 1px solid black">When took it</th>
+        <th style="border: 1px solid black">When returned it</th>
+    </tr>
+    <tr th:each="issues: ${issues}" style="border: 1px solid black">
+        <td th:text="${issues.getBookId()}" style="border: 1px solid black"></td>
+        <td th:text="${issues.getReaderId()}" style="border: 1px solid black"></td>
+        <td th:text="${issues.getDateOfTook()}" style="border: 1px solid black"></td>
+        <td th:text="${issues.getDateOfReturnBook()}" style="border: 1px solid black"></td>
+    </tr>
+</table>
+</body>
+</html>

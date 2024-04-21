@@ -1,9 +1,7 @@
 package ru.gb.springhwsem7.controller;
 
+import lombok.RequiredArgsConstructor;
 import ru.gb.springhwsem7.model.Book;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,58 +11,45 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("book")
+@RequiredArgsConstructor
 public class BookController {
-    //1.1 Реализовать контроллер по управлению книгами с ручками:
-    //GET /book/{id} - получить описание книги,
-    //DELETE /book/{id} - удалить книгу,
-    //POST /book - создать книгу
 
-    @Autowired
-    private final BookService bookService;
-    private static final Logger bookLog = LoggerFactory.getLogger(IssueController.class);
-
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Book>> getAllBooks(@RequestBody Book book) {
-        bookLog.info("Выдать книгу с bookId={}", book.getId());
-        try {
-            List<Book> books = bookService.getAllBooks();
-            return new ResponseEntity<>(books, HttpStatus.OK);
-        } catch(NoSuchElementException e) {
-            return ResponseEntity.notFound().build(); // 404
-        }
-    }
-
-
-    //GET /book/{id} - получить описание книги
+    private final BookService service;
     @GetMapping("{id}")
-    public ResponseEntity<Book> getById(@PathVariable long id) {
-        Book book;
+    public ResponseEntity<Book> findById(@PathVariable Long id) {
         try {
-            book = bookService.getById(id);
+            return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
         } catch (NoSuchElementException e) {
-            return new ResponseEntity<Book>(HttpStatus.NOT_FOUND); // 404
+            return ResponseEntity.notFound().build();
         }
-        return new ResponseEntity<Book>(book, HttpStatus.OK);
     }
 
-
-    //POST /book - создать книгу
-    @PostMapping
-    public ResponseEntity<Book> addBook(@RequestBody Book book) {
-        bookService.addBook(book);
-        return new ResponseEntity<Book>(book, HttpStatus.CREATED);
+    @GetMapping()
+    public ResponseEntity<List<Book>> getAll() {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(service.getAll());
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-
-    // DELETE /book/{id} - удалить книгу
     @DeleteMapping("{id}")
-    public ResponseEntity<Book> deleteBookById(@PathVariable long id) {
-        bookService.deleteBook(id);
-        return new ResponseEntity<Book>(HttpStatus.OK);
+    public ResponseEntity<Book> deleteBook(@PathVariable Long id) {
+        service.deleteById(id);
+        try {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(service.findById(id));
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
+    @PostMapping
+    public ResponseEntity<Book> createNewBook(@RequestBody String name) {
+        service.addNewBook(name);
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED).body(service.findByName(name));
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

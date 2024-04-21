@@ -15,38 +15,26 @@ import java.util.NoSuchElementException;
 @RequiredArgsConstructor
 public class ReaderService {
     private final ReaderRepository readerRepository;
-    private IssueRepository issueRepository;
+    private final IssueRepository issueRepository;
 
-    public List<Reader> getAllReaders() {
-        return readerRepository.getAllReaders();
+    public List<Reader> getAll() {
+        return readerRepository.findAll();
     }
 
-    public Reader findReaderById(long id) {
-        Reader reader = readerRepository.findById(id);
-        if (reader == null) {
-            throw new NoSuchElementException("Читатель с {id} не найден");
-        }
-        return reader;
+    public Reader findById(Long id){
+        return readerRepository.findById(id).orElse(null);
     }
-
-    public Reader addReader(Reader reader) {
-        return readerRepository.addReader(reader);
+    public void addNewReader(String name){
+        readerRepository.save(new Reader(name));
     }
-
-    public void deleteReader(long id) {
-        readerRepository.deleteReader(id);
+    public void deleteById(Long id){
+        readerRepository.deleteById(id);
     }
-
-    // 2.2 В сервис читателя добавить ручку
-    // GET /reader/{id}/issue - вернуть список всех выдачей для данного читателя
-    public List<Issue> getIssueByReaderId(long id) {
-        List<Issue> listIssueByReader = new ArrayList<>();
-        for (Issue issue : issueRepository.getAllIssues()) {
-            if (issue.getIdReader() == id) {
-                listIssueByReader.add(issue);
-            }
-        }
-        return listIssueByReader;
+    public Reader findByName(String name){
+        return readerRepository.findByName(name);
+    }
+    public List<Issue> findIssue(Long id) {
+        return issueRepository.findIssueAllByIdReader(id);
     }
 
 }

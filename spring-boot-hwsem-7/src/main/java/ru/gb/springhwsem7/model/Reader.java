@@ -2,10 +2,12 @@ package ru.gb.springhwsem7.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name = "readers")
+@NoArgsConstructor
 public class Reader {
 
     public Reader(String name) {
@@ -16,7 +18,6 @@ public class Reader {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-
-    private final String name;
+    private String name;
 }
 

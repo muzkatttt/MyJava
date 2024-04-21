@@ -1,5 +1,6 @@
 package ru.gb.springhwsem7.service;
 
+import lombok.RequiredArgsConstructor;
 import ru.gb.springhwsem7.model.Book;
 import org.springframework.stereotype.Service;
 import ru.gb.springhwsem7.repository.BookRepository;
@@ -8,34 +9,26 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class BookService {
 
-    public BookService(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
+    public Book findById(Long id){
+        return repository.findById(id).orElse(null);
     }
-
-    private BookRepository bookRepository;
-    public List<Book> getAllBooks() {
-        return bookRepository.getAllBooks();
+    public void addNewBook(String name){
+        repository.save(new Book(name));
     }
-
-
-    public Book getById(long id) {
-        Book book = bookRepository.findById(id);
-        if (book == null) {
-            throw new NoSuchElementException("Не найдена книга с идентификатором {id}");
-        }
-        return book;
+    public void deleteById(Long id){
+        repository.deleteById(id);
     }
-
-    public void addBook(Book book) {
-        bookRepository.addBook(book);
+    public List<Book> getAll(){
+        return repository.findAll();
     }
-
-    public void deleteBook(long id) {
-        bookRepository.deleteBook(id);
+    public Book findByName(String name){
+        return repository.findByName(name);
     }
+    private final BookRepository repository;
+
 
 }
 

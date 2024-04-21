@@ -1,11 +1,11 @@
 package ru.gb.springhwsem7.controller;
 
 import java.util.NoSuchElementException;
+import java.util.TreeMap;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import ru.gb.springhwsem7.model.Issue;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,43 +14,47 @@ import ru.gb.springhwsem7.service.IssueService;
 
 
 @RestController
-@RequestMapping({"issue"})
+@RequestMapping("issue")
+@Slf4j
+@RequiredArgsConstructor
 public class IssueController {
 
-    public IssueController() {
-    }
-    private static final Logger log = LoggerFactory.getLogger(IssueController.class);
-    @Autowired
-    private IssueService service;
-
-    /*
-    GET - получение записей (принято посылать запрос без тела)
-    POST - создание записей (в теле передается объект, данные по которому необходимо создать запись)
-    PUT - изменение записей (в теле передается объект, по которому необходимо изменить запись
-    DELETE - удаление записей (в теле указывается id ресурса, который необходимо удалить
-     */
+    private final IssueService service;
 
     @PostMapping
     public ResponseEntity<Issue> issueBook(@RequestBody IssueRequest issueRequest) {
-        // @RequestBody - есть тело запроса, их необходмо привести в соответствии с IssueRequest
-        log.info("Поступил запрос на выдачу: readerId={}, bookId={}", issueRequest.getReaderId(), issueRequest.getBookId());
-        // ResponseEntity выдает номер ошибки при некорректной обработке
+        log.info("Поступил запрос на выдачу: idReader={}, bookId={}"
+                , issueRequest.getReaderId(), issueRequest.getBookId());
+
         try {
-            return ResponseEntity.status(HttpStatus.CREATED).body(this.service.createIssue(issueRequest));
+            Issue issue = service.createIssue(issueRequest);
+            if (issue.getIdReader() != -1L && issue.getIdBook() != -1L) {
+                return ResponseEntity.status(HttpStatus.CREATED).body(issue);
+            } else {
+                return ResponseEntity.status(HttpStatus.CONFLICT).build();
+            }
+
         } catch (NoSuchElementException e) {
-            return ResponseEntity.notFound().build(); // 404
+            return ResponseEntity.notFound().build();
         }
     }
 
-
-    //добавить ресурс GET /issue/{id} - получить описание факта выдачи
     @GetMapping("{id}")
-    public ResponseEntity<Issue> getIssue(@PathVariable long id) {
-        Issue issue = service.getById(id);
-        if (issue != null) {
-            return new ResponseEntity<Issue>(issue, HttpStatus.OK);
+    public ResponseEntity<TreeMap<String, String>> findById(@PathVariable Long id) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
         }
-        return new ResponseEntity<Issue>(HttpStatus.NOT_FOUND);
     }
 
+    @PutMapping("{issueId}")
+    public ResponseEntity<TreeMap<String, String>> returnedAt(@PathVariable Long issueId) {
+        try {
+            service.setReturnedAt(issueId);
+            return ResponseEntity.status(HttpStatus.OK).body(service.findById(issueId));
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

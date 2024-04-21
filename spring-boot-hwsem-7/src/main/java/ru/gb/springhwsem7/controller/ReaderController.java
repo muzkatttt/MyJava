@@ -1,6 +1,7 @@
 package ru.gb.springhwsem7.controller;
 
 
+import lombok.RequiredArgsConstructor;
 import ru.gb.springhwsem7.model.Issue;
 import ru.gb.springhwsem7.model.Reader;
 import org.springframework.http.HttpStatus;
@@ -13,52 +14,55 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("reader")
+@RequiredArgsConstructor
 public class ReaderController {
+    private final ReaderService service;
 
-    public ReaderController(ReaderService readerService) {
-        this.readerService = readerService;
-    }
-    //1.2 Реализовать контроллер по управлению читателями
-    private final ReaderService readerService;
-
-
-    // GET /reader- получить информацию о всех читателях
-    @GetMapping
-    public ResponseEntity<Reader> getAllReaders() {
-        return new ResponseEntity<Reader>((Reader) readerService.getAllReaders(), HttpStatus.OK);
-    }
-
-    // GET /reader/{id} - получить информацию о читателе
     @GetMapping("{id}")
-    public ResponseEntity<Reader> findById(@PathVariable long id) {
-        Reader reader;
+    public ResponseEntity<Reader> findById(@PathVariable Long id) {
         try {
-            reader = readerService.findReaderById(id);
+            return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
         } catch (NoSuchElementException e) {
-            return new ResponseEntity<Reader>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
-        return new ResponseEntity<Reader>(reader, HttpStatus.OK);
     }
 
-
-    // GET /reader/{id}/issue - вернуть список всех выдачей для данного читателя
     @GetMapping("{id}/issue")
-    public ResponseEntity<List<Issue>> showAllIssue(@PathVariable long id){
-        return new ResponseEntity<List<Issue>>(readerService.getIssueByReaderId(id), HttpStatus.OK);
+    public ResponseEntity<List<Issue>> findIssue(@PathVariable Long id) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(service.findIssue(id));
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-
-    //    POST /reader - создать нового читателя
-    @PostMapping()
-    public ResponseEntity<Reader> addNewReader(@RequestBody Reader reader){
-        return new ResponseEntity<Reader>(readerService.addReader(reader), HttpStatus.CREATED);
+    @GetMapping()
+    public ResponseEntity<List<Reader>> booksResponseEntity() {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(service.getAll());
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    //    DELETE /reader/{id} - удалить читателя
     @DeleteMapping("{id}")
-    public ResponseEntity<Reader> deleteReader(@PathVariable long id) {
-        readerService.deleteReader(id);
-        return new ResponseEntity<Reader>(HttpStatus.OK);
+    public ResponseEntity<Reader> deleteReader(@PathVariable Long id) {
+        service.deleteById(id);
+        try {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(service.findById(id));
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
+    @PostMapping
+    public ResponseEntity<Reader> createReader(@RequestBody String name) {
+        service.addNewReader(name);
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED).body(service.findByName(name));
+
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

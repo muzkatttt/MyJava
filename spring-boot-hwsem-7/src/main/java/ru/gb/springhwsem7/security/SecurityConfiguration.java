@@ -9,7 +9,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 
 
-@Configuration
+//@Configuration
 public class SecurityConfiguration {
 
     @Bean

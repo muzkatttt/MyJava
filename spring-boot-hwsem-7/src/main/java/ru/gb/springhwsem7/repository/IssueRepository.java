@@ -1,69 +1,43 @@
 package ru.gb.springhwsem7.repository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import ru.gb.springhwsem7.model.Issue;
-import org.springframework.stereotype.Repository;
 
 
-@Repository
+public interface IssueRepository extends JpaRepository<Issue, Long> {
 
-public class IssueRepository {
-
-    public IssueRepository() {
-    }
-
-    private List<Issue> list = new ArrayList();
-
-    public void createIssue(Issue issue) {
-        this.list.add(issue);
-    }
-
-    public Issue findById(long id) {
-        return (Issue) this.list.stream().filter((e) -> {
-            return e.getId() == id;
-        }).findFirst().orElse((Issue) null);
-    }
-
-
-    public int countBooksByReader(long readerId) {
+    default int findCountBooksByIdReader(Long idReader){
         int count = 0;
-        for (Issue issue : list) {
-            if (issue.getIdReader() == readerId) {
+        for (Issue issue:findAll()){
+            if (issue.getIdReader().equals(idReader) && issue.getReturnBookTime() == null){
                 count++;
             }
         }
         return count;
     }
-
-//    public Boolean returnBook(long issueId) {
-//        for (Issue issue : list) {
-//            if (issue.getId() == issueId) {
-//                return issue.returnBook();
-//            }
-//        }
-//        return false;
-//    }
-
-    public List<Issue> getAllIssues() {
-        return list;
+    default List<Issue> findIssueAllByIdReader(Long idReader){
+        List<Issue> temp = new ArrayList<>();
+        for (Issue issue:findAll()){
+            if (issue.getIdReader().equals(idReader)){
+                temp.add(issue);
+            }
+        }
+        return temp;
     }
 
-    public Issue getIssueByDateTook(String date) {
-        return (Issue) this.list.stream().filter((e) -> {
-            return Objects.equals(e.getDateOfTook(), date);
-        }).findFirst().orElse((Issue) null);
-    }
-
-    public Issue getIssueByDateReturn(String date) {
-        return (Issue) this.list.stream().filter((e) -> {
-            return Objects.equals(e.getDateOfTook(), date);
-        }).findFirst().orElse((Issue) null);
+    default void setReturnedAt(Long id){
+        for (Issue issue:findAll()){
+            if (issue.getId().equals(id) && issue.getReturnBookTime() == null){
+                issue.setReturnBookTime(LocalDateTime.now());
+                save(issue);
+            }
+        }
     }
 }
-
 
 
 
