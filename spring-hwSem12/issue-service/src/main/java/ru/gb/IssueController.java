@@ -13,19 +13,19 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class IssueController {
     private List<Issue> issues;
-    private final BookProvider bookProvider;
-
-    @PostConstruct
-    public void generateIssue(){
-        issues = new ArrayList<>();
-        for (int i = 0; i < 15; i++) {
-            Issue issue = new Issue();
-            issue.setId(UUID.randomUUID());
-            issue.setIdReader(UUID.randomUUID());
-            issue.setIdBook(bookProvider.getRandomBookId());
-            issues.add(issue);
-        }
-    }
+//    private final BookProvider bookProvider;
+//
+//    @PostConstruct
+//    public void generateIssue(){
+//        issues = new ArrayList<>();
+//        for (int i = 0; i < 15; i++) {
+//            Issue issue = new Issue();
+//            issue.setId(UUID.randomUUID());
+//            issue.setIdReader(UUID.randomUUID());
+//            issue.setIdBook(bookProvider.getRandomBookId());
+//            issues.add(issue);
+//        }
+//    }
     @GetMapping("all")
     public List<Issue> getAllIssues(){
         return issues;
@@ -33,7 +33,7 @@ public class IssueController {
 
     @GetMapping("refresh")
     public List<Issue> refresh(){
-        generateIssue();
+        //generateIssue();
         return issues;
     }
 }

@@ -2,6 +2,7 @@ package ru.gb;
 
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +13,11 @@ import java.util.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("book")
+@Component
 public class BookController {
     private List<Book> books;
+
+
 
     @PostConstruct
     public void generatedBooks(){
@@ -26,6 +30,7 @@ public class BookController {
             books.add(book);
         }
     }
+
     @GetMapping("all")
     public List<Book> getAllBooks(){
         return books;
