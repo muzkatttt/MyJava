@@ -2,11 +2,14 @@ package ru.gb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
-
+@EnableEurekaServer
 @SpringBootApplication
-public class BookServiceApplication {
+public class MyServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BookServiceApplication.class, args);
+
+        SpringApplication.run(MyServiceApplication.class, args);
     }
 }
+

@@ -9,7 +9,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>ru.gb</groupId>
     <artifactId>book-service</artifactId>
 
     <properties>
@@ -21,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>ru.gb</groupId>
-            <artifactId>http-logger-starter</artifactId>
+            <artifactId>aspect-timer-starter</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -40,6 +39,17 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>ru.gb</groupId>-->
+<!--            <artifactId>issue-service</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>ru.gb</groupId>
+            <artifactId>aspect-timer-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

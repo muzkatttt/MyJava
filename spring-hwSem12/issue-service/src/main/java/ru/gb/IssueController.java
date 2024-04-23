@@ -1,13 +1,12 @@
 package ru.gb;
 
-import jakarta.annotation.PostConstruct;
+import com.gb.Timer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,11 +25,13 @@ public class IssueController {
 //            issues.add(issue);
 //        }
 //    }
+    @Timer
     @GetMapping("all")
     public List<Issue> getAllIssues(){
         return issues;
     }
 
+    @Timer
     @GetMapping("refresh")
     public List<Issue> refresh(){
         //generateIssue();

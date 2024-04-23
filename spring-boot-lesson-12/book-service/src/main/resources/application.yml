@@ -1,0 +1,7 @@
+#logging:
+#  level:
+#    root: debug
+http:
+  logging:
+    enabled: false
+    log-level: info

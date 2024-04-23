@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.gb.Timer;
 
 import java.util.*;
 
@@ -18,7 +19,7 @@ public class BookController {
     private List<Book> books;
 
 
-
+    @Timer
     @PostConstruct
     public void generatedBooks(){
         books = new ArrayList<>();
@@ -30,11 +31,12 @@ public class BookController {
             books.add(book);
         }
     }
-
+    @Timer
     @GetMapping("all")
     public List<Book> getAllBooks(){
         return books;
     }
+
 
     @GetMapping("random")
     public Book getById(@PathVariable UUID id){
