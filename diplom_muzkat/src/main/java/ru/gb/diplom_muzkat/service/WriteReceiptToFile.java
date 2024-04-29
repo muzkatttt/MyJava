@@ -1,4 +1,6 @@
-package ru.gb.diplom_muzkat;
+package ru.gb.diplom_muzkat.service;
+
+import ru.gb.diplom_muzkat.entity.Receipt;
 
 import java.io.FileWriter;
 import java.io.IOException;

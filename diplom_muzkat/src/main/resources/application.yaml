@@ -4,7 +4,7 @@ spring:
     database: POSTGRESQL
   datasource:
     platform: postgres
-    url: jdbc:postgresql://localhost:5433/diplom
+    url: jdbc:postgresql://localhost:5432/diplom
     driverClassName: org.postgresql.Driver
     username: postgres
     password:
@@ -12,4 +12,7 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  mvc:
+    format:
+      date-time: yyyy-MM-dd HH:mm:ss
 
