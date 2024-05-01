@@ -1,4 +1,4 @@
-package ru.gb.diplom_muzkat.repository;
+package ru.gb.diplom_muzkat.entity;
 
 import org.springframework.stereotype.Component;
 

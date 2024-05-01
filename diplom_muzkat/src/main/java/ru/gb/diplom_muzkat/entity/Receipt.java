@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Data // создает геттеры
-@NoArgsConstructor // конструктор без компонентов маршрута
+@NoArgsConstructor // пустой конструктор
 @Table(name = "receipt")
 public class Receipt {
 

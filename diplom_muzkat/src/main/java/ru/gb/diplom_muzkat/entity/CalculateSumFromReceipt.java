@@ -1,12 +1,7 @@
-package ru.gb.diplom_muzkat.repository;
+package ru.gb.diplom_muzkat.entity;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
-import ru.gb.diplom_muzkat.entity.Nsi;
-import ru.gb.diplom_muzkat.entity.Receipt;
-
 import java.util.LinkedList;
 import java.util.Queue;
 

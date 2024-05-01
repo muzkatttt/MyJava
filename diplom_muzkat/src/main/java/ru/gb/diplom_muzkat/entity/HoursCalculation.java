@@ -1,4 +1,4 @@
-package ru.gb.diplom_muzkat.repository;
+package ru.gb.diplom_muzkat.entity;
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -8,7 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Service
+@Component
 public class HoursCalculation {
     // расчет доплаты за работу в ночное время
     private Receipt receipt;

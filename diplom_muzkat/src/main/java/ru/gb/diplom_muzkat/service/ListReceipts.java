@@ -1,7 +1,6 @@
 package ru.gb.diplom_muzkat.service;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import ru.gb.diplom_muzkat.repository.ReceiptSumm;
+import ru.gb.diplom_muzkat.entity.ReceiptSumm;
 
 import java.util.LinkedList;
 import java.util.Queue;

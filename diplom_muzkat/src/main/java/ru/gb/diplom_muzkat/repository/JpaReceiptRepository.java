@@ -1,6 +1,7 @@
 package ru.gb.diplom_muzkat.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import ru.gb.diplom_muzkat.entity.CalculateSumFromReceipt;
 import ru.gb.diplom_muzkat.entity.Receipt;
 
 import java.util.List;
