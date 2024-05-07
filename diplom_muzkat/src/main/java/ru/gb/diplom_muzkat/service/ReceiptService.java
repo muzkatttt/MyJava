@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import ru.gb.diplom_muzkat.entity.CalculateSumFromReceipt;
 import ru.gb.diplom_muzkat.entity.Receipt;
 import ru.gb.diplom_muzkat.repository.JpaReceiptRepository;
 
@@ -13,7 +12,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ReceiptService {
-    private final CalculateSumFromReceipt calculateSumFromReceipt;
     private final JpaReceiptRepository jpaReceiptRepository;
     public static final String NOT_FOUND_MESSAGE = "Не удалось найти маршрут с id=";
 
@@ -28,6 +26,10 @@ public class ReceiptService {
 
     private void throwNotFoundExceptionById(long id) {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id);
+    }
+
+    private String getCalculateSumFromReceipt(){
+        return jpaReceiptRepository.calc().toString();
     }
 
     public void addNewReceipt(String timeOfStart, String timeOfFinish) {

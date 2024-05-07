@@ -2,11 +2,13 @@ package ru.gb.diplom_muzkat.entity;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@SpringBootTest
 class CalculateSumFromReceiptTest {
 
     private Nsi nsi;
@@ -20,7 +22,7 @@ class CalculateSumFromReceiptTest {
         receipt = mock(Receipt.class);
         receipt.setOfficeHours(10.00);
         when(receipt.getOfficeHours()).thenReturn(10.00);
-        calculateSum = new CalculateSumFromReceipt(receipt, nsi);
+        calculateSum = new CalculateSumFromReceipt(nsi);
     }
 
     @Test

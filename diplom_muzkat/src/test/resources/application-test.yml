@@ -3,19 +3,15 @@ spring:
     name: diplom_muzkat
     database: mydatabase
   server:
-    port: 8080
+    port: 8180
   datasource:
-    platform: postgres
-    url: jdbc:postgresql://localhost:5432/diplom
-    driverClassName: org.postgresql.Driver
-    username: postgres
+    url: jdbc:h2:mem:test
+    username: kate
     password:
+    driver-class-name: org.h2.Driver
   jpa:
-    show-sql: true
     hibernate:
       ddl-auto: create-drop
   mvc:
     format:
       date-time: yyyy-MM-dd HH:mm:ss
-
-

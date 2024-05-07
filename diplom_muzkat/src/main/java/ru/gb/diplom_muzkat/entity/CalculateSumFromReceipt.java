@@ -5,24 +5,26 @@ import org.springframework.stereotype.Component;
 import java.util.LinkedList;
 import java.util.Queue;
 
-
 @Component
 @Data
 public class CalculateSumFromReceipt {
 
     private Queue<Receipt> list = new LinkedList<>();
     public CalculateSumFromReceipt() {
-        list.add(new Receipt(" 2024.03.01 08:00:00", "2024.03.01 18:00:00"));
-        list.add(new Receipt(" 2024.03.02 08:00:00", "2024.03.02 18:00:00"));
-        list.add(new Receipt(" 2024.03.03 08:00:00", "2024.03.03 18:00:00"));
-        list.add(new Receipt(" 2024.03.04 08:00:00", "2024.03.04 18:00:00"));
-        list.add(new Receipt(" 2024.03.05 08:00:00", "2024.03.05 18:00:00"));
+        list.add(new Receipt("2024-03-01 08:00:00", "2024-03-01 18:00:00"));
+        list.add(new Receipt("2024-03-02 08:00:00", "2024-03-02 18:00:00"));
+        list.add(new Receipt("2024-03-03 08:00:00", "2024-03-03 18:00:00"));
+        list.add(new Receipt("2024-03-04 08:00:00", "2024-03-04 18:00:00"));
+        list.add(new Receipt("2024-03-05 08:00:00", "2024-03-05 18:00:00"));
     }
 
-    private Receipt receipt;
     private Nsi nsi;
 
-    Double tarif = nsi.getHourlyRate004() * receipt.getOfficeHours();
+    Double tarif = getTarif() * 10.0;
+
+    public CalculateSumFromReceipt(Nsi nsi) {
+        this.nsi = nsi;
+    }
 
     public Double raschet151() {
         Double doplata151 = tarif * nsi.getLongShoulder151();

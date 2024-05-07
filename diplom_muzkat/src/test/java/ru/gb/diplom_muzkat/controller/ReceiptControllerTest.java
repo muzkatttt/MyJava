@@ -1,6 +1,5 @@
 package ru.gb.diplom_muzkat.controller;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,6 +15,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import ru.gb.diplom_muzkat.entity.Receipt;
 import ru.gb.diplom_muzkat.service.ReceiptService;
+
 
 import static org.mockito.Mockito.when;
 
@@ -33,9 +33,6 @@ class ReceiptControllerTest {
     @InjectMocks
     private ReceiptController receiptController;
 
-    @BeforeEach
-    void setUp(){
-    }
 
     @Test
     void testGetByDateStart() throws Exception {
@@ -43,12 +40,12 @@ class ReceiptControllerTest {
                 MockMvcRequestBuilders
                         .get(
                 "/receipt/date")
-                        .param("date", "01-04-2024 08:00:00"))
+                        .param("date", "2024-04-01 08:00:00"))
                 .andExpect(
                         MockMvcResultMatchers.status().isOk())
                 .andExpect(
                         MockMvcResultMatchers.content()
-                                .string("Дата и время начала работы по маршруту: 01.04.2024 08:00:00"));
+                                .string("Дата и время начала работы по маршруту: 2024-04-01 08:00:00"));
     }
 
     @Test
@@ -63,15 +60,5 @@ class ReceiptControllerTest {
         assert response.getStatusCode().equals(HttpStatus.OK);
         assert response.getBody().getId().equals(id);
     }
-
-//    @Test
-//    void testCalculateSumFromReceipt() {
-//        Long id = 1L;
-//        //when(receiptService.calculateSumFromReceipt(id)).thenReturn();
-//        ResponseEntity<String> response = receiptController.calculateSumFromReceipt(id);
-//
-//        assert response.getStatusCode().equals(HttpStatus.OK);
-//        assert response.getBody().equals("100.0");
-//    }
 
 }

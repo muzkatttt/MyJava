@@ -1,6 +1,7 @@
 package ru.gb.diplom_muzkat.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -9,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Data // создает геттеры
 @NoArgsConstructor // пустой конструктор
 @Table(name = "receipt")
+@NotNull
 public class Receipt {
 
     @Id

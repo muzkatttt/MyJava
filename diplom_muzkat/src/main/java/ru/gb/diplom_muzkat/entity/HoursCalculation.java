@@ -1,9 +1,6 @@
 package ru.gb.diplom_muzkat.entity;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-import ru.gb.diplom_muzkat.entity.Receipt;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,7 +13,7 @@ public class HoursCalculation {
     private final String dateOfFinish = receipt.getTimeOfFinish();
 
     public Date stringDateFormatToDateTime(String date) throws ParseException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date dateAfterFormat = dateFormat.parse(date);
         System.out.println(dateAfterFormat);
         return dateAfterFormat;

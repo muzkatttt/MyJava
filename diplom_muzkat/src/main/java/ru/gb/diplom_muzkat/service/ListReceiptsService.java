@@ -1,23 +1,28 @@
 package ru.gb.diplom_muzkat.service;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import ru.gb.diplom_muzkat.entity.Receipt;
 import ru.gb.diplom_muzkat.entity.ReceiptSumm;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
 
-@Component
-public class ListReceipts {
-
+@Service
+public class ListReceiptsService {
     Queue<ReceiptSumm> receiptQueue = new LinkedList<>();
-
     ReceiptSumm receiptSumm;
 
-    public Queue<ReceiptSumm> getAllReceipts(){
+    Receipt receipt;
+
+    public Queue<ReceiptSumm> getAllSumm(){
         receiptQueue.add(receiptSumm);
         return receiptQueue;
     }
 
+    public Queue<Receipt> getAllReceipts(){
+        Queue<Receipt> newQueue = new LinkedList<>();
+        newQueue.add(receipt);
+        return newQueue;
+    }
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("ListReceipts{");
@@ -26,5 +31,4 @@ public class ListReceipts {
         sb.append("\n");
         return sb.toString();
     }
-
 }

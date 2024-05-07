@@ -4,23 +4,34 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.mockito.InjectMocks;
+import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 class ReceiptTest {
+    @InjectMocks
+    private Receipt receipt;
 
-    @Test
-    void getId() {
-
+    public ReceiptTest() {
+        MockitoAnnotations.openMocks(this);
+        receipt = new Receipt("2024-03-05 08:00:00", "2024-03-05 18:00:00");
     }
 
     @Test
-    void getOfficeHours() {
+    public void testReceiptNotNull() {
+        assertNotNull(receipt);
     }
 
     @Test
-    void getTimeOfStart() {
+    public void testGetTimeOfStart() {
+        assertEquals("2024-03-05 08:00:00", receipt.getTimeOfStart());
     }
 
     @Test
-    void getTimeOfFinish() {
+    public void testGetTimeOfFinish() {
+        assertEquals("2024-03-05 18:00:00", receipt.getTimeOfFinish());
     }
+
 }
+
