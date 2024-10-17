@@ -22,7 +22,6 @@ public class CoffeeVendingMachineImpl implements CoffeeVendingMachine{
             logger.warning("no such coffee!");
         }
 
-
     }
 
     @Override

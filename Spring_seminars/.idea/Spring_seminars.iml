@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/hw.sem2/src/main/java/ru/gb/hw" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/spring-boot-lesson2/src/main/java/ru/gb" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hw.sem2/src/test/java/ru/gb/hw" isTestSource="true" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:3.2.3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:6.1.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:3.2.3" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.30" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-web:6.1.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:6.1.4" level="project" />
+  </component>
+</module>

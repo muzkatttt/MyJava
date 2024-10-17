@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d6499fd8-658a-4df2-8a8e-fdc2a26d6750" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Exceptions/Exceptions.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JavaCore/JavaCore.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JavaDevelopmentKit/JavaDevelopmentKit.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.config/CoursesDB_Config.run.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.config/CoursesDB_Config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.config/StudentsDB_Config.run.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.config/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/sem4/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tasks.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tasks.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../userdata.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring_seminars/.idea/GrepConsole.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring_seminars/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../UnitTests/UnitTests.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Vehicle/Vehicle.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../diplom_muzkat/src/main/java/ru/gb/diplom_muzkat/entity/Receipt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../diplom_muzkat/src/main/java/ru/gb/diplom_muzkat/repository/ReceiptRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mavenProjectSem6JDKTask1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mavenProjectSem6JDKTask1/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mavenProjectSem6JDKTask1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mavenProjectSem6JDKTask1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spring-boot-hwsem-7/src/main/resources/templates/issues.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spring-boot-sem3/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sem5_JavaJunior/chat-server/src/main/java/ru/gb/junior/chat/server/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sem5_JavaJunior/chat-server/src/main/java/ru/gb/junior/chat/server/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../diplom_muzkat/config/Diplom Kate Config.run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../diplom_muzkat/config/Diplom Kate Config.run.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../diplom_muzkat/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../diplom_muzkat/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../diplom_muzkat/src/main/java/ru/gb/diplom_muzkat/ListReceipts.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../diplom_muzkat/src/main/java/ru/gb/diplom_muzkat/service/ListReceipts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../diplom_muzkat/src/main/java/ru/gb/diplom_muzkat/Receipt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../diplom_muzkat/src/main/java/ru/gb/diplom_muzkat/WriteReceiptToFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../diplom_muzkat/src/main/java/ru/gb/diplom_muzkat/repository/WriteReceiptToFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot-hwsem-7/src/main/java/ru/gb/springhwsem7/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot-hwsem-7/src/main/java/ru/gb/springhwsem7/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot-hwsem6/src/main/java/ru/gb/springboothwsem6/services/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot-hwsem6/src/main/java/ru/gb/springboothwsem6/services/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot-lesson-7/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot-lesson-7/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot-sem3/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot-sem3/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/java/ru/gb/springbootsem3/SpringBootSem3Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/java/ru/gb/springbootsem3/SpringBootSem3Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/java/ru/gb/springbootsem3/jpacontroller/JpaBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/java/ru/gb/springbootsem3/jpacontroller/JpaBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/java/ru/gb/springbootsem3/jpacontroller/JpaIssueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/java/ru/gb/springbootsem3/jpacontroller/JpaIssueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/java/ru/gb/springbootsem3/jpacontroller/JpaReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/java/ru/gb/springbootsem3/jpacontroller/JpaReaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/java/ru/gb/springbootsem3/jpaservice/JpaBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/java/ru/gb/springbootsem3/jpaservice/JpaBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/java/ru/gb/springbootsem3/jpaservice/JpaReaderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/java/ru/gb/springbootsem3/jpaservice/JpaReaderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot-sem3/src/main/resources/application.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2eC3LmsFPtBMFuUt1fpBQnENBZU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Rebasing main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ekaterinarodionova/Desktop/MyJava/JavaJunior/sem4&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Docker.CoursesDB_Config" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d6499fd8-658a-4df2-8a8e-fdc2a26d6750" name="Changes" comment="" />
+      <created>1711394678559</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711394678559</updated>
+    </task>
+    <servers />
+  </component>
+</project>

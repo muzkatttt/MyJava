@@ -1,0 +1,26 @@
+<ArrayList>
+  <item>
+    <title>Сходить в магазин за продуктами</title>
+    <done>true</done>
+  </item>
+  <item>
+    <title>Погулять с собакой</title>
+    <done>false</done>
+  </item>
+  <item>
+    <title>Заменить лампочку</title>
+    <done>false</done>
+  </item>
+  <item>
+    <title>Решить ДЗ задачу 1 к семинару 3</title>
+    <done>false</done>
+  </item>
+  <item>
+    <title>Сохранить изменения в проекте</title>
+    <done>true</done>
+  </item>
+  <item>
+    <title>Накормить кошек</title>
+    <done>true</done>
+  </item>
+</ArrayList>
