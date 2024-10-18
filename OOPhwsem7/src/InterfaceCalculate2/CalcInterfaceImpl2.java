@@ -1,5 +1,6 @@
 package InterfaceCalculate2;
 
+
 import java.util.logging.Logger;
 
 public class CalcInterfaceImpl2 implements CalcInterface{
@@ -13,6 +14,7 @@ public class CalcInterfaceImpl2 implements CalcInterface{
     public void addition(double a, double b, double c, double d) {
         System.out.println(a + c + "+" + (b + d) + "* j");
         logger.info("найдена сумма комплексных чисел");
+
     }
 
     @Override

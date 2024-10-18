@@ -1,7 +1,6 @@
 package interfaceCalculate;
 
-public interface CalcInterface {
-
+public interface CalcInterface2 {
 
     void addition(double a, double b, double c, double d);
 

@@ -14,6 +14,9 @@ public class AbstactClass2 {
         this.d = d;
     }
 
+    public AbstactClass2() {
+    }
+
     public void setA(Double a) {
         this.a = a;
     }

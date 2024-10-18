@@ -1,10 +1,10 @@
 package models;
 
-import interfaceCalculate.CalcInterface;
+import interfaceCalculate.CalcInterface2;
 
 import java.util.Scanner;
 
-public class Calculate extends AbstractClass implements CalcInterface {
+public class Calculate extends AbstractClass implements CalcInterface2 {
 
     public Calculate(double a, double b, double c, double d) {
         setA(a);

@@ -1,5 +1,5 @@
 server:
-  port: 8282
+  port: 8280
 spring:
   application:
     name: issue-service

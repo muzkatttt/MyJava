@@ -10,25 +10,6 @@ public class Calculate2 extends AbstactClass2{
         setD(d);
     }
 
-    @Override
-    public void setA(Double a) {
-        super.setA(a);
-    }
-
-    @Override
-    public void setB(Double b) {
-        super.setB(b);
-    }
-
-    @Override
-    public void setC(Double c) {
-        super.setC(c);
-    }
-
-    @Override
-    public void setD(Double d) {
-        super.setD(d);
-    }
 
     public static double inputAToFirst(){
         System.out.println("Введите действительную часть числа 1: >>\n");
@@ -38,6 +19,18 @@ public class Calculate2 extends AbstactClass2{
 
     public static double inputBToFirst(){
         System.out.println("Введите мнимую часть числа 1: >>\n");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextDouble();
+    }
+
+    public static double inputCToSecond() {
+        System.out.println("Введите действительную часть числа 2: >>\n");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextDouble();
+    }
+
+    public static double inputDToSecond(){
+        System.out.println("Введите мнинмую часть числа 2: >>\n");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextDouble();
     }

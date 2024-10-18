@@ -1,13 +1,13 @@
 package controller;
 
-import interfaceCalculate.CalcInterfaceImpl;
+import interfaceCalculate.CalcInterface2Impl;
 import models.Calculate;
 
 public class Controller {
-    CalcInterfaceImpl calc;
+    CalcInterface2Impl calc;
 
     public Controller() {
-        this.calc = new CalcInterfaceImpl();
+        this.calc = new CalcInterface2Impl();
     }
 
     public double inputAToFirst() {
