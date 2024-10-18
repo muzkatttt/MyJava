@@ -5,11 +5,6 @@ import interfaceCalculate.CalcInterface;
 import java.util.Scanner;
 
 public class Calculate extends AbstractClass implements CalcInterface {
-    double a;
-    double b;
-    double c;
-    double d;
-
 
     public Calculate(double a, double b, double c, double d) {
         setA(a);
