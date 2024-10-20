@@ -17,5 +17,7 @@ public class Task1 {
         Arrays.stream(array).forEach(System.out::println);
 
         Arrays.stream(array).filter(i -> i % 2 == 0).average().stream().forEach(System.out::print);
+
+        Arrays.stream(array).filter(i-> i%3==0).average().stream().forEach(System.out::println);
     }
 }
