@@ -7,4 +7,7 @@ public class Student extends Human {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
 }

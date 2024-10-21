@@ -1,15 +1,12 @@
 package faculty;
 
-import faculty.entity.Course;
-import faculty.entity.Instructor;
-import faculty.entity.Student;
-import faculty.entity.StudentsList;
+import faculty.entity.*;
 import faculty.model.Faculty;
 
 import java.util.List;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         /*
         1.	Система Факультатив.
         Преподаватель объявляет запись на Курс.
@@ -19,15 +16,13 @@ public class App {
          */
 
         Faculty faculty = new Faculty(
-                Course.HISTORY,
-                new Instructor("Ilya", Course.HISTORY),
-                new StudentsList(List.of(
-                    new Student("Kate"),
-                    new Student("Den")
-                )
-        ));
+                new Course("Programming"),
+                new Instructor("Ilya"));
+        StudentsList studentsList = new StudentsList();
 
-        System.out.printf("На курс по %d записаны студенты %d к преподавателю %d",
-                faculty.getCourse(), faculty.getStudentsList(), faculty.getInstructor());
+        System.out.printf("Курс по %s ведет %s \n",
+                faculty.getCourse().getNameOfCourse(),
+                faculty.getInstructor());
+
     }
 }

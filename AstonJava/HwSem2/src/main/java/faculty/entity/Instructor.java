@@ -2,19 +2,20 @@ package faculty.entity;
 
 public class Instructor extends Human {
     private final String name;
-    private Course course;
 
-    public Instructor(String name, Course course) {
+    public Instructor(String name) {
         this.name = name;
-        this.course = course;
     }
 
     public String getName() {
         return name;
     }
 
-    public Course getCourse() {
-        return course;
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Instructor{");
+        sb.append("name='").append(name).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
-
 }

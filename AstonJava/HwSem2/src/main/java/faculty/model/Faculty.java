@@ -2,20 +2,16 @@ package faculty.model;
 
 import faculty.entity.Course;
 import faculty.entity.Instructor;
-import faculty.entity.Student;
-import faculty.entity.StudentsList;
-
-import java.util.List;
 
 public class Faculty {
-    private Course course;
-    private Instructor instructor;
-    private StudentsList studentsList;
+    private final Course course;
+    private final Instructor instructor;
 
-    public Faculty(Course course, Instructor instructor, StudentsList studentsList) {
+    //TODO добавить запись на курс,
+    // по окончанию курса выставление оценок преподавателем и сохранение оценок в архив
+    public Faculty(Course course, Instructor instructor) {
         this.course = course;
         this.instructor = instructor;
-        this.studentsList = studentsList;
     }
 
     public Course getCourse() {
@@ -26,7 +22,12 @@ public class Faculty {
         return instructor;
     }
 
-    public StudentsList getStudentsList() {
-        return studentsList;
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Faculty{");
+        sb.append("course=").append(course);
+        sb.append(", instructor=").append(instructor);
+        sb.append('}');
+        return sb.toString();
     }
 }
