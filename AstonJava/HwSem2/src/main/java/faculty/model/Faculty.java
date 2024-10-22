@@ -1,33 +1,42 @@
 package faculty.model;
 
-import faculty.entity.Course;
-import faculty.entity.Instructor;
+import faculty.entity.*;
+
+import java.util.ArrayList;
 
 public class Faculty {
-    private final Course course;
-    private final Instructor instructor;
-
-    //TODO добавить запись на курс,
-    // по окончанию курса выставление оценок преподавателем и сохранение оценок в архив
-    public Faculty(Course course, Instructor instructor) {
-        this.course = course;
-        this.instructor = instructor;
+    public Faculty() {
     }
 
-    public Course getCourse() {
-        return course;
-    }
+    /**
+     * Метод, запускающий работу факультета
+     */
+    public void startFaculty(){
+        Instructor instructor = new Instructor("Ilya");
+        Course course = new Course("Programming");
+        Archive archive = new Archive();
+        WriteToJsonFile writeToJsonFile = new WriteToJsonFile();
 
-    public Instructor getInstructor() {
-        return instructor;
-    }
+        // Преподаватель создаёт курс
+        instructor.createCourse("Programming");
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Faculty{");
-        sb.append("course=").append(course);
-        sb.append(", instructor=").append(instructor);
-        sb.append('}');
-        return sb.toString();
+        // Добавляем студентов
+        Student student1 = new Student("Karamel'ka");
+        Student student2 = new Student("Barny");
+
+        // Записываем студентов на курс
+        course.addToTheCourse(student1, new ArrayList<>());
+        course.addToTheCourse(student2, new ArrayList<>());
+
+        // Преподаватель выставляет оценки
+        instructor.takeResultStudent(student1, course, new Result(5), archive);
+        System.out.printf("Преподаватель %s выставил оценки в журнал.\n", instructor.getName());
+        instructor.takeResultStudent(student2, course, new Result(4), archive);
+
+        // Выводим архив оценок
+        archive.printResult();
+
+        // Запись в json-файл
+        writeToJsonFile.addToJsonFile(archive);
     }
 }

@@ -1,16 +1,10 @@
 package faculty.entity;
 
 
+import java.util.ArrayList;
 public class Course {
 
     public String nameOfCourse;
-    private StudentsList studentsList;
-
-
-    public Course(String nameOfCourse, StudentsList studentsList) {
-        this.nameOfCourse = nameOfCourse;
-        this.studentsList = studentsList;
-    }
 
     public Course(String nameOfCourse) {
         this.nameOfCourse = nameOfCourse;
@@ -20,26 +14,17 @@ public class Course {
         return nameOfCourse;
     }
 
-    public StudentsList getStudentsList() {
-        return studentsList;
-    }
-
 
     /**
      * Метод, записывающий студентов на курс
-     * @param isOpen - флаг, определяющий, открыт ли набор на курс
      * @param student - студент курса
+     * @param studentsList список студентов
      */
-    public void registrationToTheCourse(boolean isOpen, Student student){
-        if (isOpen){
-            studentsList.studentAddToList(student);
-            System.out.printf("Добавлен студент %s на курс по %s", student.getName(), getNameOfCourse());
-        } else{
-            // TODO здесь вызвать метод выставления оценок преподавателем
-            System.out.println("Набор на курс закрыт!");
-        }
+    public void addToTheCourse(Student student, ArrayList<Student> studentsList) {
+        studentsList.add(student);
+        System.out.printf("Студент %s добавлен на курс %s.\n",
+                student.getName(),
+                getNameOfCourse());
     }
-
-
 
 }
